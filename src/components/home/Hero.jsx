@@ -2,8 +2,10 @@
 const Hero = () => {
   return (
     <section
-      className="relative bg-cover bg-center h-[80vh]"
-      style={{ backgroundImage: "url(/hero-background.jpg)" }}
+      className="relative w-full h-[90vh] bg-cover bg-center flex items-center justify-center text-center text-white"
+      style={{
+        backgroundImage: "url('/MC-banner-OS25 1.png')", // <-- image in public folder
+      }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">

@@ -13,7 +13,7 @@ export default function FindSpecialtiesSection({
 }) {
   return (
     <section
-      className={`relative w-full bg-zinc-900 text-white ${className}`}
+      className={`relative w-full bg-zinc-800 text-white ${className}`}
       aria-label="Find Specialties"
     >
       {/* container */}
