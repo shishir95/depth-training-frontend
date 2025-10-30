@@ -105,13 +105,16 @@ const Icon = {
 
 function TeamCard({ person }) {
   return (
-    <div className="group relative min-w-[260px] sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] snap-start">
-      {/* avatar */}
-      <div className="mx-auto h-40 w-40 -mb-10 rounded-full bg-zinc-400/80 ring-4 ring-zinc-900 flex items-center justify-center text-zinc-700">
-        {/* simple avatar glyph */}
+    <div className="group relative overflow-visible min-w-[260px] sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] snap-start">
+      {/* avatar (floats above card, not clipped) */}
+      <div
+        className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2
+                  z-20 h-40 w-40 rounded-full bg-zinc-400/80 ring-4 ring-zinc-900
+                  flex items-center justify-center pointer-events-none"
+      >
         <svg
           viewBox="0 0 24 24"
-          className="h-20 w-20"
+          className="h-20 w-20 text-zinc-700"
           fill="currentColor"
           aria-hidden="true"
         >
@@ -119,8 +122,8 @@ function TeamCard({ person }) {
         </svg>
       </div>
 
-      {/* card */}
-      <div className="rounded border border-rose-300/60 bg-zinc-900 p-5 pt-12 text-center shadow-sm">
+      {/* card (pushed down so it doesn’t overlap the avatar) */}
+      <div className="mt-40 rounded border border-rose-300/60 bg-zinc-900 p-5 text-center shadow-sm">
         <h3 className="text-xl font-semibold text-white">{person.name}</h3>
         <p className="mt-1 text-lg text-zinc-300">{person.title}</p>
 
@@ -230,7 +233,7 @@ export default function TeamSection() {
         >
           <div
             ref={scrollerRef}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 [scrollbar-width:none] [-ms-overflow-style:none]"
+            className="flex flex-wrap justify-center snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 [scrollbar-width:none] [-ms-overflow-style:none]"
           >
             {/* hide scrollbar in webkit */}
             <style jsx>{`
