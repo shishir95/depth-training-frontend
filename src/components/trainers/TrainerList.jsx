@@ -158,7 +158,7 @@ function TeamCard({ person }) {
               <Icon.site className="h-5 w-5" />
             </a>
             <a
-              href={person.view}
+              href="/trainerdescription"
               aria-label="View profile"
               className="hover:text-white"
             >
