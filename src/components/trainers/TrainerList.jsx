@@ -284,14 +284,11 @@ function TeamCard({ person }) {
                   z-20 h-40 w-40 rounded-full bg-zinc-400/80 ring-4 ring-zinc-900
                   flex items-center justify-center pointer-events-none"
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-20 w-20 text-zinc-700"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z" />
-        </svg>
+        <img
+          src="/assets/image.png"
+          alt={person.name}
+          className=" rounded-full object-cover object-center shadow-lg"
+        />
       </div>
 
       {/* card (pushed down so it doesn’t overlap the avatar) */}
@@ -330,7 +327,7 @@ function TeamCard({ person }) {
               <Icon.site className="h-5 w-5" />
             </a>
             <a
-              href={person.view}
+              href="/trainerdescription"
               aria-label="View profile"
               className="hover:text-white"
             >
