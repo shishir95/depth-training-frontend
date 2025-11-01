@@ -7,22 +7,26 @@ import FindSpecialtiesSection from "../../components/common/FindSpecialitiesSect
 import ReviewsSection from "@/components/common/ReviewsSection";
 import ArticlesSection from "../../components/home/ArticleSection";
 import FooterStrip from "@/components/common/FooterStrip";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
+import QuestionSection from "@/components/services/QuestionSection";
+import QuestionSectionTwo from "@/components/services/QuestionSectionTwo";
 
 export default function Home() {
   const heroContents = {
-    title: "Depth Training | Physio, Rehab & Fitness",
-    subTitle: "",
+    title: "Personal Trainings",
+    subTitle:
+      "The ultimate, individualized, customizable training experience with a variety of training session increments available.",
     button: true,
-    buttonLabel: "Find My Specialities",
+    buttonLabel: "Call Us",
   };
   return (
     <div className="home-page">
       <Header />
       <Hero {...heroContents} />
       <FindSpecialtiesSection />
-      <TeamSection />
-      <ReviewsSection />
-      <ArticlesSection />
+      <QuestionSection />
+      <QuestionSectionTwo />
+      <FeaturedTraining />
       <FooterStrip />
     </div>
   );
