@@ -29,14 +29,14 @@ export default function FindSpecialtiesSection({
             <button
               type="button"
               onClick={onClick}
-              className="rounded-md bg-rose-500 px-6 py-2.5 text-sm font-medium text-white shadow transition hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 active:scale-[0.99]"
+              className="rounded-md bg-[var(--bg-primary)] px-6 py-2.5 text-sm font-medium text-white shadow transition hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 active:scale-[0.99]"
             >
               {ctaLabel}
             </button>
           ) : (
             <Link
               href={href}
-              className="rounded-md bg-rose-500 px-6 py-2.5 text-sm font-medium text-white shadow transition hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 active:scale-[0.99]"
+              className="rounded-md bg-[var(--bg-primary)] px-6 py-2.5 text-sm font-medium text-white shadow transition hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 active:scale-[0.99]"
             >
               {ctaLabel}
             </Link>
