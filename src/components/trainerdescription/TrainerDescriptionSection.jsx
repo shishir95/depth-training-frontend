@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function TrainerHeroSection({
   name = "John Smith",
   role = "Trainer",
-  photo = "/images/trainers/john-smith.jpg", // path inside /public
+  photo = "/assets/image.png", // path inside /public
   paragraphs = [
     "John Smith is a dedicated fitness professional passionate about helping clients unlock their full potential through customized training programs rooted in science and performance.",
     "At Depth Training, John integrates functional training, corrective exercise, and evidence-based methods to ensure every session delivers measurable progress. He believes in a holistic approach—balancing strength, mobility, and recovery—to help clients perform at their best both inside and outside the gym.",
@@ -33,7 +33,9 @@ export default function TrainerHeroSection({
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
             {name}
           </h2>
-          <p className="text-xl text-rose-400 font-medium mb-6">{role}</p>
+          <p className="text-xl text-[var(--bg-primary)] font-medium mb-6">
+            {role}
+          </p>
 
           <div className="space-y-4 text-neutral-300 leading-relaxed mb-8">
             {paragraphs.map((p, i) => (
@@ -43,7 +45,7 @@ export default function TrainerHeroSection({
 
           <Link
             href={ctaHref}
-            className="inline-flex items-center rounded-md bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 transition"
+            className="inline-flex items-center rounded-md bg-[var(--bg-primary)] px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300 transition"
           >
             {ctaText}
           </Link>
