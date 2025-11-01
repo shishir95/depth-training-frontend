@@ -90,7 +90,7 @@ const MENU = [
       },
     ],
   },
-  { label: "Trainers", href: "/trainers" },
+  { label: "Trainers", href: "/trainer" },
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
 ];
