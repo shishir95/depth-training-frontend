@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 export default function PlanCard({
-  price = '0',
-  period = '/month',
-  title = 'Free Trial',
+  price = "0",
+  period = "/month",
+  title = "Free Trial",
   features = [],
-  highlighted = false,
+  highlighted = true,
   onChoose, // ✅ added so the modal can open on button click
 }) {
   return (
@@ -13,8 +13,8 @@ export default function PlanCard({
       className={`w-full max-w-[300px] rounded-xl border p-5 md:p-6 transition-all duration-300
         ${
           highlighted
-            ? 'border-red-500/60 shadow-[0_0_0_2px_rgba(239,68,68,.25)] bg-neutral-900/90'
-            : 'border-neutral-800 bg-neutral-900 hover:border-red-500/40 hover:shadow-[0_0_15px_rgba(239,68,68,.15)]'
+            ? "border-[var(--bg-primary)] shadow-[0_0_0_2px_rgba(239,68,68,.25)] bg-neutral-900/90"
+            : "border-neutral-800 bg-neutral-900 hover:border-red-500/40 hover:shadow-[0_0_15px_rgba(239,68,68,.15)]"
         }`}
     >
       {/* Price */}
@@ -42,8 +42,8 @@ export default function PlanCard({
         className={`mt-6 w-full rounded-md px-4 py-2.5 font-semibold transition 
           ${
             highlighted
-              ? 'bg-[#E43F3F] text-white hover:bg-[#c93535]'
-              : 'border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700'
+              ? "bg-[var(--bg-primary)] text-white hover:bg-[#c93535]"
+              : "border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700"
           }`}
       >
         Choose plan

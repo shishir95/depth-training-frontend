@@ -27,6 +27,26 @@ const TEAM = [
   },
   {
     id: 3,
+    name: "Jane Doe",
+    title: "Physiotherapist",
+    tags: ["Physio"],
+    li: "#",
+    mail: "mailto:jane@example.com",
+    site: "#",
+    view: "#",
+  },
+  {
+    id: 4,
+    name: "Jane Doe",
+    title: "Physiotherapist",
+    tags: ["Physio"],
+    li: "#",
+    mail: "mailto:jane@example.com",
+    site: "#",
+    view: "#",
+  },
+  {
+    id: 5,
     name: "Alex Lee",
     title: "Trainer,  Fitness",
     tags: ["Training"],
@@ -36,7 +56,7 @@ const TEAM = [
     view: "#",
   },
   {
-    id: 4,
+    id: 6,
     name: "Sam Patel",
     title: "Rehab Specialist",
     tags: ["Rehab"],
@@ -46,7 +66,7 @@ const TEAM = [
     view: "#",
   },
   {
-    id: 5,
+    id: 7,
     name: "Chris Kim",
     title: "Physiotherapist",
     tags: ["Physio"],
@@ -56,7 +76,7 @@ const TEAM = [
     view: "#",
   },
   {
-    id: 6,
+    id: 8,
     name: "Morgan Yu",
     title: "Rehab Specialist",
     tags: ["Rehab"],
@@ -105,7 +125,7 @@ const Icon = {
 
 function TeamCard({ person }) {
   return (
-    <div className="group relative overflow-visible min-w-[260px] sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] snap-start">
+    <div className="group relative overflow-visible min-w-[320px] sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] snap-start">
       {/* avatar (floats above card, not clipped) */}
       <div
         className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2
@@ -123,14 +143,14 @@ function TeamCard({ person }) {
       </div>
 
       {/* card (pushed down so it doesn’t overlap the avatar) */}
-      <div className="mt-40 rounded border border-rose-300/60 bg-zinc-900 p-5 text-center shadow-sm">
+      <div className="mt-40 rounded border border-[var(--bg-primary)] bg-zinc-900 p-5 text-center shadow-sm">
         <h3 className="text-xl font-semibold text-white">{person.name}</h3>
         <p className="mt-1 text-lg text-zinc-300">{person.title}</p>
 
         <div className="mt-5 flex items-center justify-between">
           <a
             href="#book"
-            className="rounded-md bg-rose-500 px-3 py-1.5 text-xs font-semibold text-white shadow hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300"
+            className="rounded-md bg-[var(--bg-primary)] px-3 py-1.5 text-xs font-semibold text-white shadow hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300"
           >
             Book Now
           </a>
@@ -201,8 +221,8 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="w-full bg-zinc-900 py-12 text-white">
-      <div className="mx-auto max-w-7xl px-4">
+    <section className="w-screen bg-zinc-900 py-12 text-white">
+      <div className="px-0">
         {/* Title */}
         <div className="text-center">
           <h2 className="text-3xl font-semibold sm:text-4xl">Our Team</h2>
@@ -233,7 +253,7 @@ export default function TeamSection() {
         >
           <div
             ref={scrollerRef}
-            className="flex flex-wrap justify-center snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 [scrollbar-width:none] [-ms-overflow-style:none]"
+            className=" no-scrollbar flex flex-nowrap justify-center snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 [scrollbar-width:none] [-ms-overflow-style:none]"
           >
             {/* hide scrollbar in webkit */}
             <style jsx>{`
@@ -248,21 +268,23 @@ export default function TeamSection() {
           </div>
 
           {/* Controls */}
-          <div className="pointer-events-none absolute -bottom-10 right-2 flex gap-3">
-            <button
-              aria-label="Previous"
-              onClick={() => go("prev")}
-              className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-rose-300/60 bg-zinc-900 text-white hover:bg-zinc-800"
-            >
-              <Icon.chevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              aria-label="Next"
-              onClick={() => go("next")}
-              className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-rose-300/60 bg-zinc-900 text-white hover:bg-zinc-800"
-            >
-              <Icon.chevronRight className="h-6 w-6" />
-            </button>
+          <div className="flex justify-end mt-8 pr-20">
+            <div className="flex gap-4">
+              <button
+                aria-label="Previous"
+                onClick={() => go("prev")}
+                className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--bg-primary)] bg-zinc-900 text-white hover:bg-zinc-800"
+              >
+                <Icon.chevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                aria-label="Next"
+                onClick={() => go("next")}
+                className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--bg-primary)] bg-zinc-900 text-white hover:bg-zinc-800"
+              >
+                <Icon.chevronRight className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
