@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function ContactModal({ open, onClose, planName }) {
+export default function ContactModal({ open, onClose, planName, plan }) {
   const firstInputRef = useRef(null);
 
   // Simple form state (replace with your submit/endpoint later)
@@ -14,6 +14,9 @@ export default function ContactModal({ open, onClose, planName }) {
     contactText: false,
     message: "",
   });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     if (open && firstInputRef.current) {
@@ -28,12 +31,58 @@ export default function ContactModal({ open, onClose, planName }) {
 
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    // TODO: hook to your backend (email, API, etc.)
-    console.log("Chosen plan:", planName);
-    console.log("Form:", form);
-    onClose?.();
+    setSubmitError('');
+
+    //  Ensure API base URL is configured
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    if (!baseUrl) {
+      setSubmitError('Missing API base URL. Set NEXT_PUBLIC_API_BASE_URL in .env.local and restart Next.js.');
+      return;
+    }
+
+    //  Require at least one contact method
+    if (!form.contactEmail && !form.contactPhone && !form.contactText) {
+      setSubmitError('Please select at least one preferred contact method.');
+      return;
+    }
+
+    console.log('Submitting checkout for plan:', plan);
+
+    //  Plan must be fully provided
+    if (!plan?.priceId || !plan?.intervalMonths || !plan?.planLabel) {
+      setSubmitError('Plan configuration missing. Please try again.');
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+
+      const res = await fetch(`${baseUrl}/billing/checkout`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: form.email,
+          priceId: plan.priceId,
+          planLabel: plan.planLabel,
+          intervalMonths: plan.intervalMonths,
+        }),
+      });
+
+      if (!res.ok) throw new Error(`Checkout failed (${res.status})`);
+      const data = await res.json();
+      if (data?.url) {
+        window.location.href = data.url; // Redirect to Stripe Checkout
+        return;
+      }
+      setSubmitError('Unexpected response from server.');
+    } catch (err) {
+      console.error('checkout error', err);
+      setSubmitError('Sorry, unable to start checkout. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -45,13 +94,14 @@ export default function ContactModal({ open, onClose, planName }) {
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/70"
-        onClick={onClose}
+        onClick={submitting ? undefined : onClose}
         aria-hidden="true"
       />
       {/* Card */}
       <div className="relative z-[101] w-[min(880px,92vw)] rounded-xl bg-[#111] p-6 md:p-8 shadow-2xl ring-1 ring-white/10">
         {/* Close (X) */}
         <button
+          type="button"
           onClick={onClose}
           aria-label="Close"
           className="absolute right-4 top-4 text-white/80 hover:text-white transition"
@@ -157,13 +207,18 @@ export default function ContactModal({ open, onClose, planName }) {
             />
           </div>
 
+          {submitError ? (
+            <p className="text-red-400 text-sm">{submitError}</p>
+          ) : null}
+
           {/* Submit */}
           <div className="pt-2">
             <button
               type="submit"
-              className="mx-auto block rounded-md bg-[#E43F3F] px-6 py-2.5 font-semibold hover:opacity-90 transition"
+              disabled={submitting}
+              className={`mx-auto block rounded-md px-6 py-2.5 font-semibold transition ${submitting ? 'bg-[#E43F3F]/60 cursor-not-allowed' : 'bg-[#E43F3F] hover:opacity-90'}`}
             >
-              Submit
+              {submitting ? 'Starting checkout…' : 'Submit'}
             </button>
           </div>
         </form>
