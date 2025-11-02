@@ -14,7 +14,7 @@ export default function MembershipPage() {
       <TrainerDescriptionSection />
       <FindSpecialtiesSection />
       <TrainerList />
-      <FooterStrip /> {/* ✅ add footer */}
+      <FooterStrip />
     </main>
   );
 }
