@@ -91,7 +91,7 @@ const MENU = [
     ],
   },
   { label: "Trainers", href: "/trainer" },
-  { label: "Resources", href: "/resources" },
+  { label: "Resources", href: "/resourcepage" },
   { label: "About", href: "/about" },
 ];
 
