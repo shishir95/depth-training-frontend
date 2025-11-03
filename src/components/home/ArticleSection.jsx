@@ -37,7 +37,7 @@ const ArticlesSection = () => {
           {posts.map((post) => (
             <div
               key={post.id}
-              className="border border-rose-400/40 rounded-xl bg-neutral-900 p-6 shadow-sm hover:border-rose-400 transition"
+              className="border border-[var(--bg-primary)] rounded-xl bg-neutral-900 p-6 shadow-sm hover:border-rose-400 transition"
             >
               <div className="h-48 w-full bg-zinc-400/60 rounded-lg mb-5" />
 
@@ -51,7 +51,7 @@ const ArticlesSection = () => {
 
               <Link
                 href={post.href}
-                className="inline-block bg-rose-500 text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-rose-400 transition"
+                className="inline-block bg-[var(--bg-primary)] text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-rose-400 transition"
               >
                 Read More
               </Link>
@@ -62,7 +62,7 @@ const ArticlesSection = () => {
         <div className="flex justify-end mt-10">
           <Link
             href="#"
-            className="bg-rose-500 text-white text-sm font-medium px-5 py-2.5 rounded-md hover:bg-rose-400 transition"
+            className="bg-[var(--bg-primary)] text-white text-sm font-medium px-5 py-2.5 rounded-md hover:bg-rose-400 transition"
           >
             View More
           </Link>

@@ -13,78 +13,78 @@ const MENU = [
       {
         label: "Fitness",
         items: [
-          { label: "Class Schedule", href: "/services/fitness/classes" },
+          { label: "Class Schedule", href: "/services" },
           { label: "Membership", href: "/membership" },
           {
             label: "Personal Training",
-            href: "/services/fitness/personal-training",
+            href: "/services",
           },
           {
             label: "Semi Private Training",
-            href: "/services/fitness/semi-private",
+            href: "/services",
           },
-          { label: "Nutrition Training", href: "/services/fitness/nutrition" },
+          { label: "Nutrition Training", href: "/services" },
           {
             label: "Corporate Fitness & Employee Wellness",
-            href: "/services/fitness/corporate",
+            href: "/services",
           },
         ],
       },
       {
         label: "Rehab",
         items: [
-          { label: "Physiotherapy", href: "/services/rehab/physiotherapy" },
+          { label: "Physiotherapy", href: "/services" },
           {
             label: "Pelvic Physiotherapy",
-            href: "/services/rehab/pelvic-physio",
+            href: "/services",
           },
-          { label: "Massage Therapy", href: "/services/rehab/massage" },
-          { label: "Chiropractic", href: "/services/rehab/chiropractic" },
+          { label: "Massage Therapy", href: "/services" },
+          { label: "Chiropractic", href: "/services" },
           {
             label: "Concussion Management",
-            href: "/services/rehab/concussion",
+            href: "/services",
           },
           {
             label: "Pediatric Physiotherapy",
-            href: "/services/rehab/pediatric-physio",
+            href: "/services",
           },
           {
             label: "Vestibular Physiotherapy",
-            href: "/services/rehab/vestibular-physio",
+            href: "/services",
           },
-          { label: "Medical Acupuncture", href: "/services/rehab/acupuncture" },
-          { label: "Game Ready Rental", href: "/services/rehab/game-ready" },
-          { label: "GLA:D for Hip/Knee OA", href: "/services/rehab/glad" },
+          { label: "Medical Acupuncture", href: "/services" },
+          { label: "Game Ready Rental", href: "/services" },
+          { label: "GLA:D for Hip/Knee OA", href: "/services" },
           {
             label: "Infrared Sauna & Plunge",
-            href: "/services/rehab/sauna-plunge",
+            href: "/services",
           },
         ],
       },
       {
         label: "Athletic Training",
         items: [
-          { label: "Off Season", href: "/services/athletic/off-season" },
+          { label: "Off Season", href: "/services" },
           {
             label: "On-Ice Hockey Training",
-            href: "/services/athletic/on-ice-hockey",
+            href: "/services",
           },
           {
             label: "Athlete Training (14+)",
-            href: "/services/athletic/14-plus",
+            href: "/services",
           },
           {
             label: "Athletic Training (U8–14)",
-            href: "/services/athletic/u8-14",
+            href: "/services",
           },
           {
             label: "1-on-1 Athlete Training",
-            href: "/services/athletic/1-on-1",
+            href: "/services",
           },
-          { label: "Team Training", href: "/services/athletic/team" },
+          { label: "Team Training", href: "/services" },
           {
             label: "Athlete Nutrition Coaching",
-            href: "/services/athletic/nutrition",
+            href: "/services",
           },
         ],
       },
@@ -185,7 +185,7 @@ export default function Header() {
                       onKeyDown={onRootKey(idx)}
                       aria-haspopup="menu"
                       aria-expanded={openRoot === idx}
-                      className="flex items-center gap-1 text-lg outline-none focus-visible:ring-2 focus-visible:ring-red-500 hover:text-red-400"
+                      className="flex items-center gap-1 text-lg outline-none focus-visible:ring-2 focus-visible:ring-[var(--bg-primary)] hover:text-[var(--bg-primary)]"
                     >
                       {m.label}
                       <svg
@@ -234,7 +234,7 @@ export default function Header() {
                                 <Link
                                   key={it.label}
                                   href={it.href}
-                                  className="px-3 py-2 rounded-md text-neutral-100 hover:bg-neutral-800/60 border border-transparent hover:border-red-500/40"
+                                  className="px-3 py-2 rounded-md text-neutral-100 hover:bg-neutral-800/60 border border-transparent hover:border-[var(--bg-primary)]"
                                   onClick={() => setOpenRoot(null)}
                                 >
                                   {it.label}
@@ -261,7 +261,7 @@ export default function Header() {
           {/* CTA */}
           <Link
             href="/book"
-            className="hidden md:inline-flex items-center rounded-full bg-red-600/90 hover:bg-red-500 px-4 py-2 text-sm font-medium shadow-lg shadow-red-900/20"
+            className="hidden md:inline-flex items-center rounded-full bg-[var(--bg-primary)] hover:bg-red-500 px-4 py-2 text-sm font-medium shadow-lg shadow-red-900/20"
           >
             Book Now
           </Link>
@@ -335,7 +335,7 @@ export default function Header() {
             <li className="py-3">
               <Link
                 href="/book"
-                className="inline-flex rounded-full bg-brand-primary  hover:bg-red-500 px-4 py-2 text-sm font-medium"
+                className="inline-flex rounded-full bg-[var(--bg-primary)]  hover:bg-red-500 px-4 py-2 text-sm font-medium"
                 onClick={() => setOpenRoot(null)}
               >
                 Book Now
