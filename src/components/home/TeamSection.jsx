@@ -13,7 +13,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:john@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:jane@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:jane@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:jane@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:alex@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:sam@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:chris@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ const TEAM = [
     li: "#",
     mail: "mailto:morgan@example.com",
     site: "#",
-    view: "#",
+    view: "/trainerdescription",
   },
 ];
 
