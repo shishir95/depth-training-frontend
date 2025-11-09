@@ -12,8 +12,8 @@ export default function Home() {
   const heroContents = {
     title: "Depth Training | Physio, Rehab & Fitness",
     subTitle: "",
-    button: true,
-    buttonLabel: "Find My Specialities",
+    button: false,
+    buttonLabel: "",
   };
   return (
     <div className="home-page">
