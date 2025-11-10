@@ -8,18 +8,19 @@ import ReviewsSection from "@/components/common/ReviewsSection";
 import ArticlesSection from "../../components/home/ArticleSection";
 import FooterStrip from "@/components/common/FooterStrip";
 import AnimationScroll from "@/components/common/AnimationScroll";
+import HeroTitleAnimation from "@/components/home/HeroTitleAnimation";
 
 export default function Home() {
   const heroContents = {
-    title: "Depth Training | Physio, Rehab & Fitness",
-    subTitle: "",
+    title: "Depth Training",
+    subTitle: "| Physio, Rehab & Fitness",
     button: true,
     buttonLabel: "Find My Specialities",
   };
   return (
     <div className="home-page">
       <Header />
-      <Hero {...heroContents} />
+      <HeroTitleAnimation />
       {[...Array(6)].map((_, i) => (
         <AnimationScroll key={i} delay={i * 0.2}>
           <FindSpecialtiesSection />
