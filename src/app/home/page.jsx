@@ -21,7 +21,7 @@ export default function Home() {
       <Header />
       <Hero {...heroContents} />
       {[...Array(1)].map((_, i) => (
-        <AnimationScroll key={i} delay={i * 0.2}>
+        <AnimationScroll key={i} delay={i * 0.0}>
           <FindSpecialtiesSection />
           <TeamSection />
           <ReviewsSection />
