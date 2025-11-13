@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import FloatingChatFab from "@/components/floatingchatfab/FloatingChatFab";
+import AnimationScroll from "@/components/common/AnimationScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +25,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        {children}
-        <FloatingChatFab />
+        <AnimationScroll>
+          {children}
+          <FloatingChatFab />
+        </AnimationScroll>
       </body>
     </html>
   );
