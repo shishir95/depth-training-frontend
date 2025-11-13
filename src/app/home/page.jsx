@@ -20,9 +20,9 @@ export default function Home() {
   return (
     <div className="home-page">
       <Header />
-      <HeroTitleAnimation />
-      {[...Array(6)].map((_, i) => (
-        <AnimationScroll key={i} delay={i * 0.2}>
+      <Hero {...heroContents} />
+      {[...Array(1)].map((_, i) => (
+        <AnimationScroll key={i} delay={i * 0.0}>
           <FindSpecialtiesSection />
           <TeamSection />
           <ReviewsSection />
