@@ -3,7 +3,7 @@ import Header from "../../components/common/Header";
 import Hero from "../../components/common/Hero";
 import TrainerCard from "../../components/home/TrainerCard";
 import TeamSection from "../../components/home/TeamSection";
-import FindSpecialtiesSection from "../../components/common/FindSpecialitiesSection";
+//import FindSpecialtiesSection from "../../components/common/FindSpecialitiesSection";
 import ReviewsSection from "@/components/common/ReviewsSection";
 import ArticlesSection from "../../components/home/ArticleSection";
 import FooterStrip from "@/components/common/FooterStrip";
@@ -23,7 +23,6 @@ export default function Home() {
     <div className="home-page">
       <Header />
       <Hero {...heroContents} />
-      <FindSpecialtiesSection />
       <QuestionSection />
       <QuestionSectionTwo />
       <FeaturedTraining />
