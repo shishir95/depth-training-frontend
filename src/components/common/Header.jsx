@@ -64,27 +64,27 @@ const MENU = [
       {
         label: "Athletic Training",
         items: [
-          { label: "Off Season", href: "/services" },
+          { label: "Off Season", href: "/services/off-season-training" },
           {
             label: "On-Ice Hockey Training",
-            href: "/services",
+            href: "/services/on-ice-hockey-training",
           },
           {
             label: "Athlete Training (14+)",
-            href: "/services",
+            href: "/services/athlete-training-14-plus",
           },
           {
             label: "Athletic Training (U8–14)",
-            href: "/services",
+            href: "/services/athlete-training-u8-14",
           },
           {
             label: "1-on-1 Athlete Training",
-            href: "/services",
+            href: "/services/1-on-1-athlete-training",
           },
-          { label: "Team Training", href: "/services" },
+          { label: "Team Training", href: "/services/team-training" },
           {
             label: "Athlete Nutrition Coaching",
-            href: "/services",
+            href: "/services/athlete-nutrition-coaching",
           },
         ],
       },
