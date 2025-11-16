@@ -17,16 +17,16 @@ const MENU = [
           { label: "Membership", href: "/membership" },
           {
             label: "Personal Training",
-            href: "/services",
+            href: "/services/personal-training",
           },
           {
             label: "Semi Private Training",
-            href: "/services",
+            href: "/services/semi-private-training",
           },
-          { label: "Nutrition Training", href: "/services" },
+          { label: "Nutrition Training", href: "/services/nutrition-training" },
           {
             label: "Corporate Fitness & Employee Wellness",
-            href: "/services",
+            href: "/services/corporate-fitness-employee-wellness",
           },
         ],
       },
