@@ -5,7 +5,6 @@ import FooterStrip from "@/components/common/FooterStrip";
 import ResourcePage from "@/components/resourcepage/ResourcePage";
 import TrainerList from "@/components/trainers/TrainerList";
 export const metadata = { title: "Membership | Depth Training" };
-import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
 import ReviewsSection from "@/components/common/ReviewsSection";
 import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
@@ -21,7 +20,6 @@ export default function ResourcePages() {
     <main className="bg-black text-white min-h-screen w-full">
       <Header />
       <Hero {...heroContents} />
-      <FindSpecialtiesSection />
       <ResourcePage />
       <ReviewsSection />
       <FeaturedTraining />
