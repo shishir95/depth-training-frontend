@@ -28,7 +28,7 @@ export default function FeaturedTraining() {
           <iframe
             className="absolute inset-0 h-full w-full"
             title="Featured training"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/tUykoP30Gb0?si=q5y7_ee86szGYZcq"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />

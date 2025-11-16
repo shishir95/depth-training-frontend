@@ -33,12 +33,12 @@ const MENU = [
       {
         label: "Rehab",
         items: [
-          { label: "Physiotherapy", href: "/services" },
+          { label: "Physiotherapy", href: "/services/physiotherapy" },
           {
             label: "Pelvic Physiotherapy",
-            href: "/services",
+            href: "/services/pelvic-physiotherapy",
           },
-          { label: "Massage Therapy", href: "/services" },
+          { label: "Massage Therapy", href: "/services/massage-therapy" },
           { label: "Chiropractic", href: "/services" },
           {
             label: "Concussion Management",
