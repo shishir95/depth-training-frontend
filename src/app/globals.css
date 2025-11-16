@@ -1,13 +1,8 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --bg-gray: rgba(20, 20, 20, 0.7);
-  --bg-primary: #ee6059;
 }
 
 @theme inline {
@@ -21,17 +16,11 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-   
   }
 }
 
 body {
   background: var(--background);
-  --bg-gray-70: var(--bg-gray);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-
