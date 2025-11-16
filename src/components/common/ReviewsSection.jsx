@@ -48,7 +48,7 @@ export default function ReviewsSection() {
   };
 
   return (
-    <section className="relative bg-[#2C2C2C] py-16 text-white overflow-hidden">
+    <section className="relative bg-zinc-800 py-16 text-white overflow-hidden">
       <div className="relative w-screen left-1/2 -translate-x-1/2 px-6 lg:px-10">
         {/* Title */}
         <h2 className="text-center text-3xl font-semibold mb-8">

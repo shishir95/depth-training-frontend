@@ -27,7 +27,7 @@ const posts = [
 
 const ArticlesSection = () => {
   return (
-    <section className="w-full bg-[#121214] py-14">
+    <section className="w-full bg-zinc-800 py-14">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-center text-3xl font-semibold text-white mb-10">
           Stay Strong &amp; Stay Informed
