@@ -4,21 +4,21 @@ export default function OurOfferSection() {
   const posts = [
     {
       id: 1,
-      title: "Self Confidence",
+      title: "Personal Training",
       icon: "/assets/self-confidence.png",
       excerpt:
         "Personal Training provides fully customized one-on-one coaching designed around your goals, fitness level, and lifestyle. Your trainer guides you through purposeful workouts that improve strength, mobility, and overall well-being while keeping you consistent and motivated.",
     },
     {
       id: 2,
-      title: "Stress Management",
+      title: "Athletic Training",
       icon: "/assets/game.png",
       excerpt:
         "Personal Training provides fully customized one-on-one coaching designed around your goals, fitness level, and lifestyle. Your trainer guides you through purposeful workouts that improve strength, mobility, and overall well-being while keeping you consistent and motivated",
     },
     {
       id: 3,
-      title: "Goal Setting",
+      title: "Rehab",
       icon: "/assets/rehab.png",
       excerpt:
         "Personal Training provides fully customized one-on-one coaching designed around your goals, fitness level, and lifestyle. Your trainer guides you through purposeful workouts that improve strength, mobility, and overall well-being while keeping you consistent and motivated.",
