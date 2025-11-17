@@ -10,7 +10,7 @@ export default function AnimationScroll({ children }) {
     ).matches;
 
     const lenis = new Lenis({
-      duration: 5.1, // tweak feel (higher = floatier)
+      duration: 0, // tweak feel (higher = floatier)
       smoothWheel: !prefersReduced,
       smoothTouch: !prefersReduced,
     });

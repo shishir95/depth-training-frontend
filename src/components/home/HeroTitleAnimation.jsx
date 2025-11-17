@@ -2,7 +2,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-export default function HeroTitleAnimation() {
+export default function HeroTitleAnimation(props) {
   const leadControls = useAnimation(); // controls the movement of the whole text
   const restControls = useAnimation(); // controls the reveal of the trailing part
 
@@ -12,7 +12,7 @@ export default function HeroTitleAnimation() {
       await leadControls.start({
         left: 0,
         x: 0,
-        transition: { duration: 1.9, ease: [0.22, 3.5, 0.36, 1] },
+        transition: { duration: 0.9, ease: [0.22, 1.5, 0.36, 1] },
       });
 
       // Step 2: Fade in the rest of the text
@@ -43,7 +43,7 @@ export default function HeroTitleAnimation() {
             animate={leadControls}
           >
             {/* First word: "Depth" */}
-            <span>Depth</span>
+            <span>Realize </span>
 
             {/* Rest of the title revealed after slide */}
             <motion.span
@@ -52,10 +52,24 @@ export default function HeroTitleAnimation() {
               animate={restControls}
             >
               {" "}
-              Training | Physio, Rehab & Fitness
+              Your Potential
             </motion.span>
           </motion.span>
         </h1>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+          <div className="relative z-10 px-4 max-w-3xl">
+            <p className="mt-5 text-lg py-5 md:text-xl font-light">
+              {props.subTitle}
+            </p>
+          </div>
+          {props.button === true ? (
+            <button className=" bg-[var(--bg-primary)] px-6 py-2 rounded-full text-white hover:bg-red-500 transition duration-300">
+              {props.buttonLabel}
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </section>
   );

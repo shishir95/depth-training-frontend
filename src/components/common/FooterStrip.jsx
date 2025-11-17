@@ -6,7 +6,7 @@ export default function FooterStrip() {
       {/* Full-bleed wrapper */}
       <div className="relative w-screen left-1/2 -translate-x-1/2">
         {/* --- Top CTA Band (≈110px Figma height) --- */}
-        <div className="bg-[#3A3A3A]">
+        <div className="bg-zinc-800">
           <div className="w-full px-10 lg:px-16 py-8 md:py-0 min-h-[110px] flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <h3 className="text-[24px] font-medium leading-snug">
               Looking for ongoing support?
@@ -30,7 +30,7 @@ export default function FooterStrip() {
         </div>
 
         {/* --- Bottom Copyright Band (≈80px Figma height) --- */}
-        <div className="bg-[#151515]">
+        <div className="bg-[#121214]">
           <div className="w-full px-10 lg:px-16 py-6 md:py-0 min-h-[80px] flex items-center justify-between">
             <p className="text-[14px] text-gray-300">
               Copyright@2025 | Depth Training &amp; Physiotherapy | All rights
