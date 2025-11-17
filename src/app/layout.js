@@ -26,10 +26,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <AnimationScroll>
-          {children}
-          <FloatingChatFab />
-        </AnimationScroll>
+        {children}
+        <FloatingChatFab />
       </body>
     </html>
   );

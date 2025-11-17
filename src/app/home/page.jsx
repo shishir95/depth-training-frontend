@@ -10,6 +10,7 @@ import FooterStrip from "@/components/common/FooterStrip";
 import AnimationScroll from "@/components/common/AnimationScroll";
 import HeroTitleAnimation from "@/components/home/HeroTitleAnimation";
 import OurOfferSection from "@/components/home/OurOfferSection";
+import FacilitiesSection from "@/components/home/FacilitiesSection";
 
 export default function Home() {
   const heroContents = {
@@ -29,6 +30,7 @@ export default function Home() {
           <TeamSection />
           <ReviewsSection />
           <OurOfferSection />
+          <FacilitiesSection />
           <ArticlesSection />
         </AnimationScroll>
       ))}
