@@ -91,7 +91,7 @@ export default function PlansSection() {
       <div className="mt-5 flex flex-wrap justify-center gap-4" role="tablist">
         {TABS.map((t) => (
           <button
-            key={t}
+            key={t}ey
             role="tab"
             aria-selected={active === t}
             onClick={() => setActive(t)}
