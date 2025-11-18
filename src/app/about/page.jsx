@@ -1,6 +1,6 @@
 import Header from "@/components/common/Header";
 import Hero from "@/components/common/Hero";
-import ReviewsSection from "@/components/common/ReviewsSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 import FooterStrip from "@/components/common/FooterStrip";
 import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
 import AboutUs from "@/components/about/AboutUs";
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <Hero {...heroContents} />
       <FindSpecialtiesSection />
       <AboutUs />
-      <ReviewsSection />
+      <CustomerReviews />
       <ContactSection />
       <FooterStrip />
     </main>

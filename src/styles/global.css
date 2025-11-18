@@ -25,6 +25,11 @@ body {
 a:hover {
   text-decoration: underline;
 }
-:root{
-    --bg-primary: #ee6059;
+:root {
+  --depth-bg: #202326;
+  --depth-card: #26292d;
+  --depth-accent: #f16055;
+  --depth-accent-soft: #f48378;
+  --depth-muted: #8b8f94;
+  --bg-primary: var(--depth-accent);
 }

@@ -2,7 +2,7 @@ import Navbar from "../../components/common/Navbar";
 import Hero from "../../components/common/Hero";
 import FindSpecialities from "../../components/membership/FindSpecialities";
 import PlansSection from "../../components/membership/PlansSection";
-import ReviewsSection from "../../components/common/ReviewsSection";
+import CustomerReviews from "../../components/common/CustomerReviews";
 import FeaturedTraining from "../../components/membership/FeaturedTraining";
 import FooterStrip from "@/components/common/FooterStrip";
 import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
@@ -23,7 +23,7 @@ export default function MembershipPage() {
       <Hero {...heroContents} />
       <FindSpecialtiesSection />
       <PlansSection />
-      <ReviewsSection />
+      <CustomerReviews />
       <FeaturedTraining />
       <FooterStrip />
     </main>

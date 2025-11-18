@@ -4,7 +4,7 @@ import Hero from "../../components/common/Hero";
 import TrainerCard from "../../components/home/TrainerCard";
 import TeamSection from "../../components/home/TeamSection";
 import FindSpecialtiesSection from "../../components/common/FindSpecialitiesSection";
-import ReviewsSection from "@/components/common/ReviewsSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 import ArticlesSection from "../../components/home/ArticleSection";
 import FooterStrip from "@/components/common/FooterStrip";
 import AnimationScroll from "@/components/common/AnimationScroll";
@@ -28,7 +28,7 @@ export default function Home() {
         <AnimationScroll key={i} delay={i * 0.2}>
           <FindSpecialtiesSection />
           <TeamSection />
-          <ReviewsSection />
+          <CustomerReviews />
           <OurOfferSection />
           <FacilitiesSection />
           <ArticlesSection />

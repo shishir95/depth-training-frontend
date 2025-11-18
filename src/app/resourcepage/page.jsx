@@ -1,12 +1,10 @@
-import Navbar from "../../components/common/Navbar";
 import Header from "@/components/common/Header";
 import Hero from "../../components/common/Hero";
 import FooterStrip from "@/components/common/FooterStrip";
 import ResourcePage from "@/components/resourcepage/ResourcePage";
-import TrainerList from "@/components/trainers/TrainerList";
-export const metadata = { title: "Membership | Depth Training" };
-import ReviewsSection from "@/components/common/ReviewsSection";
 import FeaturedTraining from "@/components/membership/FeaturedTraining";
+
+export const metadata = { title: "Membership | Depth Training" };
 
 export default function ResourcePages() {
   const heroContents = {
@@ -21,7 +19,6 @@ export default function ResourcePages() {
       <Header />
       <Hero {...heroContents} />
       <ResourcePage />
-      <ReviewsSection />
       <FeaturedTraining />
       <FooterStrip /> {/* ✅ add footer */}
     </main>
