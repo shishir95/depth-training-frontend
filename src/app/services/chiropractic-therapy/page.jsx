@@ -1,35 +1,36 @@
-// src/app/services/chiropractic-therapy/page.jsx
+// src/app/services/chiropractic/page.jsx
 "use client";
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 
-export default function ChiropracticTherapyPage() {
+export default function ChiropracticPage() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       <Header />
 
       <main className="flex-1">
-        {/* Hero */}
+        {/* Hero (same structure as Physiotherapy) */}
         <section className="w-full border-b border-neutral-900 bg-gradient-to-b from-neutral-950 to-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
+              {/* Left: copy */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400 mb-4">
                   Rehab • Chiropractic
                 </p>
+
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-                  Chiropractic care
+                  Chiropractic & Sports Rehab
                   <span className="block text-red-400">
-                    to improve joint function and reduce pain.
+                    Overcome your pain. Start feeling better.
                   </span>
                 </h1>
+
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
-                  Chiropractic at DEPTH focuses on assessing how your spine and
-                  joints move, then using hands-on care and movement-based
-                  rehab to reduce pain, improve function, and keep you doing
-                  the things you care about — in the gym, at work, and in
-                  everyday life.
+                  Hands-on, evidence-based chiropractic care to get to the root
+                  cause of your movement or pain issues so you can get back to
+                  living your best life in as few as a few visits.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -37,60 +38,51 @@ export default function ChiropracticTherapyPage() {
                     href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
                   >
-                    Book Chiropractic Appointment
+                    Book Chiropractic Online
                   </a>
                   <a
                     href="tel:12267489494"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
                   >
                     Call (226) 748-9494
                   </a>
                 </div>
 
                 <p className="text-xs text-neutral-400">
-                  Chiropractic services provided at DEPTH Training &amp;
-                  Physiotherapy in Waterloo. Many extended health plans include
-                  chiropractic coverage.
+                  408 Albert Street, Waterloo • Covered by extended health care
+                  insurance.
                 </p>
               </div>
 
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/60 p-5 sm:p-6">
+              {/* Right: quick facts card (same layout as Physio) */}
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-6 sm:p-7">
                 <h2 className="text-lg font-semibold mb-4">
-                  Care that matches how you move
+                  What you get with chiropractic at DEPTH
                 </h2>
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Longer, 1-on-1 appointments that look at the big picture.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      <span className="font-semibold">Spine-focused care</span>{" "}
-                      for neck, mid-back, and low back pain that keeps coming
-                      back.
+                      Detailed movement assessment to find the root cause of pain.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      <span className="font-semibold">
-                        Joint and movement issues
-                      </span>{" "}
-                      impacting squats, deadlifts, overhead work, or sport.
+                      Evidence-based manual therapy, exercise, and education.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      <span className="font-semibold">Posture-related pain</span>{" "}
-                      from long days of desk work, studying, or driving.
-                    </span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>
-                      <span className="font-semibold">Integrated rehab</span>{" "}
-                      that fits with your training program and other rehab
-                      services at DEPTH.
+                      A clear plan designed to help you feel better in as few as
+                      3 visits.
                     </span>
                   </li>
                 </ul>
@@ -99,168 +91,150 @@ export default function ChiropracticTherapyPage() {
           </div>
         </section>
 
-        {/* What to expect */}
-        <section className="w-full border-b border-neutral-900 bg-black">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="grid gap-10 lg:grid-cols-2 items-start">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-                  What to expect during your chiropractic visit
-                </h2>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Your chiropractor will start by asking about your main
-                  concerns, injury or pain history, daily activities, and what
-                  you&apos;re hoping to get out of treatment — whether that&apos;s
-                  getting out of pain, moving better in the gym, or staying
-                  ahead of recurring issues.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  They&apos;ll complete a movement and joint assessment, explain
-                  what they think is contributing to your symptoms, and walk you
-                  through a treatment plan that may include joint mobilization
-                  or adjustments, soft tissue work, and specific exercises.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300">
-                  Before you leave, you&apos;ll have clear next steps: how often
-                  to follow up, what to do at home or in the gym, and how to
-                  tell if you&apos;re on the right track.
-                </p>
-              </div>
-
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/70 p-5 sm:p-6">
-                <h3 className="text-lg font-semibold mb-4">
-                  Your visit typically includes
-                </h3>
-                <ol className="space-y-3 text-sm text-neutral-200 list-decimal list-inside">
-                  <li>Conversation about your pain, goals, and training.</li>
-                  <li>
-                    Assessment of posture, movement, and spinal/joint function.
-                  </li>
-                  <li>
-                    Hands-on treatment – including mobilizations or adjustments
-                    if appropriate and within your comfort level.
-                  </li>
-                  <li>
-                    Exercise or movement suggestions tailored to your sport,
-                    job, or daily life.
-                  </li>
-                  <li>
-                    A plan for follow-up visits and how to manage things between
-                    sessions.
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Who it helps */}
+        {/* Who it's for / Common conditions – SAME 2-COL GRID */}
         <section className="w-full border-b border-neutral-900 bg-neutral-950">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-6">
-              Chiropractic care is a good fit if you&apos;re…
-            </h2>
-            <div className="grid gap-6 md:grid-cols-3 text-sm text-neutral-200">
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">
-                  Dealing with back or neck pain
-                </h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Recurring low back pain or stiffness</li>
-                  <li>Neck pain from work, studying, or driving</li>
-                  <li>Mid-back tightness or rib discomfort</li>
-                  <li>Headaches linked to posture or tension</li>
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Who chiropractic care is for
+                </h2>
+                <p className="text-sm text-neutral-300 mb-5 max-w-md">
+                  We help active people, desk workers, and everyone in between
+                  who are dealing with pain, stiffness, or recurring injuries.
+                </p>
+                <ul className="space-y-2 text-sm text-neutral-200">
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Everyday neck, mid-back, and low back pain.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Sports and running injuries.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Post-concussion or whiplash-related pain.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>
+                      Joint, muscle, or tendon pain that keeps coming back.
+                    </span>
+                  </li>
                 </ul>
               </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">
-                  Training and want to keep moving
-                </h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Barbell, CrossFit, or strength training regularly</li>
-                  <li>
-                    Feeling limited by certain positions or ranges of motion
-                  </li>
-                  <li>Managing old injuries while still staying active</li>
-                  <li>
-                    Wanting guidance on what&apos;s safe vs. what to modify
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">
-                  Sitting a lot &amp; feeling it
-                </h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Working or studying at a desk most of the day</li>
-                  <li>Noticing rounding shoulders and tight upper back</li>
-                  <li>Feeling &quot;locked up&quot; after long days</li>
-                  <li>
-                    Looking for strategies to balance screen time and movement
-                  </li>
-                </ul>
+
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Common conditions we treat
+                </h2>
+                <p className="text-sm text-neutral-300 mb-5 max-w-md">
+                  Our chiropractors see a wide range of spine and joint
+                  conditions, including:
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Headaches & neck pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Mid-back & low back pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Shoulder & hip pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Knee, foot & ankle pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Osteoarthritis & tendonitis
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Ligament sprains & muscle strains
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="w-full bg-black">
+        {/* What to expect – EXACT SAME 3-CARD LAYOUT */}
+        <section className="w-full border-b border-neutral-900 bg-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-                  Get your spine and joints moving better
-                </h2>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Whether you&apos;re dealing with a new issue or something
-                  that&apos;s been bothering you for years, having a clear plan
-                  and a team in your corner can make a big difference in how you
-                  feel and perform.
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-6">
+              What to expect from your chiropractic visits
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3 text-sm text-neutral-200">
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 1
                 </p>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Your chiropractor can coordinate with physiotherapists,
-                  massage therapists, and strength coaches at DEPTH so your
-                  treatment, training, and recovery are all working in the same
-                  direction.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300">
-                  Not sure if chiropractic is the right starting point? Reach
-                  out and we can help you choose the best option based on your
-                  symptoms and goals.
+                <h3 className="font-semibold mb-2">Detailed assessment</h3>
+                <p className="text-neutral-300 text-sm">
+                  Tell us what hurts and how it&apos;s affecting your life. We
+                  assess how you move to find the true source of the problem.
                 </p>
               </div>
-
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/70 p-5 sm:p-6">
-                <h3 className="text-lg font-semibold mb-3">
-                  Ready to book or ask a question?
-                </h3>
-                <p className="text-sm text-neutral-300 mb-4">
-                  Choose the option that feels easiest and we&apos;ll help you
-                  from there.
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 2
                 </p>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
-                  >
-                    Book a Chiropractic Appointment
-                  </a>
-                  <a
-                    href="tel:12267489494"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                  >
-                    Call the Clinic
-                  </a>
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-dashed border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                  >
-                    Contact &amp; Location Details
-                  </a>
-                </div>
+                <h3 className="font-semibold mb-2">Personalized treatment plan</h3>
+                <p className="text-neutral-300 text-sm">
+                  You get a clear plan using evidence-based chiropractic
+                  techniques to ease pain, improve mobility, and build strength.
+                </p>
+              </div>
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 3
+                </p>
+                <h3 className="font-semibold mb-2">1-on-1 care that progresses</h3>
+                <p className="text-neutral-300 text-sm">
+                  Each session builds on the last with hands-on care, exercise
+                  progressions, and guidance to keep you moving forward.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA – same layout as Physio */}
+        <section className="w-full bg-neutral-950 border-t border-neutral-900">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
+                  Ready to start feeling better?
+                </h2>
+                <p className="text-sm text-neutral-300 max-w-xl">
+                  Book online in a few clicks or contact us if you have
+                  questions about whether chiropractic care is right for you.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
+                >
+                  Book Chiropractic Online
+                </a>
+                <a
+                  href="https://www.depthtraining.ca/contact/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
+                >
+                  Contact & Location Details
+                </a>
               </div>
             </div>
           </div>
