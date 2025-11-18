@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { TESTIMONIALS } from "@/data/testimonials";
 
 function TestimonialCard({ testimonial }) {
@@ -10,18 +10,22 @@ function TestimonialCard({ testimonial }) {
     <article
       className="
         relative overflow-hidden
+        max-w-xl mx-auto
         rounded-[32px] border-[6px] border-white/90
         bg-[var(--depth-card)] text-center
-        shadow-xl shadow-black/40
+        shadow-xl shadow-black/50
+        transition-transform transition-shadow duration-300 ease-out
+        hover:-translate-y-3 hover:shadow-[0_24px_60px_rgba(0,0,0,0.75)]
+        hover:border-white
       "
     >
-      <p className="relative z-10 px-8 pt-10 pb-6 text-sm leading-relaxed text-white">
+      <p className="relative z-10 px-10 pt-10 pb-6 text-sm leading-relaxed text-white">
         {t.text}
       </p>
 
+      {/* chrome lines */}
       <div className="pointer-events-none absolute left-10 top-2 h-1.5 w-12 rounded-full bg-white" />
       <div className="pointer-events-none absolute left-2 top-16 h-12 w-1.5 rounded-full bg-white" />
-
       <div className="pointer-events-none absolute right-10 bottom-2 h-1.5 w-12 rounded-full bg-white" />
       <div className="pointer-events-none absolute right-2 bottom-16 h-12 w-1.5 rounded-full bg-white" />
 
@@ -43,30 +47,46 @@ function TestimonialCard({ testimonial }) {
 export default function CustomerReviews() {
   const [index, setIndex] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
+  const max = TESTIMONIALS.length;
+
+  // --- 1. Desktop / mobile breakpoint ---
   useEffect(() => {
-    const update = () => setIsDesktop(window.innerWidth >= 768);
+    const update = () => setIsDesktop(window.innerWidth >= 1024); // lg+
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  const max = TESTIMONIALS.length;
-  const visibleCount =
-    max <= 2 ? max : isDesktop ? 2 : 1;
+  const visibleCount = isDesktop ? Math.min(3, max) : 1;
 
+  // --- 2. Navigation helpers (memoized so effect deps are stable) ---
+  const goNext = useCallback(() => {
+    setIndex((prev) => (prev + 1) % max);
+  }, [max]);
+
+  const goPrev = useCallback(() => {
+    setIndex((prev) => (prev - 1 + max) % max);
+  }, [max]);
+
+  // --- 3. Autoplay with hover pause ---
+  useEffect(() => {
+    if (max <= 1 || isHovering) return;
+
+    const id = setInterval(goNext, 4000); // 4 seconds
+    return () => clearInterval(id);
+  }, [max, isHovering, goNext]);
+
+  // --- 4. Which testimonials to show ---
   const visibleTestimonials = [];
-
   for (let i = 0; i < visibleCount; i += 1) {
     visibleTestimonials.push(TESTIMONIALS[(index + i) % max]);
   }
 
-  const goPrev = () => setIndex((prev) => (prev - 1 + max) % max);
-  const goNext = () => setIndex((prev) => (prev + 1) % max);
-
   return (
     <section className="w-full bg-[var(--depth-accent)] py-16 text-white">
-      <div className="mx-auto max-w-5xl px-4">
+      <div className="mx-auto max-w-7xl px-4">
         <header className="mb-10 text-center">
           <h2 className="text-3xl font-extrabold uppercase tracking-[0.15em]">
             Testimonials
@@ -76,14 +96,23 @@ export default function CustomerReviews() {
           </p>
         </header>
 
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
+        {/* Hover pause is attached to the actual cards row */}
+        <div
+          className="flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-10"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
           {visibleTestimonials.map((testimonial) => (
-            <div key={testimonial.id} className="w-full max-w-md md:w-1/2">
+            <div
+              key={testimonial.id}
+              className="w-full md:w-1/3 flex justify-center"
+            >
               <TestimonialCard testimonial={testimonial} />
             </div>
           ))}
         </div>
 
+        {/* Controls */}
         <div className="mt-8 flex items-center justify-center gap-4">
           <button
             onClick={goPrev}
