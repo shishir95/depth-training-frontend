@@ -7,30 +7,30 @@ import FooterStrip from "@/components/common/FooterStrip";
 export default function PhysiotherapyPage() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-      {/* Navbar */}
       <Header />
 
-      {/* Main content */}
       <main className="flex-1">
         {/* Hero */}
         <section className="w-full border-b border-neutral-900 bg-gradient-to-b from-neutral-950 to-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
+              {/* Hero copy */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400 mb-4">
                   Rehab • Physiotherapy
                 </p>
+
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-                  Evidence-based Physiotherapy
+                  Physiotherapy & Sports Rehab
                   <span className="block text-red-400">
-                    to get you moving pain-free.
+                    to ease pain and improve movement.
                   </span>
                 </h1>
+
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
-                  Whether you&apos;re dealing with a new injury, lingering pain, or
-                  stiffness that&apos;s holding you back, our physiotherapists use
-                  a detailed assessment and one-on-one treatment approach to help
-                  you move better, feel stronger, and return to what you love.
+                  One-on-one, evidence-based physiotherapy to help ease pain,
+                  speed up recovery, improve mobility, and build strength so
+                  you can get back to what you love.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -38,63 +38,115 @@ export default function PhysiotherapyPage() {
                     href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
                   >
                     Book Physiotherapy Online
                   </a>
                   <a
                     href="tel:12267489494"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
                   >
                     Call (226) 748-9494
                   </a>
                 </div>
 
                 <p className="text-xs text-neutral-400">
-                  Located at 408 Albert Street, Waterloo. Most treatments are
-                  covered by extended health & auto insurance plans. 
+                  408 Albert Street, Waterloo • Most treatments covered by
+                  extended health & auto insurance plans.
                 </p>
               </div>
 
-              {/* Right side quick highlights */}
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/60 p-5 sm:p-6">
+              {/* Quick facts card */}
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-6 sm:p-7">
                 <h2 className="text-lg font-semibold mb-4">
-                  Why choose DEPTH Physiotherapy?
+                  What you get with DEPTH physiotherapy
                 </h2>
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>
-                      <span className="font-semibold">Detailed assessment</span>{" "}
-                      to understand the root cause of your pain or movement
-                      limitations.
-                    </span>
+                    <span>Detailed assessment focused on what hurts.</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      <span className="font-semibold">Personalized treatment plan</span>{" "}
-                      using evidence-based techniques to improve mobility, reduce
-                      pain, and build strength. 
+                      Personalized treatment plan built around your goals.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>
-                      <span className="font-semibold">1-on-1 appointments</span>{" "}
-                      with longer session times so you actually get time with your
-                      physiotherapist.
-                    </span>
+                    <span>Longer, 1-on-1 appointments for effective care.</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      <span className="font-semibold">Active rehab focus</span>{" "}
-                      – hands-on treatment plus exercise programming to keep you
-                      progressing between sessions.
+                      Evidence-based techniques that support long-term results.
                     </span>
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who it's for / Common reasons */}
+        <section className="w-full border-b border-neutral-900 bg-neutral-950">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Who physiotherapy is for
+                </h2>
+                <p className="text-sm text-neutral-300 mb-5 max-w-md">
+                  Whether you&apos;re very active, just getting started, or
+                  dealing with a nagging issue, we help you move and feel
+                  better.
+                </p>
+                <ul className="space-y-2 text-sm text-neutral-200">
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Everyday aches, stiffness, and workplace pain.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Sports and training injuries.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Post-surgery or post-fracture rehab plans.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Limited mobility or pain that keeps coming back.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Common areas we treat
+                </h2>
+                <p className="text-sm text-neutral-300 mb-5 max-w-md">
+                  Treatment is tailored to you, but some common problem areas
+                  we see include:
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Neck & shoulder pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Low back & hip pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Knee, ankle & foot issues
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Shoulder & elbow injuries
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -103,147 +155,80 @@ export default function PhysiotherapyPage() {
         {/* What to expect */}
         <section className="w-full border-b border-neutral-900 bg-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="grid gap-10 lg:grid-cols-2 items-start">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-                  What to expect from Physiotherapy
-                </h2>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Every treatment starts with listening. Your physiotherapist
-                  will walk through what&apos;s been going on, how it&apos;s
-                  affecting your day-to-day life, and what you want to get back
-                  to – whether that&apos;s sport, work, or just moving
-                  comfortably.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300">
-                  From there, they&apos;ll complete a detailed movement
-                  assessment, explain what&apos;s driving your pain or
-                  limitations, and build a step-by-step plan so you know exactly
-                  how you&apos;re going to get better.
-                </p>
-              </div>
-
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/70 p-5 sm:p-6">
-                <h3 className="text-lg font-semibold mb-4">Your visit typically includes</h3>
-                <ol className="space-y-3 text-sm text-neutral-200 list-decimal list-inside">
-                  <li>Conversation about your injury, history, and goals.</li>
-                  <li>Hands-on movement & strength assessment.</li>
-                  <li>
-                    Clear explanation of what&apos;s going on – in normal
-                    language, not medical jargon.
-                  </li>
-                  <li>
-                    Treatment during the first session (manual therapy, exercise,
-                    or a combination).
-                  </li>
-                  <li>
-                    A personalized home program so you know what to do between
-                    visits.
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Conditions we treat */}
-        <section className="w-full border-b border-neutral-900 bg-neutral-950">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-6">
-              Common reasons people see our physiotherapists
+              What to expect from your sessions
             </h2>
             <div className="grid gap-6 md:grid-cols-3 text-sm text-neutral-200">
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">Everyday & workplace pain</h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Neck & shoulder pain</li>
-                  <li>Low back & hip pain</li>
-                  <li>Repetitive strain injuries</li>
-                  <li>Postural tension from desk work</li>
-                </ul>
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 1
+                </p>
+                <h3 className="font-semibold mb-2">Detailed assessment</h3>
+                <p className="text-neutral-300 text-sm">
+                  Tell us what hurts and how it&apos;s affecting your day. We
+                  assess how you move to find the root cause.
+                </p>
               </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">Sports & activity-related injuries</h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Sprains & strains</li>
-                  <li>Tendon pain (Achilles, patellar, etc.)</li>
-                  <li>Shoulder & knee injuries</li>
-                  <li>Return-to-sport rehab</li>
-                </ul>
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 2
+                </p>
+                <h3 className="font-semibold mb-2">Personalized treatment plan</h3>
+                <p className="text-neutral-300 text-sm">
+                  You get a clear plan using proven physiotherapy techniques to
+                  ease pain, improve mobility, and build strength.
+                </p>
               </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">Post-surgical & long-term issues</h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Post-operative rehab</li>
-                  <li>Arthritis & joint stiffness</li>
-                  <li>Chronic pain & recurring flare-ups</li>
-                  <li>Balance & mobility limitations</li>
-                </ul>
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 3
+                </p>
+                <h3 className="font-semibold mb-2">1-on-1 care that progresses</h3>
+                <p className="text-neutral-300 text-sm">
+                  Longer appointments with your physiotherapist, progress check-ins,
+                  and updates as you move closer to your goals.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Insurance + call to action */}
-        <section className="w-full bg-black">
+        {/* Final CTA */}
+        <section className="w-full bg-neutral-950 border-t border-neutral-900">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-                  Covered by most insurance plans
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
+                  Ready to start feeling better?
                 </h2>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Physiotherapy at DEPTH is covered by most extended health
-                  benefits, workplace injury claims, and auto insurance plans, so
-                  you often pay very little out of pocket for high-quality care. 
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  If you&apos;re not sure what your coverage looks like, our
-                  admin team can help you figure out the details before you
-                  commit.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300">
-                  Not sure if physiotherapy is right for you? Start with a quick
-                  call or book online and add your questions in the intake form –
-                  our team will make sure you&apos;re in the right place.
+                <p className="text-sm text-neutral-300 max-w-xl">
+                  Book online in a few clicks or contact us if you have questions
+                  about whether physiotherapy is right for you.
                 </p>
               </div>
-
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/70 p-5 sm:p-6">
-                <h3 className="text-lg font-semibold mb-3">Ready to get started?</h3>
-                <p className="text-sm text-neutral-300 mb-4">
-                  Choose the option that&apos;s easiest for you and we&apos;ll
-                  handle the rest.
-                </p>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
-                  >
-                    Book a Physiotherapy Appointment
-                  </a>
-                  <a
-                    href="tel:12267489494"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                  >
-                    Call the Clinic
-                  </a>
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-dashed border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                  >
-                    Contact & Location Details
-                  </a>
-                </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
+                >
+                  Book Physiotherapy Online
+                </a>
+                <a
+                  href="https://www.depthtraining.ca/contact/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
+                >
+                  Contact & Location Details
+                </a>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
       <FooterStrip />
     </div>
   );

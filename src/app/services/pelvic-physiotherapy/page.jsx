@@ -14,22 +14,23 @@ export default function PelvicPhysiotherapyPage() {
         <section className="w-full border-b border-neutral-900 bg-gradient-to-b from-neutral-950 to-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
+              {/* Hero copy */}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400 mb-4">
                   Rehab • Pelvic Physiotherapy
                 </p>
+
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-                  Pelvic health physiotherapy
+                  Pelvic Health Physiotherapy
                   <span className="block text-red-400">
-                    for bladder, bowel & pelvic pain issues.
+                    Pelvic health concerns are common and treatable.
                   </span>
                 </h1>
+
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
-                  Pelvic floor issues are common, but they don&apos;t have to be
-                  your “new normal”. Our pelvic health physiotherapists provide
-                  a private, supportive space to help with leaking, pelvic pain,
-                  prolapse, and pre/post-natal concerns, so you can feel more
-                  confident and in control.
+                  Pelvic floor physiotherapy focuses on the muscles, joints,
+                  connective tissues, and nerves of the pelvis, low back, and
+                  hips to help with a wide variety of pelvic-related concerns.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -37,56 +38,49 @@ export default function PelvicPhysiotherapyPage() {
                     href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
                   >
-                    Book Pelvic Physiotherapy
+                    Book Pelvic Physio Online
                   </a>
                   <a
                     href="tel:12267489494"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
                   >
                     Call (226) 748-9494
                   </a>
                 </div>
 
                 <p className="text-xs text-neutral-400">
-                  Private treatment rooms at DEPTH Training & Physiotherapy in
-                  Waterloo. Covered by many extended health plans.
+                  408 Albert Street, Waterloo • Covered by extended health care
+                  insurance.
                 </p>
               </div>
 
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/60 p-5 sm:p-6">
+              {/* Quick facts card – SAME STRUCTURE AS PHYSIO */}
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-6 sm:p-7">
                 <h2 className="text-lg font-semibold mb-4">
-                  Who is pelvic physiotherapy for?
+                  What you get with pelvic physio at DEPTH
                 </h2>
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Private, 1-on-1 pelvic health assessments.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Supportive, judgment-free space to talk openly.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      People who leak urine when they cough, sneeze, laugh,
-                      exercise, or can&apos;t always make it to the bathroom in
-                      time.
+                      Evidence-based care for bladder, bowel, and pelvic pain
+                      concerns.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Individuals with pelvic, vaginal, rectal, or tailbone pain
-                      during daily activities or intimacy.
-                    </span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>
-                      Pregnant & postpartum clients who want support during
-                      pregnancy, delivery recovery, or return to exercise.
-                    </span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>
-                      People with prolapse symptoms, constipation, or bowel
-                      control issues.
+                      Pre- and post-pregnancy guidance tailored to your goals.
                     </span>
                   </li>
                 </ul>
@@ -95,156 +89,142 @@ export default function PelvicPhysiotherapyPage() {
           </div>
         </section>
 
-        {/* What to expect */}
-        <section className="w-full border-b border-neutral-900 bg-black">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="grid gap-10 lg:grid-cols-2 items-start">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-                  What to expect at your pelvic physio appointment
-                </h2>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Pelvic health is personal – so appointments move at your pace.
-                  Your physiotherapist will start with a detailed conversation
-                  about your symptoms, medical history, birth history (if
-                  relevant), and goals.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  With your consent, they may complete an external and/or
-                  internal pelvic floor assessment to understand how your pelvic
-                  muscles are functioning – whether they are weak, tight,
-                  overactive, or not coordinating properly.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300">
-                  Together, you&apos;ll build a step-by-step plan that fits your
-                  lifestyle and comfort level, with clear guidance on what to do
-                  between visits.
-                </p>
-              </div>
-
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/70 p-5 sm:p-6">
-                <h3 className="text-lg font-semibold mb-4">
-                  Your visit typically includes
-                </h3>
-                <ol className="space-y-3 text-sm text-neutral-200 list-decimal list-inside">
-                  <li>Private conversation about your concerns & goals.</li>
-                  <li>
-                    Education on pelvic floor anatomy and how it relates to your
-                    symptoms.
-                  </li>
-                  <li>
-                    Gentle movement and/or pelvic floor assessment (with your
-                    consent).
-                  </li>
-                  <li>
-                    Individualized treatment plan – may include relaxation or
-                    strengthening exercises, breathwork, manual therapy, and
-                    lifestyle strategies.
-                  </li>
-                  <li>
-                    A clear home program so you know exactly what to practice
-                    between sessions.
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Conditions / concerns we help with */}
+        {/* Who it's for / Common areas – SAME GRID AS PHYSIO */}
         <section className="w-full border-b border-neutral-900 bg-neutral-950">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-6">
-              Common pelvic health concerns we treat
-            </h2>
-            <div className="grid gap-6 md:grid-cols-3 text-sm text-neutral-200">
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">Bladder concerns</h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Leaking with coughing, sneezing, or exercise</li>
-                  <li>Urgency & frequent urination</li>
-                  <li>Difficulty fully emptying the bladder</li>
-                  <li>Overactive bladder symptoms</li>
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Who pelvic physiotherapy is for
+                </h2>
+                <p className="text-sm text-neutral-300 mb-5 max-w-md">
+                  We help people dealing with pelvic symptoms that affect daily
+                  life, exercise, comfort, or confidence.
+                </p>
+                <ul className="space-y-2 text-sm text-neutral-200">
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Urinary incontinence, urgency, or leaking.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Pain during sex or ongoing pelvic pain.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Pregnancy-related or post-pregnancy pain.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>Constipation or pelvic organ prolapse.</span>
+                  </li>
                 </ul>
               </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">Pelvic pain & prolapse</h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Pelvic, vaginal, rectal, or tailbone pain</li>
-                  <li>Pain with intercourse or tampon use</li>
-                  <li>Heaviness/dragging sensations</li>
-                  <li>Pelvic organ prolapse symptoms</li>
-                </ul>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base">Pregnancy & postpartum</h3>
-                <ul className="space-y-1 text-neutral-300">
-                  <li>Pelvic girdle, hip, or low back pain</li>
-                  <li>Ab separation (diastasis recti)</li>
-                  <li>Support for delivery preparation & recovery</li>
-                  <li>Safe return to lifting & sport</li>
-                </ul>
+
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+                  Common areas we treat
+                </h2>
+                <p className="text-sm text-neutral-300 mb-5 max-w-md">
+                  Treatment is specific to you, but often focuses on:
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Low back & hip pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Pelvic & groin pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Sacroiliac & tailbone pain
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                    Core & abdominal issues (e.g. diastasis)
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA section */}
-        <section className="w-full bg-black">
+        {/* What to expect – ALWAYS 3 CARDS */}
+        <section className="w-full border-b border-neutral-900 bg-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-                  You don&apos;t have to just “live with it”
-                </h2>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Many people are told that leaking, pelvic pain, or discomfort
-                  after childbirth is normal – but common doesn&apos;t mean you
-                  have to put up with it forever.
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-6">
+              What to expect from your pelvic physio visits
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3 text-sm text-neutral-200">
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 1
                 </p>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4">
-                  Pelvic physiotherapy gives you a safe, non-judgemental space to
-                  talk about symptoms that can feel awkward to bring up anywhere
-                  else – and a clear plan to start feeling more like yourself
-                  again.
-                </p>
-                <p className="text-sm sm:text-base text-neutral-300">
-                  If you&apos;re unsure whether pelvic physio is the right fit,
-                  you can always call the clinic and our team will help you
-                  decide on the best first step.
+                <h3 className="font-semibold mb-2">Book & prepare online</h3>
+                <p className="text-neutral-300 text-sm">
+                  Book by phone or online. You&apos;ll receive a welcome email
+                  and brief intake form before your first session.
                 </p>
               </div>
-
-              <div className="border border-neutral-800 rounded-2xl bg-neutral-950/70 p-5 sm:p-6">
-                <h3 className="text-lg font-semibold mb-3">
-                  Ready to talk to someone?
-                </h3>
-                <p className="text-sm text-neutral-300 mb-4">
-                  Choose the option that works best for you and we&apos;ll take
-                  care of the rest.
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 2
                 </p>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
-                  >
-                    Book a Pelvic Physio Appointment
-                  </a>
-                  <a
-                    href="tel:12267489494"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                  >
-                    Call the Clinic
-                  </a>
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold border border-dashed border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                  >
-                    Contact & Location Details
-                  </a>
-                </div>
+                <h3 className="font-semibold mb-2">Detailed assessment</h3>
+                <p className="text-neutral-300 text-sm">
+                  Your first visit (about 60 minutes) includes a thorough
+                  conversation and pelvic-focused assessment based on your
+                  comfort.
+                </p>
+              </div>
+              <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
+                  Step 3
+                </p>
+                <h3 className="font-semibold mb-2">Clear plan & follow-up</h3>
+                <p className="text-neutral-300 text-sm">
+                  You leave with an individualized plan and follow-up visits
+                  (usually 30 minutes) to help you feel more comfortable and
+                  confident.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA – SAME LAYOUT */}
+        <section className="w-full bg-neutral-950 border-t border-neutral-900">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
+                  Unsure if pelvic physiotherapy is right for you?
+                </h2>
+                <p className="text-sm text-neutral-300 max-w-xl">
+                  Book online or reach out with your questions. You can even
+                  schedule a short pelvic physio conversation to see if it&apos;s
+                  a good fit.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://depthtraining.janeapp.com/locations/depth-training-physiotherapy/book"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
+                >
+                  Book Pelvic Physio Online
+                </a>
+                <a
+                  href="https://www.depthtraining.ca/contact/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
+                >
+                  Contact & Location Details
+                </a>
               </div>
             </div>
           </div>
