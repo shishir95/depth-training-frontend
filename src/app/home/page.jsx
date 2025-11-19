@@ -30,7 +30,7 @@ export default function Home() {
       <HeroTitleAnimation {...heroContents} />
 
       {/* ✅ Centered content below hero */}
-      <div className="mx-auto w-full max-w-7xl px-6 pt-16 pb-20 space-y-16">
+      <div className="mx-auto w-full max-w-7xl space-y-5 md:space-y-5 lg:space-y-5">
         <ScrollSection variant="fade-up">
           <FindSpecialtiesSection />
         </ScrollSection>

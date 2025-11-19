@@ -152,9 +152,7 @@ function TeamCard({ person }) {
       />
 
       {/* Avatar bubble with parallax-ish lift on hover */}
-      <div
-        className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full ring-4 ring-[#050509] shadow-2xl bg-[radial-gradient(circle_at_bottom,_rgba(244,63,94,0.22),_rgba(5,5,9,0.98)_70%)] backdrop-blur-[2px] transition-transform duration-500"
-      >
+      <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full ring-4 ring-[#050509] shadow-2xl bg-[radial-gradient(circle_at_bottom,_rgba(244,63,94,0.22),_rgba(5,5,9,0.98)_70%)] backdrop-blur-[2px] transition-transform duration-500">
         <img
           src="/assets/image.png"
           alt={person.name}
@@ -251,7 +249,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_60%),#050509] py-16 text-white">
+    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_60%),#050509] text-white">
       <div className="mx-auto max-w-7xl px-4">
         {/* Title */}
         <div className="text-center">
@@ -261,7 +259,7 @@ export default function TeamSection() {
           <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Our Team</h2>
 
           {/* Tabs with auto-darkening halo under the active one */}
-          <div className="mt-6 flex items-center justify-center gap-6 text-base">
+          <div className="mt-6 flex  items-center justify-center gap-6 text-base">
             {TABS.map((t) => {
               const isActive = active === t;
               return (
@@ -294,7 +292,7 @@ export default function TeamSection() {
         >
           <div
             ref={scrollerRef}
-            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 py-2 [scrollbar-width:none] [-ms-overflow-style:none]"
+            className="no-scrollbar flex justify-center snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 py-2 [scrollbar-width:none] [-ms-overflow-style:none]"
           >
             {/* hide scrollbar in webkit */}
             <style jsx>{`

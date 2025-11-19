@@ -35,7 +35,6 @@ export const metadata = { title: "Membership | Depth Training" };
 
 export default function MembershipPage() {
   return (
-    // 🔥 full-width page wrapper (same pattern as Trainer page)
     <main className="min-h-screen w-full bg-[#020109] text-white">
       {/* full-width header */}
       <Header />

@@ -13,7 +13,7 @@ export default function ResourcePages() {
       <Header />
 
       {/* centered content */}
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
+      <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16 ">
         <ResourcePage />
         <FeaturedTraining />
       </div>

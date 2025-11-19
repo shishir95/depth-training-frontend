@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white `}
       >
         <AnimationScroll>
           <div className="relative isolate min-h-screen w-full overflow-hidden bg-[#020109] text-white">
@@ -38,7 +38,9 @@ export default function RootLayout({ children }) {
               <div className="h-1/2 w-full bg-[radial-gradient(circle,_rgba(255,138,128,0.4),_transparent_70%)]" />
             </div>
 
-            <div className="relative z-10">{children}</div>
+            <div className="relative z-10 min-h-screen w-full bg-[#020109]">
+              {children}
+            </div>
           </div>
         </AnimationScroll>
         <FloatingChatFab />

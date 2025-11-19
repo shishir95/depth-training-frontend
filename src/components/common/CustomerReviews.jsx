@@ -85,14 +85,16 @@ export default function CustomerReviews() {
   }
 
   return (
-    <section className="relative py-16 text-white">
+    <section className="relative  text-white">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(248,113,113,0.35),transparent_65%),#020109]"
       />
       <div className="mx-auto max-w-6xl px-6">
         <header className="mb-10 text-center">
-          <p className="text-xs tracking-[0.35em] text-zinc-300">TESTIMONIALS</p>
+          <p className="text-xs tracking-[0.35em] text-zinc-300">
+            TESTIMONIALS
+          </p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
             What our clients say
           </h2>

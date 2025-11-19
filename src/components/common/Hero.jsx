@@ -3,9 +3,11 @@ import "../../app/globals.css";
 const Hero = (props) => {
   return (
     <section
-      className="relative w-full h-[90vh] bg-cover bg-center flex items-center justify-center text-center text-white"
+      className="relative w-full h-[120vh] bg-cover bg-center flex items-center justify-center text-center text-white"
       style={{
         backgroundImage: "('/MC-banner-OS25 1.purlng')", // <-- image in public folder
+        backgroundPosition: "center",
+        backgroundSize: "cover",
       }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
