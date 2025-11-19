@@ -57,7 +57,7 @@ export default function FacilitiesSection() {
   };
 
   return (
-    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.16),_transparent_60%),#050509] py-16 text-white">
+    <section className="w-full bg-transparent py-16 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
         {/* Heading */}
         <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
