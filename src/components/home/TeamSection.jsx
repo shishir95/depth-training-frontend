@@ -131,32 +131,54 @@ function TeamCard({ person }) {
       whileHover={{
         y: -6,
         scale: 1.01,
-        boxShadow: "0 22px 65px rgba(0,0,0,0.65)",
+        boxShadow: "0 22px 65px rgba(0,0,0,0.75)",
       }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
     >
-      <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-zinc-200/70 ring-4 ring-[#050509] shadow-2xl">
+      {/* 🔥 Animated hover glow + gradient shift */}
+      <motion.div
+        className="pointer-events-none absolute -inset-1 rounded-[26px] opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-80"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 0% 0%, rgba(244,63,94,0.45), transparent 55%)," +
+            "radial-gradient(circle at 100% 100%, rgba(59,130,246,0.35), transparent 55%)",
+          backgroundSize: "200% 200%",
+        }}
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* Avatar bubble with parallax-ish lift on hover */}
+      <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full ring-4 ring-[#050509] shadow-2xl bg-[radial-gradient(circle_at_bottom,_rgba(244,63,94,0.22),_rgba(5,5,9,0.98)_70%)] backdrop-blur-[2px] transition-transform duration-500">
         <img
           src="/assets/image.png"
           alt={person.name}
-          className="rounded-full object-cover object-center"
+          className="h-full w-full rounded-full object-cover object-center"
         />
       </div>
 
-      <div className="mt-40 rounded-2xl border border-white/8 bg-[var(--depth-card)]/90 p-6 text-center shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-sm">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--depth-muted)]">
+      {/* Card body with soft gradient panel */}
+      <div className="relative mt-40 overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-br from-[#f43f5e]/12 via-[#050509] to-black p-6 text-center shadow-[0_25px_70px_rgba(0,0,0,0.55)] backdrop-blur-md">
+        {/* subtle internal glow that reacts with the animated outer glow */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_55%)] opacity-70" />
+
+        <p className="relative text-[11px] uppercase tracking-[0.3em] text-[var(--depth-muted)]">
           {person.tags.join(" • ")}
         </p>
-        <h3 className="mt-3 text-xl font-semibold text-white">{person.name}</h3>
-        <p className="mt-1 text-base text-[var(--depth-muted)]">
+        <h3 className="relative mt-3 text-xl font-semibold text-white">
+          {person.name}
+        </h3>
+        <p className="relative mt-1 text-base text-[var(--depth-muted)]">
           {person.title}
         </p>
 
-        <div className="mt-6 flex items-center justify-between">
+        <div className="relative mt-6 flex items-center justify-between">
           <a
             href={person.view}
-            className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-white shadow-[0_0_22px_rgba(244,63,94,0.35)] transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-white shadow-[0_0_22px_rgba(244,63,94,0.45)] transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
           >
             Book Now
           </a>
@@ -165,28 +187,28 @@ function TeamCard({ person }) {
             <a
               href={person.li}
               aria-label="LinkedIn"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.li className="h-4 w-4" />
             </a>
             <a
               href={person.mail}
               aria-label="Email"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.mail className="h-4 w-4" />
             </a>
             <a
               href={person.site}
               aria-label="Website"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.site className="h-4 w-4" />
             </a>
             <a
               href={person.view}
               aria-label="View profile"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.eye className="h-4 w-4" />
             </a>
@@ -227,7 +249,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_60%),#050509] py-16 text-white">
+    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_60%),#050509] text-white">
       <div className="mx-auto max-w-7xl px-4">
         {/* Title */}
         <div className="text-center">
@@ -236,21 +258,29 @@ export default function TeamSection() {
           </p>
           <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Our Team</h2>
 
-          {/* Tabs */}
-          <div className="mt-6 flex items-center justify-center gap-6 text-base">
-            {TABS.map((t) => (
-              <button
-                key={t}
-                onClick={() => setActive(t)}
-                className={`rounded-full border px-4 py-1.5 transition ${
-                  active === t
-                    ? "border-[var(--depth-accent)] bg-[var(--depth-accent)] text-black shadow-[0_0_22px_rgba(244,63,94,0.35)]"
-                    : "border-white/10 text-zinc-300 hover:border-white/30 hover:text-white"
-                }`}
-              >
-                {t}
-              </button>
-            ))}
+          {/* Tabs with auto-darkening halo under the active one */}
+          <div className="mt-6 flex  items-center justify-center gap-6 text-base">
+            {TABS.map((t) => {
+              const isActive = active === t;
+              return (
+                <button
+                  key={t}
+                  onClick={() => setActive(t)}
+                  className={
+                    "relative rounded-full border px-4 py-1.5 transition " +
+                    (isActive
+                      ? "border-[var(--depth-accent)] bg-[var(--depth-accent)] text-black shadow-[0_0_40px_rgba(0,0,0,0.95)] ring-2 ring-white/40"
+                      : "border-white/10 text-zinc-300 hover:border-white/30 hover:text-white bg-black/20")
+                  }
+                >
+                  {/* dark halo behind the active tab */}
+                  {isActive && (
+                    <span className="pointer-events-none absolute inset-[-6px] -z-10 rounded-full bg-black/70 blur-xl" />
+                  )}
+                  {t}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -262,7 +292,7 @@ export default function TeamSection() {
         >
           <div
             ref={scrollerRef}
-            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 py-2 [scrollbar-width:none] [-ms-overflow-style:none]"
+            className="no-scrollbar flex justify-center snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 py-2 [scrollbar-width:none] [-ms-overflow-style:none]"
           >
             {/* hide scrollbar in webkit */}
             <style jsx>{`

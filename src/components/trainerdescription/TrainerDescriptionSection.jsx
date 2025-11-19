@@ -15,7 +15,11 @@ export default function TrainerHeroSection({
   ctaText = "Book Now",
 }) {
   return (
-    <section className="relative w-full bg-[#3b3b3b] text-white overflow-hidden">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"
+      />
       <div className="mx-auto flex flex-col lg:flex-row items-center justify-center max-w-7xl px-6 sm:px-10 lg:px-16 py-20 lg:py-28 gap-10">
         {/* Image block */}
         <div className="relative w-full max-w-[500px] h-[520px] flex-shrink-0 overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl">

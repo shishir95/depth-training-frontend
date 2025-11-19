@@ -14,7 +14,6 @@ const MENU = [
         label: "Fitness",
         items: [
           { label: "Class Schedule", href: "/services" },
-          { label: "Membership", href: "/membership" },
           {
             label: "Personal Training",
             href: "/services/personal-training",
@@ -52,9 +51,15 @@ const MENU = [
             label: "Vestibular Physiotherapy",
             href: "/services/vestibular-physiotherapy",
           },
-          { label: "Medical Acupuncture", href: "/services/medical-acupuncture" },
+          {
+            label: "Medical Acupuncture",
+            href: "/services/medical-acupuncture",
+          },
           { label: "Game Ready Rental", href: "/services/game-ready-rental" },
-          { label: "GLA:D for Hip/Knee OA", href: "/services/glad-hip-knee-oa" },
+          {
+            label: "GLA:D for Hip/Knee OA",
+            href: "/services/glad-hip-knee-oa",
+          },
           {
             label: "Infrared Sauna & Plunge",
             href: "/services/infrared-sauna-plunge",
@@ -92,6 +97,7 @@ const MENU = [
   },
   { label: "Trainers", href: "/trainer" },
   { label: "Resources", href: "/resourcepage" },
+  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
 ];
 
@@ -139,7 +145,7 @@ export default function Header() {
     <header
       ref={wrapRef}
       className={[
-        "sticky top-0 z-50",
+        " fixed top-0 z-50 w-full",
         "backdrop-blur-md", // glass blur
         "bg-neutral-900/40 border-b border-white/10", // translucent bg + hairline
         "transition-all duration-300",

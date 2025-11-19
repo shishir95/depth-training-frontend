@@ -256,7 +256,7 @@ function BlogCard({ post }) {
         <div className="mt-5 flex items-center justify-between">
           <Link
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition group-hover:bg-[#ff8475]"
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text.black shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition group-hover:bg-[#ff8475]"
           >
             Read article
             <span className="translate-x-0 text-xs transition group-hover:translate-x-0.5">
@@ -360,7 +360,10 @@ export default function ResourcePage() {
     setPage(1);
   }, [category]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+  );
 
   useEffect(() => {
     setPage((prev) => {
@@ -373,9 +376,14 @@ export default function ResourcePage() {
   const currentPosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
 
   return (
-    <section className="w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black py-16 text-white relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--depth-accent)]/10 via-transparent to-transparent blur-3xl opacity-70"></div>
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 md:px-8 lg:px-10">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
+      {/* soft coral glow like membership hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"
+      />
+
+      <div className="relative mx-auto flex w-full flex-col gap-10 px-6 sm:px-10">
         <HeaderBar />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,3.2fr)_minmax(0,1fr)]">
@@ -384,10 +392,14 @@ export default function ResourcePage() {
               <FilterBar active={category} onChange={setCategory} />
               <BlogGrid posts={currentPosts} />
             </div>
-            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              onChange={setPage}
+            />
           </div>
 
-          <aside className="lg:sticky lg:top-28">
+          <aside className="lg:sticky lg:top-24">
             <SidebarCTA />
           </aside>
         </div>

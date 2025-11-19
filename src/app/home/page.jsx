@@ -1,3 +1,6 @@
+// src/app/home/page.jsx
+"use client";
+
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import CustomerReviews from "@/components/common/CustomerReviews";
@@ -8,7 +11,6 @@ import OurOfferSection from "@/components/home/OurOfferSection";
 import TeamSection from "@/components/home/TeamSection";
 import ArticlesSection from "@/components/home/ArticleSection";
 import ScrollSection from "@/components/home/ScrollSection";
-import AnimatedBackdrop from "@/components/home/AnimatedBackdrop";
 
 export default function Home() {
   const heroContents = {
@@ -18,13 +20,17 @@ export default function Home() {
     button: true,
     buttonLabel: "Book a Free Consultation",
   };
+
   return (
-    <div className="home-page relative min-h-screen overflow-hidden bg-[#020109] text-white">
-      <AnimatedBackdrop />
+    <main className="min-h-screen w-full bg-[#020109] text-white">
+      {/* ✅ Full-width header */}
       <Header />
+
+      {/* ✅ Full-width hero */}
       <HeroTitleAnimation {...heroContents} />
 
-      <div className="flex flex-col gap-16">
+      {/* ✅ Centered content below hero */}
+      <div className="mx-auto w-full max-w-7xl space-y-5 md:space-y-5 lg:space-y-5">
         <ScrollSection variant="fade-up">
           <FindSpecialtiesSection />
         </ScrollSection>
@@ -48,9 +54,9 @@ export default function Home() {
         <ScrollSection variant="fade-up">
           <ArticlesSection />
         </ScrollSection>
-      </div>
 
-      <FooterStrip />
-    </div>
+        <FooterStrip />
+      </div>
+    </main>
   );
 }

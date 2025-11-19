@@ -1,3 +1,4 @@
+// src/app/resourcepage/page.jsx
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import ResourcePage from "@/components/resourcepage/ResourcePage";
@@ -7,11 +8,18 @@ export const metadata = { title: "Resources | Depth Training" };
 
 export default function ResourcePages() {
   return (
-    <main className="bg-black text-white min-h-screen w-full">
+    <main className="min-h-screen w-full bg-[#020109] text-white">
+      {/* full-width header */}
       <Header />
-      <ResourcePage />
-      <FeaturedTraining />
-      <FooterStrip /> {/* ✅ add footer */}
+
+      {/* centered content */}
+      <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16 ">
+        <ResourcePage />
+        <FeaturedTraining />
+      </div>
+
+      {/* full-width footer */}
+      <FooterStrip />
     </main>
   );
 }
