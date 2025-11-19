@@ -75,11 +75,7 @@ const PLAN_DATA = {
       price: "150",
       period: "/10 classes",
       title: "Class Pass",
-      features: [
-        "Shareable credits",
-        "Valid 90 days",
-        "Priority booking",
-      ],
+      features: ["Shareable credits", "Valid 90 days", "Priority booking"],
       highlighted: true,
       badge: "Value",
     },
@@ -99,7 +95,7 @@ export default function PlansSection() {
   return (
     <section
       id="plans"
-      className="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-[#05030f] to-black px-6 py-12 sm:px-10"
+      className="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-[#05030f] to-black px-6 sm:px-10"
     >
       <div className="text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--depth-muted)]">
@@ -129,7 +125,7 @@ export default function PlansSection() {
               className={[
                 "rounded-full border px-4 py-1.5 text-sm font-semibold transition",
                 isActive
-                  ? "border-[var(--depth-accent)] bg-[var(--depth-accent)] text-black"
+                  ? "border-[var(--depth-accent)] bg-[var(--depth-accent)] text-white"
                   : "border-white/15 bg-white/5 text-[var(--depth-muted)] hover:text-white",
               ].join(" ")}
             >
@@ -139,7 +135,7 @@ export default function PlansSection() {
         })}
       </div>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex-wrap justify-center mt-8 flex gap-6">
         {PLAN_DATA[active].map((plan, index) => (
           <PlanCard
             key={`${active}-${plan.title}-${index}`}
@@ -151,7 +147,10 @@ export default function PlansSection() {
 
       <p className="mt-8 text-center text-xs text-[var(--depth-muted)]">
         Need something custom? Email{" "}
-        <a href="mailto:hello@depthtraining.ca" className="text-white underline">
+        <a
+          href="mailto:hello@depthtraining.ca"
+          className="text-white underline"
+        >
           hello@depthtraining.ca
         </a>
       </p>
