@@ -1,6 +1,5 @@
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
-import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
 import FeaturedTraining from "@/components/membership/FeaturedTraining";
 import PlansSection from "@/components/membership/PlansSection";
 
@@ -127,7 +126,7 @@ export default function MembershipPage() {
           </div>
         </section>
 
-        <FindSpecialtiesSection />
+        {/* FindSpecialtiesSection removed here */}
         <PlansSection />
         <FeaturedTraining />
 
