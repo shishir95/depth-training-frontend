@@ -11,9 +11,11 @@ export default function HeroTitleAnimation({
 }) {
   return (
     <section
-      className="relative w-full bg-cover bg-center bg-no-repeat"
+      className="relative w-full h-[90vh] bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/assets/dsc.jpg')", // or your hero image
+        backgroundPosition: "center",
+        backgroundSize: "cover",
       }}
     >
       {/* Dark overlay + left gradient for better readability */}
