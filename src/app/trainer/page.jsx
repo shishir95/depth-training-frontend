@@ -8,11 +8,13 @@ import Header from "@/components/common/Header";
 
 export default function MembershipPage() {
   const heroContents = {
-    title: "Meet Our Trainers and Specialties",
+    title: "Meet The Depth Training Team",
     subTitle:
-      "Certified Experts in Physiotherapy, Rehabilitation and Fitness Performance",
+      " Please scroll through our team and explore their strengths and specialties!",
     button: false,
     buttonLabel: "",
+    backgroundImage: "/trainers-hero.png",
+    backgroundPosition: "center 20%",
   };
   return (
     <main className="bg-black text-white min-h-screen w-full">
