@@ -14,6 +14,7 @@ const TEAM = [
     mail: "mailto:john@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const TEAM = [
     mail: "mailto:jane@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const TEAM = [
     mail: "mailto:ava@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 4,
@@ -44,6 +47,7 @@ const TEAM = [
     mail: "mailto:noah@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 5,
@@ -54,6 +58,7 @@ const TEAM = [
     mail: "mailto:alex@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 6,
@@ -64,6 +69,7 @@ const TEAM = [
     mail: "mailto:sam@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 7,
@@ -74,6 +80,7 @@ const TEAM = [
     mail: "mailto:chris@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 8,
@@ -84,6 +91,7 @@ const TEAM = [
     mail: "mailto:morgan@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 9,
@@ -94,6 +102,7 @@ const TEAM = [
     mail: "mailto:john@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 10,
@@ -104,6 +113,7 @@ const TEAM = [
     mail: "mailto:jane@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 11,
@@ -114,6 +124,7 @@ const TEAM = [
     mail: "mailto:ava@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 12,
@@ -124,6 +135,7 @@ const TEAM = [
     mail: "mailto:noah@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 13,
@@ -134,6 +146,7 @@ const TEAM = [
     mail: "mailto:alex@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 14,
@@ -144,6 +157,7 @@ const TEAM = [
     mail: "mailto:sam@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 15,
@@ -154,6 +168,7 @@ const TEAM = [
     mail: "mailto:chris@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 16,
@@ -164,6 +179,7 @@ const TEAM = [
     mail: "mailto:morgan@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 17,
@@ -174,6 +190,7 @@ const TEAM = [
     mail: "mailto:john@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 18,
@@ -184,6 +201,7 @@ const TEAM = [
     mail: "mailto:jane@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 19,
@@ -194,6 +212,7 @@ const TEAM = [
     mail: "mailto:ava@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 20,
@@ -204,6 +223,7 @@ const TEAM = [
     mail: "mailto:noah@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 21,
@@ -214,6 +234,7 @@ const TEAM = [
     mail: "mailto:alex@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 22,
@@ -224,6 +245,7 @@ const TEAM = [
     mail: "mailto:sam@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 23,
@@ -234,6 +256,7 @@ const TEAM = [
     mail: "mailto:chris@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   {
     id: 24,
@@ -244,6 +267,7 @@ const TEAM = [
     mail: "mailto:morgan@example.com",
     site: "#",
     view: "#",
+    image: "/assets/image.png",
   },
   // add as many as you like…
 ];
@@ -277,66 +301,34 @@ const Icon = {
 
 function TeamCard({ person }) {
   return (
-    <div className="group relative overflow-visible min-w-[320px] sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] snap-start pr-5">
-      {/* avatar (floats above card, not clipped) */}
-      <div
-        className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2
-                  z-20 h-40 w-40 rounded-full bg-zinc-400/80 ring-4 ring-zinc-900
-                  flex items-center justify-center pointer-events-none"
-      >
+    <article
+      key={person.id}
+      className="bg-black border border-[var(--bg-primary)] rounded-xl overflow-hidden w-[300px] flex-shrink-0"
+    >
+      <div className="h-60 overflow-hidden">
         <img
-          src="/assets/image.png"
+          src={person.image}
           alt={person.name}
-          className=" rounded-full object-cover object-center shadow-lg"
+          className="h-full w-full object-cover"
         />
       </div>
 
-      {/* card (pushed down so it doesn’t overlap the avatar) */}
-      <div className="mt-40 rounded border border-[var(--bg-primary)] bg-zinc-900 p-5 text-center shadow-sm">
-        <h3 className="text-xl font-semibold text-white">{person.name}</h3>
-        <p className="mt-1 text-lg text-zinc-300">{person.title}</p>
+      <div className="p-4 flex flex-col">
+        <h3 className="text-lg font-semibold">{person.name}</h3>
+        <p className="text-sm text-gray-400">{person.role}</p>
 
-        <div className="mt-5 flex items-center justify-between">
-          <a
-            href="#book"
-            className="rounded-md bg-[var(--bg-primary)] px-3 py-1.5 text-xs font-semibold text-white shadow hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300"
-          >
-            Book Now
-          </a>
-
-          <div className="flex items-center gap-3 text-zinc-200">
-            <a
-              href={person.li}
-              aria-label="LinkedIn"
-              className="hover:text-white"
-            >
-              <Icon.li className="h-5 w-5" />
-            </a>
-            <a
-              href={person.mail}
-              aria-label="Email"
-              className="hover:text-white"
-            >
-              <Icon.mail className="h-5 w-5" />
-            </a>
-            <a
-              href={person.site}
-              aria-label="Website"
-              className="hover:text-white"
-            >
-              <Icon.site className="h-5 w-5" />
-            </a>
-            <a
-              href="/trainerdescription"
-              aria-label="View profile"
-              className="hover:text-white"
-            >
-              <Icon.eye className="h-5 w-5" />
-            </a>
-          </div>
+        <div className="mt-3 flex items-center gap-3 text-gray-300">
+          <Icon.li className="h-5 w-5" />
+          <Icon.mail className="h-5 w-5" />
+          <Icon.site className="h-5 w-5" />
+          <Icon.eye className="h-5 w-5" />
         </div>
+
+        <button className="mt-4 rounded-full bg-[var(--bg-primary)] px-4 py-1.5 text-xs font-medium hover:bg-rose-600 transition-colors">
+          Book Now
+        </button>
       </div>
-    </div>
+    </article>
   );
 }
 
