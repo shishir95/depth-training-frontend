@@ -21,7 +21,7 @@ Our Kitchener studio is designed for small-group performance training, featuring
     name: "Cambridge Rehab & Recovery",
     description: `
 The Cambridge location focuses on rehab and recovery, with treatment rooms, open-plan rehab space, and specialized equipment for post-injury return-to-play programs and guided physiotherapy sessions.`,
-    images: ["/images/facilities/cambridge-1.jpg"],
+    images: ["/assets/1.jpg", "/assets/2.jpg", "/assets/1.jpg"],
   },
 ];
 
