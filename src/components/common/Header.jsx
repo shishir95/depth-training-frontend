@@ -139,36 +139,37 @@ export default function Header() {
     <header
       ref={wrapRef}
       className={[
-        "sticky top-0 z-50",
-        "backdrop-blur-md", // glass blur
-        "bg-neutral-900/40 border-b border-white/10", // translucent bg + hairline
+        "sticky inset-x-0 top-0 z-50 w-full",
+        "border-b border-white/10 bg-[#020109]/80 backdrop-blur-md",
         "transition-all duration-300",
         scrolled
-          ? "bg-neutral-900/60 shadow-[0_6px_30px_-10px_rgba(0,0,0,0.6)]"
+          ? "shadow-[0_10px_40px_-15px_rgba(0,0,0,0.75)]"
           : "shadow-none",
       ].join(" ")}
       role="banner"
     >
       {/* bar */}
-      <nav
-        className={`mx-auto max-w-7xl px-4 md:px-8 ${
-          scrolled ? "py-2" : "py-3 md:py-4"
-        } text-white`}
-      >
-        <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 font-semibold tracking-wide"
-          >
-            <img
-              src="/assets/logo-white.png"
-              alt="Depth Training"
-              className="h-9 w-auto"
-            />
-          </Link>
+      <nav className="mx-auto w-full max-w-7xl px-6 text-white">
+        <div
+          className={`flex w-full items-center gap-4 ${
+            scrolled ? "py-2" : "py-4"
+          }`}
+        >
+          <div className="flex flex-1 items-center">
+            <Link
+              href="/"
+              className="flex items-center gap-2 font-semibold tracking-wide"
+            >
+              <img
+                src="/assets/logo-white.png"
+                alt="Depth Training"
+                className="h-9 w-auto"
+              />
+            </Link>
+          </div>
 
           {/* Desktop menu */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden flex-1 items-center justify-center gap-8 md:flex">
             {MENU.map((m, idx) => (
               <li key={m.label} className="relative">
                 {m.type === "mega" ? (
@@ -258,24 +259,26 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA */}
-          <Link
-            href="/book"
-            className="hidden md:inline-flex items-center rounded-full bg-[var(--bg-primary)] hover:bg-red-500 px-4 py-2 text-sm font-medium shadow-lg shadow-red-900/20"
-          >
-            Book Now
-          </Link>
+          <div className="flex flex-1 items-center justify-end gap-3">
+            {/* CTA */}
+            <Link
+              href="/book"
+              className="hidden md:inline-flex items-center rounded-full bg-[var(--bg-primary)] hover:bg-red-500 px-4 py-2 text-sm font-medium shadow-lg shadow-red-900/20"
+            >
+              Book Now
+            </Link>
 
-          {/* Mobile burger placeholder (wire in your drawer if needed) */}
-          <button
-            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10"
-            aria-label="Open menu"
-            onClick={() => setOpenRoot(openRoot === "mobile" ? null : "mobile")}
-          >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          </button>
+            {/* Mobile burger placeholder (wire in your drawer if needed) */}
+            <button
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10 md:hidden"
+              aria-label="Open menu"
+              onClick={() => setOpenRoot(openRoot === "mobile" ? null : "mobile")}
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </nav>
 

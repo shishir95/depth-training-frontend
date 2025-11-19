@@ -85,18 +85,22 @@ export default function CustomerReviews() {
   }
 
   return (
-    <section className="w-full bg-[var(--depth-accent)] py-16 text-white">
-      <div className="mx-auto max-w-7xl px-4">
+    <section className="relative py-16 text-white">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(248,113,113,0.35),transparent_65%),#020109]"
+      />
+      <div className="mx-auto max-w-6xl px-6">
         <header className="mb-10 text-center">
-          <h2 className="text-3xl font-extrabold uppercase tracking-[0.15em]">
-            Testimonials
+          <p className="text-xs tracking-[0.35em] text-zinc-300">TESTIMONIALS</p>
+          <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+            What our clients say
           </h2>
-          <p className="mt-3 text-sm text-white/90 sm:text-base">
-            What our clients say about training and rehab at Depth.
+          <p className="mt-3 text-sm text-zinc-300">
+            Stories about training, rehab, and recovery at Depth.
           </p>
         </header>
 
-        {/* Hover pause is attached to the actual cards row */}
         <div
           className="flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-10"
           onMouseEnter={() => setIsHovering(true)}
@@ -105,18 +109,17 @@ export default function CustomerReviews() {
           {visibleTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="w-full md:w-1/3 flex justify-center"
+              className="flex w-full justify-center md:w-1/3"
             >
               <TestimonialCard testimonial={testimonial} />
             </div>
           ))}
         </div>
 
-        {/* Controls */}
         <div className="mt-8 flex items-center justify-center gap-4">
           <button
             onClick={goPrev}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-[var(--depth-card)] text-white transition hover:bg-white/10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-black/20 text-white transition hover:bg-white/10"
             aria-label="Previous testimonial"
           >
             ←
@@ -133,7 +136,7 @@ export default function CustomerReviews() {
           </div>
           <button
             onClick={goNext}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-[var(--depth-card)] text-white transition hover:bg-white/10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-black/20 text-white transition hover:bg-white/10"
             aria-label="Next testimonial"
           >
             →

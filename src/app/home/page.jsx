@@ -25,13 +25,20 @@ export default function Home() {
       className="space-y-0 px-0"
     >
       <Header />
-      <HeroTitleAnimation {...heroContents} />
+      <section className="relative isolate">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(244,63,94,0.25),transparent_60%),#020109]"
+        />
+        <HeroTitleAnimation {...heroContents} />
+        <div className="px-4 sm:px-6 lg:px-8">
+          <ScrollSection variant="fade-up">
+            <FindSpecialtiesSection />
+          </ScrollSection>
+        </div>
+      </section>
 
       <div className="flex flex-col gap-16 px-4 sm:px-6 lg:px-8">
-        <ScrollSection variant="fade-up">
-          <FindSpecialtiesSection />
-        </ScrollSection>
-
         <ScrollSection variant="slide-left">
           <TeamSection />
         </ScrollSection>
