@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
-import PageShell from "@/components/layout/PageShell";
 import { BLOG_POSTS, BLOG_POST_MAP } from "@/data/blogPosts";
 
 export default function BlogDetailPage({ params }) {
@@ -9,7 +8,7 @@ export default function BlogDetailPage({ params }) {
 
   if (!post) {
     return (
-      <PageShell padY="py-16" maxWidth="max-w-4xl" className="space-y-10">
+      <div className="mx-auto w-full max-w-4xl px-6 py-16 space-y-10">
         <Header />
         <section className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
           <h1 className="text-3xl font-semibold">Article not found</h1>
@@ -22,14 +21,14 @@ export default function BlogDetailPage({ params }) {
           </p>
         </section>
         <FooterStrip />
-      </PageShell>
+      </div>
     );
   }
 
   const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
-    <PageShell padY="py-16" maxWidth="max-w-5xl" className="space-y-16">
+    <div className="mx-auto w-full max-w-5xl px-6 py-16 space-y-16">
       <Header />
 
       <article className="space-y-10">
@@ -92,6 +91,6 @@ export default function BlogDetailPage({ params }) {
       </section>
 
       <FooterStrip />
-    </PageShell>
+    </div>
   );
 }

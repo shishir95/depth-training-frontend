@@ -4,7 +4,6 @@ import FooterStrip from "@/components/common/FooterStrip";
 import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
 import AboutUs from "@/components/about/AboutUs";
 import ContactSection from "@/components/about/ContactSection";
-import PageShell from "@/components/layout/PageShell";
 
 const HERO_POINTS = [
   "Clinic + gym under one roof since 2010",
@@ -45,7 +44,7 @@ export const metadata = { title: "About | Depth Training" };
 
 export default function AboutPage() {
   return (
-    <PageShell padY="py-16" maxWidth="max-w-7xl" className="space-y-16">
+    <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
       <Header />
 
       <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-[#06030f] to-black px-6 py-12 sm:px-10">
@@ -157,6 +156,6 @@ export default function AboutPage() {
       <CustomerReviews />
       <ContactSection />
       <FooterStrip />
-    </PageShell>
+    </div>
   );
 }

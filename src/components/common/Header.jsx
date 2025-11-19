@@ -140,7 +140,7 @@ export default function Header() {
       ref={wrapRef}
       className={[
         "sticky inset-x-0 top-0 z-50 w-full",
-        "border-b border-white/10 bg-[#020109]/80 backdrop-blur-md",
+        "border-b border-white/10 bg-[#020109]/85 backdrop-blur-md",
         "transition-all duration-300",
         scrolled
           ? "shadow-[0_10px_40px_-15px_rgba(0,0,0,0.75)]"
@@ -149,9 +149,10 @@ export default function Header() {
       role="banner"
     >
       {/* bar */}
-      <nav className="mx-auto w-full max-w-7xl px-6 text-white">
+      {/* 🔥 removed max-w-7xl + mx-auto so the nav spans full width */}
+      <nav className="w-full px-4 sm:px-6 lg:px-10 text-white">
         <div
-          className={`flex w-full items-center gap-4 ${
+          className={`flex items-center justify-between ${
             scrolled ? "py-2" : "py-4"
           }`}
         >
@@ -272,7 +273,9 @@ export default function Header() {
             <button
               className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10 md:hidden"
               aria-label="Open menu"
-              onClick={() => setOpenRoot(openRoot === "mobile" ? null : "mobile")}
+              onClick={() =>
+                setOpenRoot(openRoot === "mobile" ? null : "mobile")
+              }
             >
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
                 <path d="M4 7h16M4 12h16M4 17h16" />
@@ -289,7 +292,7 @@ export default function Header() {
       >
         <div className="bg-neutral-900/70 backdrop-blur-md">
           <ul className="px-4 py-2 space-y-1">
-            {MENU.map((m, idx) => (
+            {MENU.map((m) => (
               <li key={m.label} className="border-b border-white/10">
                 {m.type !== "mega" ? (
                   <Link

@@ -1,7 +1,6 @@
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import FeaturedTraining from "@/components/membership/FeaturedTraining";
-import PageShell from "@/components/layout/PageShell";
 import ServicesShowcase from "@/components/services/ServicesShowcase";
 
 const HERO_STATS = [
@@ -22,7 +21,7 @@ export const metadata = { title: "Services | Depth Training" };
 
 export default function ServicesPage() {
   return (
-    <PageShell padY="py-16" maxWidth="max-w-7xl" className="space-y-16">
+    <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
       <Header />
 
       <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-[#06030f] to-black px-6 py-12 sm:px-10">
@@ -140,6 +139,6 @@ export default function ServicesPage() {
 
       <FeaturedTraining />
       <FooterStrip />
-    </PageShell>
+    </div>
   );
 }

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { BLOG_POSTS } from "@/data/blogPosts";
 
 const CATEGORIES = [
   "All",
@@ -11,6 +10,99 @@ const CATEGORIES = [
   "Strength & Conditioning",
   "Athlete Training",
   "Nutrition",
+];
+
+const BLOG_POSTS = [
+  {
+    id: 1,
+    title: "10 Tips to Make Nutrition Changes Sustainable",
+    excerpt:
+      "Easy habit stacks, batch-cooking wins, and simple tweaks that actually stick when you're balancing work, family, and training.",
+    slug: "10-tips-to-make-nutrition-changes-sustainable",
+    category: "Nutrition",
+    tag: "Fueling",
+    readTime: "6 min read",
+  },
+  {
+    id: 2,
+    title: "How to Recover Faster After Every Workout",
+    excerpt:
+      "Simple strategies to improve recovery so you can train harder, stay healthy, and perform at your best.",
+    slug: "how-to-recover-faster-after-every-workout",
+    category: "Strength & Conditioning",
+    tag: "Recovery",
+    readTime: "5 min read",
+  },
+  {
+    id: 3,
+    title: "Bulletproof Your Knees for the Season",
+    excerpt:
+      "Isometric strength, tempo work, and smart plyometrics help athletes stay durable when the game schedule heats up.",
+    slug: "bulletproof-your-knees-for-the-season",
+    category: "Athlete Training",
+    tag: "In-Season",
+    readTime: "7 min read",
+  },
+  {
+    id: 4,
+    title: "Injury Red Flags You Should Never Ignore",
+    excerpt:
+      "Learn when soreness is normal training fatigue and when it's time to call your physio before a small issue sidelines you.",
+    slug: "injury-red-flags-you-should-never-ignore",
+    category: "Injury Rehab",
+    tag: "Clinic Tips",
+    readTime: "4 min read",
+  },
+  {
+    id: 5,
+    title: "Pre-Game Fueling That Actually Works",
+    excerpt:
+      "From early tournament mornings to late playoff games, here's how to keep energy high without upsetting your stomach.",
+    slug: "pre-game-fueling-that-actually-works",
+    category: "Nutrition",
+    tag: "Game Day",
+    readTime: "5 min read",
+  },
+  {
+    id: 6,
+    title: "Mobility Drills for Desk Athletes",
+    excerpt:
+      "If you spend eight hours at a laptop and expect to sprint that night, try this 10-minute flow to keep hips and back moving.",
+    slug: "mobility-drills-for-desk-athletes",
+    category: "Injury Rehab",
+    tag: "Mobility",
+    readTime: "8 min read",
+  },
+  {
+    id: 7,
+    title: "Strength Training for Busy Parents",
+    excerpt:
+      "You don't need two hours in the gym. Pair these compound lifts with micro conditioning to stay powerful all week.",
+    slug: "strength-training-for-busy-parents",
+    category: "Strength & Conditioning",
+    tag: "At-Home",
+    readTime: "6 min read",
+  },
+  {
+    id: 8,
+    title: "Return to Sport After ACL Rehab",
+    excerpt:
+      "Passing the strength tests is step one. Build confidence with progressive plyos and change-of-direction work.",
+    slug: "return-to-sport-after-acl-rehab",
+    category: "Injury Rehab",
+    tag: "ACL",
+    readTime: "9 min read",
+  },
+  {
+    id: 9,
+    title: "How to Program In-Season Lifts",
+    excerpt:
+      "Use micro-doses of strength and power so your athletes maintain their edge without dragging during competition.",
+    slug: "how-to-program-in-season-lifts",
+    category: "Athlete Training",
+    tag: "Programming",
+    readTime: "5 min read",
+  },
 ];
 
 const POSTS_PER_PAGE = 6;
@@ -164,7 +256,7 @@ function BlogCard({ post }) {
         <div className="mt-5 flex items-center justify-between">
           <Link
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition group-hover:bg-[#ff8475]"
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text.black shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition group-hover:bg-[#ff8475]"
           >
             Read article
             <span className="translate-x-0 text-xs transition group-hover:translate-x-0.5">
@@ -268,11 +360,17 @@ export default function ResourcePage() {
     setPage(1);
   }, [category]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
+  );
 
   useEffect(() => {
     setPage((prev) => {
-      const max = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+      const max = Math.max(
+        1,
+        Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
+      );
       return prev > max ? max : prev;
     });
   }, [filteredPosts.length]);
@@ -281,9 +379,14 @@ export default function ResourcePage() {
   const currentPosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
 
   return (
-    <section className="w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black py-16 text-white relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--depth-accent)]/10 via-transparent to-transparent blur-3xl opacity-70"></div>
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 md:px-8 lg:px-10">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-zinc-950 to-black py-12">
+      {/* soft coral glow like membership hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.26),_transparent_60%)] opacity-80 blur-3xl"
+      />
+
+      <div className="relative mx-auto flex w-full flex-col gap-10 px-6 sm:px-10">
         <HeaderBar />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,3.2fr)_minmax(0,1fr)]">
@@ -292,10 +395,14 @@ export default function ResourcePage() {
               <FilterBar active={category} onChange={setCategory} />
               <BlogGrid posts={currentPosts} />
             </div>
-            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              onChange={setPage}
+            />
           </div>
 
-          <aside className="lg:sticky lg:top-28">
+          <aside className="lg:sticky lg:top-24">
             <SidebarCTA />
           </aside>
         </div>
