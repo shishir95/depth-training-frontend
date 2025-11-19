@@ -8,7 +8,7 @@ import OurOfferSection from "@/components/home/OurOfferSection";
 import TeamSection from "@/components/home/TeamSection";
 import ArticlesSection from "@/components/home/ArticleSection";
 import ScrollSection from "@/components/home/ScrollSection";
-import AnimatedBackdrop from "@/components/home/AnimatedBackdrop";
+import PageShell from "@/components/layout/PageShell";
 
 export default function Home() {
   const heroContents = {
@@ -19,12 +19,15 @@ export default function Home() {
     buttonLabel: "Book a Free Consultation",
   };
   return (
-    <div className="home-page relative min-h-screen overflow-hidden bg-[#020109] text-white">
-      <AnimatedBackdrop />
+    <PageShell
+      maxWidth="max-w-none"
+      padY="pt-0 pb-20"
+      className="space-y-0 px-0"
+    >
       <Header />
       <HeroTitleAnimation {...heroContents} />
 
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-16 px-4 sm:px-6 lg:px-8">
         <ScrollSection variant="fade-up">
           <FindSpecialtiesSection />
         </ScrollSection>
@@ -51,6 +54,6 @@ export default function Home() {
       </div>
 
       <FooterStrip />
-    </div>
+    </PageShell>
   );
 }

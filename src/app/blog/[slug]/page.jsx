@@ -1,132 +1,97 @@
 import Link from "next/link";
-
-const BLOG_POSTS = [
-  {
-    slug: "10-tips-to-make-nutrition-changes-sustainable",
-    title: "10 Tips to Make Nutrition Changes Sustainable",
-    body: `
-      This is where your full article content will go.
-      For now, you can keep it as placeholder text and focus on layout.
-    `,
-  },
-  {
-    slug: "how-to-recover-faster-after-every-workout",
-    title: "How to Recover Faster After Every Workout",
-    body: `
-      Simple strategies to improve recovery: hydration, sleep, active cooldown,
-      and periodized training based on your sport.
-    `,
-  },
-  {
-    slug: "bulletproof-your-knees-for-the-season",
-    title: "Bulletproof Your Knees for the Season",
-    body: `
-      Strengthen the tissues around the knee with tempo squats, isometrics,
-      and progressive plyometrics so you feel stable when the season begins.
-    `,
-  },
-  {
-    slug: "injury-red-flags-you-should-never-ignore",
-    title: "Injury Red Flags You Should Never Ignore",
-    body: `
-      If swelling, sharp pain, or night aches stick around, it is time to chat
-      with your therapist so a minor tweak does not become a major layoff.
-    `,
-  },
-  {
-    slug: "pre-game-fueling-that-actually-works",
-    title: "Pre-Game Fueling That Actually Works",
-    body: `
-      Dial in timing, carb sources, and hydration so you can show up with steady
-      energy instead of crashing mid-game.
-    `,
-  },
-  {
-    slug: "mobility-drills-for-desk-athletes",
-    title: "Mobility Drills for Desk Athletes",
-    body: `
-      Ten minutes of spine, hip, and shoulder prep can offset sitting all day
-      before you sprint or lift that evening.
-    `,
-  },
-  {
-    slug: "strength-training-for-busy-parents",
-    title: "Strength Training for Busy Parents",
-    body: `
-      Keep training efficient with supersets, compound lifts, and planned off
-      days so you can stay strong without living in the gym.
-    `,
-  },
-  {
-    slug: "return-to-sport-after-acl-rehab",
-    title: "Return to Sport After ACL Rehab",
-    body: `
-      Clear strength metrics are the start. Build confidence with change of
-      direction drills and power work before game day.
-    `,
-  },
-  {
-    slug: "how-to-program-in-season-lifts",
-    title: "How to Program In-Season Lifts",
-    body: `
-      Micro doses of power and strength let you maintain the edge without
-      dragging through competition.
-    `,
-  },
-];
+import Header from "@/components/common/Header";
+import FooterStrip from "@/components/common/FooterStrip";
+import PageShell from "@/components/layout/PageShell";
+import { BLOG_POSTS, BLOG_POST_MAP } from "@/data/blogPosts";
 
 export default function BlogDetailPage({ params }) {
-  const { slug } = params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  const post = BLOG_POST_MAP[params.slug];
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-zinc-950 text-white">
-        <section className="mx-auto max-w-3xl px-4 py-16">
-          <h1 className="mb-4 text-2xl font-semibold">Article not found</h1>
-          <p className="text-sm text-zinc-400">
+      <PageShell padY="py-16" maxWidth="max-w-4xl" className="space-y-10">
+        <Header />
+        <section className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center">
+          <h1 className="text-3xl font-semibold">Article not found</h1>
+          <p className="mt-3 text-sm text-zinc-300">
             This article doesn&apos;t exist yet.{" "}
-            <Link href="/resources" className="text-emerald-300 underline">
-              Go back to Resources
+            <Link href="/blog" className="text-[var(--depth-accent)] underline">
+              Go back to the blog
             </Link>
             .
           </p>
         </section>
-      </main>
+        <FooterStrip />
+      </PageShell>
     );
   }
 
-  return (
-    <main className="min-h-screen bg-zinc-950 text-white">
-      <section className="mx-auto max-w-3xl px-4 py-12">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">
-          Blog
-        </p>
-        <h1 className="text-3xl font-semibold sm:text-4xl">{post.title}</h1>
+  const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
-        <div className="mt-4 flex items-center gap-4 text-xs text-zinc-400">
-          <span>Depth Training &amp; Physiotherapy</span>
-          <span>•</span>
-          <span>5 min read</span>
+  return (
+    <PageShell padY="py-16" maxWidth="max-w-5xl" className="space-y-16">
+      <Header />
+
+      <article className="space-y-10">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#040208] via-[#0a0312] to-black px-6 py-10 sm:px-10">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.3),_transparent_55%)] blur-3xl opacity-80"
+          />
+          <div className="relative space-y-4">
+            <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--depth-muted)]">
+              {post.category}
+            </span>
+            <h1 className="text-3xl font-semibold sm:text-4xl">{post.title}</h1>
+            <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.24em] text-[var(--depth-muted)]">
+              <span>{post.readTime}</span>
+              <span className="h-1 w-1 rounded-full bg-[var(--depth-muted)]" />
+              <span>Updated {post.updated}</span>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-8 h-48 w-full overflow-hidden rounded-2xl bg-gradient-to-tr from-emerald-500/30 via-sky-500/30 to-emerald-300/40" />
+        <div className="prose prose-invert prose-sm max-w-none space-y-4 text-zinc-200">
+          {post.body
+            .split("\n")
+            .map((paragraph) => paragraph.trim())
+            .filter(Boolean)
+            .map((paragraph, index) => (
+              <p key={`${post.slug}-paragraph-${index}`}>{paragraph}</p>
+            ))}
+        </div>
+      </article>
 
-        <article className="prose prose-invert prose-sm mt-8 max-w-none">
-          {post.body.split("\n").map((para, idx) => (
-            <p key={idx}>{para.trim()}</p>
+      <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#05030f] via-black to-[#0c0714] px-6 py-10 sm:px-10">
+        <div className="flex flex-col gap-3 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--depth-muted)]">
+            You may also like
+          </p>
+          <h2 className="text-3xl font-semibold">More from Depth</h2>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {related.map((article) => (
+            <Link
+              key={article.slug}
+              href={`/blog/${article.slug}`}
+              className="group rounded-3xl border border-white/10 bg-white/5 p-5 transition hover:border-[var(--depth-accent)]/70"
+            >
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[var(--depth-muted)]">
+                {article.category}
+              </span>
+              <h3 className="mt-3 text-base font-semibold leading-snug">
+                {article.title}
+              </h3>
+              <p className="mt-2 text-xs text-zinc-300">{article.excerpt}</p>
+              <p className="mt-4 text-[11px] text-[var(--depth-muted)]">
+                {article.readTime} • {article.updated}
+              </p>
+            </Link>
           ))}
-        </article>
-
-        <div className="mt-10">
-          <Link
-            href="/resources"
-            className="text-sm text-emerald-300 underline hover:text-emerald-200"
-          >
-            ← Back to Resources
-          </Link>
         </div>
       </section>
-    </main>
+
+      <FooterStrip />
+    </PageShell>
   );
 }

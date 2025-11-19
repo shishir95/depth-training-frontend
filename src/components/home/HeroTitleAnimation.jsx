@@ -1,73 +1,59 @@
+// src/components/home/HeroTitleAnimation.jsx
 "use client";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
 
-export default function HeroTitleAnimation(props) {
-  const leadControls = useAnimation(); // controls the movement of the whole text
-  const restControls = useAnimation(); // controls the reveal of the trailing part
+import { motion } from "framer-motion";
 
-  useEffect(() => {
-    const runAnimation = async () => {
-      // Step 1: Animate "Depth" from center to left
-      await leadControls.start({
-        left: 0,
-        x: 0,
-        transition: { duration: 0.9, ease: [0.22, 1.5, 0.36, 1] },
-      });
-
-      // Step 2: Fade in the rest of the text
-      restControls.start({
-        opacity: 1,
-        x: 0,
-        transition: { duration: 0.6, ease: "easeOut" },
-      });
-    };
-
-    runAnimation();
-  }, [leadControls, restControls]);
-
+export default function HeroTitleAnimation({
+  title,
+  subTitle,
+  button,
+  buttonLabel,
+}) {
   return (
     <section
-      className="relative w-full h-[90vh] bg-cover bg-center flex items-center justify-center text-center text-white"
+      className="relative w-full bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/MC-banner-OS25 1.png')", // <-- image in public folder
+        backgroundImage: "url('/assets/dsc.jpg')", // or your hero image
       }}
     >
-      <div className="relative w-full max-w-6xl mx-auto">
-        <h1 className="text-white font-bold tracking-tight leading-tight text-4xl sm:text-5xl md:text-6xl">
-          {/* Animated container for the whole text */}
-          <motion.span
-            className="block whitespace-nowrap"
-            style={{ position: "absolute justify-center" }}
-            initial={{ left: "50%", x: "-50%" }}
-            animate={leadControls}
-          >
-            {/* First word: "Depth" */}
-            <span>Realize </span>
+      {/* Dark overlay + left gradient for better readability */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
+      </div>
 
-            {/* Rest of the title revealed after slide */}
-            <motion.span
-              className="inline-block"
-              initial={{ opacity: 0, x: 8 }}
-              animate={restControls}
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        {/* Text block with subtle panel on top of image */}
+        <div className="inline-block max-w-3xl bg-black/35 sm:bg-black/30 rounded-xl px-4 py-5 sm:px-6 sm:py-6 backdrop-blur-[1px]">
+          <motion.h1
+            className="text-white font-bold tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            {title}
+          </motion.h1>
+
+          <motion.p
+            className="mt-4 text-base sm:text-lg md:text-xl font-light text-neutral-100 drop-shadow-[0_3px_6px_rgba(0,0,0,0.9)]"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+          >
+            {subTitle}
+          </motion.p>
+
+          {button && (
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              {" "}
-              Your Potential
-            </motion.span>
-          </motion.span>
-        </h1>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-          <div className="relative z-10 px-4 max-w-3xl">
-            <p className="mt-5 text-lg py-5 md:text-xl font-light">
-              {props.subTitle}
-            </p>
-          </div>
-          {props.button === true ? (
-            <button className=" bg-[var(--bg-primary)] px-6 py-2 rounded-full text-white hover:bg-red-500 transition duration-300">
-              {props.buttonLabel}
-            </button>
-          ) : (
-            ""
+              <button className="bg-[var(--bg-primary)] px-6 py-3 rounded-full text-white text-sm sm:text-base font-semibold hover:bg-red-500 transition duration-300">
+                {buttonLabel}
+              </button>
+            </motion.div>
           )}
         </div>
       </div>

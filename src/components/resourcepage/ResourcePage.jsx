@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
+import { BLOG_POSTS } from "@/data/blogPosts";
 
 const CATEGORIES = [
   "All",
@@ -10,99 +11,6 @@ const CATEGORIES = [
   "Strength & Conditioning",
   "Athlete Training",
   "Nutrition",
-];
-
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "10 Tips to Make Nutrition Changes Sustainable",
-    excerpt:
-      "Easy habit stacks, batch-cooking wins, and simple tweaks that actually stick when you're balancing work, family, and training.",
-    slug: "10-tips-to-make-nutrition-changes-sustainable",
-    category: "Nutrition",
-    tag: "Fueling",
-    readTime: "6 min read",
-  },
-  {
-    id: 2,
-    title: "How to Recover Faster After Every Workout",
-    excerpt:
-      "Simple strategies to improve recovery so you can train harder, stay healthy, and perform at your best.",
-    slug: "how-to-recover-faster-after-every-workout",
-    category: "Strength & Conditioning",
-    tag: "Recovery",
-    readTime: "5 min read",
-  },
-  {
-    id: 3,
-    title: "Bulletproof Your Knees for the Season",
-    excerpt:
-      "Isometric strength, tempo work, and smart plyometrics help athletes stay durable when the game schedule heats up.",
-    slug: "bulletproof-your-knees-for-the-season",
-    category: "Athlete Training",
-    tag: "In-Season",
-    readTime: "7 min read",
-  },
-  {
-    id: 4,
-    title: "Injury Red Flags You Should Never Ignore",
-    excerpt:
-      "Learn when soreness is normal training fatigue and when it's time to call your physio before a small issue sidelines you.",
-    slug: "injury-red-flags-you-should-never-ignore",
-    category: "Injury Rehab",
-    tag: "Clinic Tips",
-    readTime: "4 min read",
-  },
-  {
-    id: 5,
-    title: "Pre-Game Fueling That Actually Works",
-    excerpt:
-      "From early tournament mornings to late playoff games, here's how to keep energy high without upsetting your stomach.",
-    slug: "pre-game-fueling-that-actually-works",
-    category: "Nutrition",
-    tag: "Game Day",
-    readTime: "5 min read",
-  },
-  {
-    id: 6,
-    title: "Mobility Drills for Desk Athletes",
-    excerpt:
-      "If you spend eight hours at a laptop and expect to sprint that night, try this 10-minute flow to keep hips and back moving.",
-    slug: "mobility-drills-for-desk-athletes",
-    category: "Injury Rehab",
-    tag: "Mobility",
-    readTime: "8 min read",
-  },
-  {
-    id: 7,
-    title: "Strength Training for Busy Parents",
-    excerpt:
-      "You don't need two hours in the gym. Pair these compound lifts with micro conditioning to stay powerful all week.",
-    slug: "strength-training-for-busy-parents",
-    category: "Strength & Conditioning",
-    tag: "At-Home",
-    readTime: "6 min read",
-  },
-  {
-    id: 8,
-    title: "Return to Sport After ACL Rehab",
-    excerpt:
-      "Passing the strength tests is step one. Build confidence with progressive plyos and change-of-direction work.",
-    slug: "return-to-sport-after-acl-rehab",
-    category: "Injury Rehab",
-    tag: "ACL",
-    readTime: "9 min read",
-  },
-  {
-    id: 9,
-    title: "How to Program In-Season Lifts",
-    excerpt:
-      "Use micro-doses of strength and power so your athletes maintain their edge without dragging during competition.",
-    slug: "how-to-program-in-season-lifts",
-    category: "Athlete Training",
-    tag: "Programming",
-    readTime: "5 min read",
-  },
 ];
 
 const POSTS_PER_PAGE = 6;
