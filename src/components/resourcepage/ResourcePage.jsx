@@ -362,15 +362,12 @@ export default function ResourcePage() {
 
   const totalPages = Math.max(
     1,
-    Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
+    Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   );
 
   useEffect(() => {
     setPage((prev) => {
-      const max = Math.max(
-        1,
-        Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
-      );
+      const max = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
       return prev > max ? max : prev;
     });
   }, [filteredPosts.length]);
@@ -379,11 +376,11 @@ export default function ResourcePage() {
   const currentPosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
 
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-zinc-950 to-black py-12">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
       {/* soft coral glow like membership hero */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.26),_transparent_60%)] opacity-80 blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"
       />
 
       <div className="relative mx-auto flex w-full flex-col gap-10 px-6 sm:px-10">
