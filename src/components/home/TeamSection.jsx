@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
 const TEAM = [
@@ -8,30 +9,42 @@ const TEAM = [
     name: "John Smith",
     role: "Trainer, Fitness",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 2,
     name: "John Smith",
     role: "Trainer, Fitness",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 3,
     name: "John Smith",
     role: "Trainer, Fitness",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 4,
     name: "John Smith",
     role: "Trainer, Fitness",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
+  },
+  {
+    id: 4,
+    name: "John Smith",
+    role: "Trainer, Fitness",
+    image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 5,
     name: "John Smith",
     role: "Trainer, Fitness",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
 ];
 
@@ -121,7 +134,9 @@ export default function TeamSection() {
                     <Icon.li className="h-5 w-5" />
                     <Icon.mail className="h-5 w-5" />
                     <Icon.site className="h-5 w-5" />
-                    <Icon.eye className="h-5 w-5" />
+                    <Link href={member.desc}>
+                      <Icon.eye className="h-5 w-5" />
+                    </Link>
                   </div>
 
                   <button className="mt-4 rounded-full bg-[var(--bg-primary)] px-4 py-1.5 text-xs font-medium hover:bg-rose-600 transition-colors">

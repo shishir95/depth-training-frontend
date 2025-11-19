@@ -1,6 +1,7 @@
 // components/TeamSection.jsx
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 // ---- demo data: replace with your CMS/DB data ----
@@ -15,6 +16,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 2,
@@ -26,6 +28,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 4,
@@ -48,6 +52,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 5,
@@ -59,6 +64,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 6,
@@ -70,6 +76,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 7,
@@ -81,6 +88,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 8,
@@ -92,6 +100,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 9,
@@ -103,6 +112,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 10,
@@ -114,6 +124,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 11,
@@ -125,6 +136,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 12,
@@ -136,6 +148,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 13,
@@ -147,6 +160,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 14,
@@ -158,6 +172,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 15,
@@ -169,6 +184,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 16,
@@ -180,6 +196,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 17,
@@ -191,6 +208,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 18,
@@ -202,6 +220,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 19,
@@ -213,6 +232,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 20,
@@ -224,6 +244,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 21,
@@ -235,6 +256,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 22,
@@ -246,6 +268,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 23,
@@ -257,6 +280,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   {
     id: 24,
@@ -268,6 +292,7 @@ const TEAM = [
     site: "#",
     view: "#",
     image: "/assets/image.png",
+    desc: "/trainerdescription",
   },
   // add as many as you like…
 ];
@@ -321,7 +346,9 @@ function TeamCard({ person }) {
           <Icon.li className="h-5 w-5" />
           <Icon.mail className="h-5 w-5" />
           <Icon.site className="h-5 w-5" />
-          <Icon.eye className="h-5 w-5" />
+          <Link href={person.desc}>
+            <Icon.eye className="h-5 w-5" />
+          </Link>
         </div>
 
         <button className="mt-4 rounded-full bg-[var(--bg-primary)] px-4 py-1.5 text-xs font-medium hover:bg-rose-600 transition-colors">
