@@ -13,7 +13,7 @@ export default function FindSpecialtiesSection({
 }) {
   return (
     <section
-      className={`relative w-full overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.22),_transparent_60%),#050509] text-white ${className}`}
+      className={`relative w-full overflow-hidden bg-transparent text-white ${className}`}
       aria-label="Find Specialties"
     >
       <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20 lg:py-24">

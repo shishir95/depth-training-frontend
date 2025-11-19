@@ -249,7 +249,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_60%),#050509] text-white">
+    <section className="w-full bg-transparent py-16 text-white">
       <div className="mx-auto max-w-7xl px-4">
         {/* Title */}
         <div className="text-center">
