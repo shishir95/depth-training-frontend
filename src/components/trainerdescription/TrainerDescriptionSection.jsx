@@ -1,6 +1,5 @@
 "use client";
 
-import { url } from "inspector";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +24,7 @@ export default function TrainerHeroSection({
         {/* Image block */}
         <div className="relative w-full max-w-[500px] h-[520px] flex-shrink-0 overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl">
           <Image
-            src={url(photo)}
+            src={photo}
             alt={name}
             fill
             className="object-cover object-center"
