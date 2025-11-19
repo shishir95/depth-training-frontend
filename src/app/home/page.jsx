@@ -1,16 +1,14 @@
-import Image from "next/image";
-import Header from "../../components/common/Header";
-import Hero from "../../components/common/Hero";
-import TrainerCard from "../../components/home/TrainerCard";
-import TeamSection from "../../components/home/TeamSection";
-import FindSpecialtiesSection from "../../components/common/FindSpecialitiesSection";
-import CustomerReviews from "@/components/common/CustomerReviews";
-import ArticlesSection from "../../components/home/ArticleSection";
+import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
-import AnimationScroll from "@/components/common/AnimationScroll";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
+import FacilitiesSection from "@/components/home/FacilitiesSection";
 import HeroTitleAnimation from "@/components/home/HeroTitleAnimation";
 import OurOfferSection from "@/components/home/OurOfferSection";
-import FacilitiesSection from "@/components/home/FacilitiesSection";
+import TeamSection from "@/components/home/TeamSection";
+import ArticlesSection from "@/components/home/ArticleSection";
+import ScrollSection from "@/components/home/ScrollSection";
+import AnimatedBackdrop from "@/components/home/AnimatedBackdrop";
 
 export default function Home() {
   const heroContents = {
@@ -21,19 +19,36 @@ export default function Home() {
     buttonLabel: "Book a Free Consultation",
   };
   return (
-    <div className="home-page">
+    <div className="home-page relative min-h-screen overflow-hidden bg-[#020109] text-white">
+      <AnimatedBackdrop />
       <Header />
       <HeroTitleAnimation {...heroContents} />
-      {[...Array(1)].map((_, i) => (
-        <AnimationScroll key={i} delay={i * 0.2}>
+
+      <div className="flex flex-col gap-16">
+        <ScrollSection variant="fade-up">
           <FindSpecialtiesSection />
+        </ScrollSection>
+
+        <ScrollSection variant="slide-left">
           <TeamSection />
-          <CustomerReviews />
+        </ScrollSection>
+
+        <ScrollSection variant="fade-up">
           <OurOfferSection />
+        </ScrollSection>
+
+        <ScrollSection variant="slide-right">
           <FacilitiesSection />
+        </ScrollSection>
+
+        <ScrollSection variant="fade-up">
+          <CustomerReviews />
+        </ScrollSection>
+
+        <ScrollSection variant="fade-up">
           <ArticlesSection />
-        </AnimationScroll>
-      ))}
+        </ScrollSection>
+      </div>
 
       <FooterStrip />
     </div>

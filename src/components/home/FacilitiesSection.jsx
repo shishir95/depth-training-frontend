@@ -57,15 +57,18 @@ export default function FacilitiesSection() {
   };
 
   return (
-    <section className="w-full bg-zinc-800 text-white py-16">
+    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.16),_transparent_60%),#050509] py-16 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
         {/* Heading */}
-        <h2 className="text-center text-3xl font-semibold text-white mb-10">
+        <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
+          Locations
+        </p>
+        <h2 className="mb-10 mt-2 text-center text-3xl font-semibold text-white">
           Our High Performance Facilities
         </h2>
 
         {/* Card */}
-        <div className="relative flex flex-col lg:flex-row gap-10 rounded-2xl px-6 sm:px-8 lg:px-12 py-10">
+        <div className="relative flex flex-col gap-10 rounded-[32px] border border-white/8 bg-[var(--depth-card)]/80 px-6 py-10 shadow-[0_22px_65px_rgba(0,0,0,0.55)] backdrop-blur-md lg:flex-row sm:px-8 lg:px-12">
           {/* Text side */}
           <div className="lg:w-1/2 space-y-6">
             <div className="flex items-center gap-3 text-lg sm:text-xl md:text-2xl font-medium">
@@ -87,7 +90,7 @@ export default function FacilitiesSection() {
               <span>{current.name}</span>
             </div>
 
-            <p className="text-sm sm:text-base leading-relaxed text-neutral-200 whitespace-pre-line">
+            <p className="text-sm sm:text-base leading-relaxed text-[var(--depth-muted)] whitespace-pre-line">
               {current.description.trim()}
             </p>
           </div>
@@ -113,7 +116,7 @@ export default function FacilitiesSection() {
             <button
               type="button"
               onClick={handlePrevLocation}
-              className="h-11 w-11 rounded-full border border-[var(--bg-primary)] text-white bg-[#141414] flex items-center justify-center hover:bg-rose-500/10 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[var(--depth-accent)] hover:bg-[var(--depth-accent)]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--depth-accent)]/40"
               aria-label="Previous location"
             >
               {/* <HiChevronLeft className="h-6 w-6" /> */}
@@ -135,7 +138,7 @@ export default function FacilitiesSection() {
             <button
               type="button"
               onClick={handleNextLocation}
-              className="h-11 w-11 rounded-full border border-[var(--bg-primary)] text-white bg-[#141414] flex items-center justify-center hover:bg-rose-500/10 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[var(--depth-accent)] hover:bg-[var(--depth-accent)]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--depth-accent)]/40"
               aria-label="Next location"
             >
               {/* <HiChevronRight className="h-6 w-6" /> */}

@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function OurOfferSection() {
   const posts = [
     {
@@ -25,34 +27,44 @@ export default function OurOfferSection() {
     },
   ];
   return (
-    <section className="w-full bg-[#121214] py-14">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-center text-3xl font-semibold text-white mb-10">
+    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.2),_transparent_60%),#050509] py-16">
+      <div className="mx-auto max-w-7xl px-4">
+        <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
+          Programs
+        </p>
+        <h2 className="text-center text-3xl font-semibold text-white mt-2 mb-10">
           What We Offer
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <div
+            <motion.article
               key={post.id}
-              className="border border-[var(--bg-primary)] rounded-xl bg-neutral-900 p-6 shadow-sm hover:border-rose-400 transition"
+              className="rounded-2xl border border-white/8 bg-[var(--depth-card)]/90 p-6 text-white shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-sm"
+              whileHover={{
+                y: -4,
+                scale: 1.01,
+                boxShadow: "0 0 32px rgba(244,63,94,0.35)",
+              }}
+              whileTap={{ scale: 0.985 }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
             >
-              <div className=" flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center">
                 <img
-                  className="h-15 w-15"
+                  className="h-16 w-16"
                   src={post.icon}
                   alt="Self Confidence Icon"
                 />
               </div>
 
-              <h3 className="flex flex-col items-center justify-center text-lg sm:text-xl font-semibold text-white leading-snug mb-3 mt-3">
+              <h3 className="mt-5 text-center text-lg font-semibold leading-snug text-white sm:text-xl">
                 {post.title}
               </h3>
 
-              <p className="text-sm text-zinc-300 leading-relaxed mb-6">
+              <p className="mt-3 text-center text-sm leading-relaxed text-[var(--depth-muted)]">
                 {post.excerpt}
               </p>
-            </div>
+            </motion.article>
           ))}
         </div>
       </div>

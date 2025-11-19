@@ -1,6 +1,7 @@
 // components/TeamSection.jsx
 "use client";
 
+import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 // ---- demo data: replace with your CMS/DB data ----
@@ -125,29 +126,37 @@ const Icon = {
 
 function TeamCard({ person }) {
   return (
-    <div className="group relative overflow-visible min-w-[320px] sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px] snap-start">
-      {/* avatar (floats above card, not clipped) */}
-      <div
-        className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2
-                  z-20 h-40 w-40 rounded-full bg-zinc-400/80 ring-4 ring-zinc-900
-                  flex items-center justify-center pointer-events-none"
-      >
+    <motion.article
+      className="group relative min-w-[320px] snap-start overflow-visible sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px]"
+      whileHover={{
+        y: -6,
+        scale: 1.01,
+        boxShadow: "0 22px 65px rgba(0,0,0,0.65)",
+      }}
+      whileTap={{ scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+    >
+      <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-zinc-200/70 ring-4 ring-[#050509] shadow-2xl">
         <img
           src="/assets/image.png"
           alt={person.name}
-          className=" rounded-full object-cover object-center shadow-lg"
+          className="rounded-full object-cover object-center"
         />
       </div>
 
-      {/* card (pushed down so it doesn’t overlap the avatar) */}
-      <div className="mt-40 rounded border border-[var(--bg-primary)] bg-zinc-900 p-5 text-center shadow-sm">
-        <h3 className="text-xl font-semibold text-white">{person.name}</h3>
-        <p className="mt-1 text-lg text-zinc-300">{person.title}</p>
+      <div className="mt-40 rounded-2xl border border-white/8 bg-[var(--depth-card)]/90 p-6 text-center shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-sm">
+        <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--depth-muted)]">
+          {person.tags.join(" • ")}
+        </p>
+        <h3 className="mt-3 text-xl font-semibold text-white">{person.name}</h3>
+        <p className="mt-1 text-base text-[var(--depth-muted)]">
+          {person.title}
+        </p>
 
-        <div className="mt-5 flex items-center justify-between">
+        <div className="mt-6 flex items-center justify-between">
           <a
-            href="#book"
-            className="rounded-md bg-[var(--bg-primary)] px-3 py-1.5 text-xs font-semibold text-white shadow hover:bg-rose-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300"
+            href={person.view}
+            className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-white shadow-[0_0_22px_rgba(244,63,94,0.35)] transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
           >
             Book Now
           </a>
@@ -156,35 +165,35 @@ function TeamCard({ person }) {
             <a
               href={person.li}
               aria-label="LinkedIn"
-              className="hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
             >
-              <Icon.li className="h-5 w-5" />
+              <Icon.li className="h-4 w-4" />
             </a>
             <a
               href={person.mail}
               aria-label="Email"
-              className="hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
             >
-              <Icon.mail className="h-5 w-5" />
+              <Icon.mail className="h-4 w-4" />
             </a>
             <a
               href={person.site}
               aria-label="Website"
-              className="hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
             >
-              <Icon.site className="h-5 w-5" />
+              <Icon.site className="h-4 w-4" />
             </a>
             <a
               href={person.view}
               aria-label="View profile"
-              className="hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:text-white"
             >
-              <Icon.eye className="h-5 w-5" />
+              <Icon.eye className="h-4 w-4" />
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </motion.article>
   );
 }
 
@@ -218,22 +227,25 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="w-screen bg-zinc-900 py-12 text-white">
-      <div className="px-0">
+    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_60%),#050509] py-16 text-white">
+      <div className="mx-auto max-w-7xl px-4">
         {/* Title */}
         <div className="text-center">
-          <h2 className="text-3xl font-semibold sm:text-4xl">Our Team</h2>
+          <p className="text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
+            Specialists
+          </p>
+          <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Our Team</h2>
 
           {/* Tabs */}
-          <div className="mt-4 flex items-center justify-center gap-6 text-lg">
+          <div className="mt-6 flex items-center justify-center gap-6 text-base">
             {TABS.map((t) => (
               <button
                 key={t}
                 onClick={() => setActive(t)}
-                className={`pb-1 transition ${
+                className={`rounded-full border px-4 py-1.5 transition ${
                   active === t
-                    ? "font-semibold text-white underline decoration-rose-400 underline-offset-4"
-                    : "text-zinc-300 hover:text-white"
+                    ? "border-[var(--depth-accent)] bg-[var(--depth-accent)] text-black shadow-[0_0_22px_rgba(244,63,94,0.35)]"
+                    : "border-white/10 text-zinc-300 hover:border-white/30 hover:text-white"
                 }`}
               >
                 {t}
@@ -244,13 +256,13 @@ export default function TeamSection() {
 
         {/* Carousel */}
         <div
-          className="relative mt-10"
+          className="relative mt-12"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           <div
             ref={scrollerRef}
-            className=" no-scrollbar flex flex-nowrap justify-center snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 [scrollbar-width:none] [-ms-overflow-style:none]"
+            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 py-2 [scrollbar-width:none] [-ms-overflow-style:none]"
           >
             {/* hide scrollbar in webkit */}
             <style jsx>{`
@@ -265,21 +277,21 @@ export default function TeamSection() {
           </div>
 
           {/* Controls */}
-          <div className="flex justify-end mt-8 pr-20">
+          <div className="mt-10 flex justify-end">
             <div className="flex gap-4">
               <button
                 aria-label="Previous"
                 onClick={() => go("prev")}
-                className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--bg-primary)] bg-zinc-900 text-white hover:bg-zinc-800"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[var(--depth-accent)] hover:bg-[var(--depth-accent)]/20"
               >
-                <Icon.chevronLeft className="h-6 w-6" />
+                <Icon.chevronLeft className="h-5 w-5" />
               </button>
               <button
                 aria-label="Next"
                 onClick={() => go("next")}
-                className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--bg-primary)] bg-zinc-900 text-white hover:bg-zinc-800"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[var(--depth-accent)] hover:bg-[var(--depth-accent)]/20"
               >
-                <Icon.chevronRight className="h-6 w-6" />
+                <Icon.chevronRight className="h-5 w-5" />
               </button>
             </div>
           </div>
