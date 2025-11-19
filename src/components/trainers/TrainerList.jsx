@@ -305,7 +305,7 @@ function TeamCard({ person }) {
       {/* Avatar bubble with parallax-ish lift on hover */}
       <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full ring-4 ring-[#050509] shadow-2xl bg-[radial-gradient(circle_at_bottom,_rgba(244,63,94,0.22),_rgba(5,5,9,0.98)_70%)] backdrop-blur-[2px] transition-transform duration-500">
         <img
-          src="/assets/image.png"
+          src={url("/assets/image.png")}
           alt={person.name}
           className="h-full w-full rounded-full object-cover object-center"
         />
