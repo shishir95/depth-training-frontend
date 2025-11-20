@@ -8,7 +8,7 @@ export const metadata = { title: "Resources | Depth Training" };
 
 export default function ResourcePages() {
   return (
-    <main className="min-h-screen w-full bg-[#020109] text-white">
+    <main className="relative min-h-screen w-full bg-transparent text-white">
       {/* full-width header */}
       <Header />
 

@@ -11,7 +11,6 @@ import OurOfferSection from "@/components/home/OurOfferSection";
 import TeamSection from "@/components/home/TeamSection";
 import ArticlesSection from "@/components/home/ArticleSection";
 import ScrollSection from "@/components/home/ScrollSection";
-import AnimatedFitnessBackdrop from "@/components/home/AnimatedFitnessBackdrop";
 
 export default function Home() {
   const heroContents = {
@@ -23,10 +22,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen w-full overflow-hidden bg-[#020109] text-white">
-      {/* 🔥 global fitness background */}
-      <AnimatedFitnessBackdrop />
-
+    <main className="relative min-h-screen w-full overflow-hidden bg-transparent text-white">
       <div className="relative z-10">
         {/* full-width header */}
         <Header />
