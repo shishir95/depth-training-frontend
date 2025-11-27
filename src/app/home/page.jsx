@@ -55,10 +55,6 @@ export default function Home() {
           <ScrollSection variant="fade-up">
             <CustomerReviews />
           </ScrollSection>
-
-          <ScrollSection variant="fade-up">
-            <ArticlesSection />
-          </ScrollSection>
         </div>
 
         <FooterStrip />
