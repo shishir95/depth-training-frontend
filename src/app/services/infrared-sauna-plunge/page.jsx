@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function InfraredSaunaColdPlungePage() {
   return (
@@ -112,7 +114,9 @@ export default function InfraredSaunaColdPlungePage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Athletes between games, practices, or heavy lifts.</span>
+                    <span>
+                      Athletes between games, practices, or heavy lifts.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -258,6 +262,8 @@ export default function InfraredSaunaColdPlungePage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

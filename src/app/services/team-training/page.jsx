@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function TeamTrainingPage() {
   return (
@@ -28,9 +30,9 @@ export default function TeamTrainingPage() {
                 </h1>
 
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
-                  The DEPTH Team Training Program is built for local minor sports
-                  teams that want a clear plan for strength, speed, and teamwork
-                  — not just random workouts before or after practice.
+                  The DEPTH Team Training Program is built for local minor
+                  sports teams that want a clear plan for strength, speed, and
+                  teamwork — not just random workouts before or after practice.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -110,7 +112,10 @@ export default function TeamTrainingPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Local minor hockey, soccer, football, and field sport teams.</span>
+                    <span>
+                      Local minor hockey, soccer, football, and field sport
+                      teams.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -218,8 +223,8 @@ export default function TeamTrainingPage() {
                 </h3>
                 <p className="text-neutral-300 text-sm">
                   Athletes arrive ready to move. Coaches lead warm-up, strength,
-                  speed, and conditioning so your players leave tired, confident,
-                  and better prepared for their season.
+                  speed, and conditioning so your players leave tired,
+                  confident, and better prepared for their season.
                 </p>
               </div>
             </div>
@@ -257,6 +262,8 @@ export default function TeamTrainingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function ConcussionManagementPage() {
   return (
@@ -72,7 +74,8 @@ export default function ConcussionManagementPage() {
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Tailored treatment plans — no two concussions are the same.
+                      Tailored treatment plans — no two concussions are the
+                      same.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -122,7 +125,8 @@ export default function ConcussionManagementPage() {
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Challenges returning to school, work, or physical activity.
+                      Challenges returning to school, work, or physical
+                      activity.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -139,8 +143,8 @@ export default function ConcussionManagementPage() {
                   What we assess during your visit
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
-                  Our 90-minute assessments take a comprehensive look at how your
-                  brain and body are responding after concussion.
+                  Our 90-minute assessments take a comprehensive look at how
+                  your brain and body are responding after concussion.
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
                   <span className="inline-flex items-center gap-2">
@@ -228,9 +232,9 @@ export default function ConcussionManagementPage() {
                   Not sure what to do after a concussion?
                 </h2>
                 <p className="text-sm text-neutral-300 max-w-xl">
-                  Book an assessment or reach out with your questions. We&apos;ll
-                  help you understand what&apos;s going on and how to move
-                  forward safely.
+                  Book an assessment or reach out with your questions.
+                  We&apos;ll help you understand what&apos;s going on and how to
+                  move forward safely.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -254,6 +258,8 @@ export default function ConcussionManagementPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

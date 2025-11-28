@@ -2,6 +2,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function NutritionTrainingPage() {
   return (
@@ -68,15 +70,21 @@ export default function NutritionTrainingPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Improve energy, sleep, and recovery from training.</span>
+                    <span>
+                      Improve energy, sleep, and recovery from training.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Support fat loss, muscle gain, or body-composition goals.</span>
+                    <span>
+                      Support fat loss, muscle gain, or body-composition goals.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Stay accountable with check-ins and adjustments.</span>
+                    <span>
+                      Stay accountable with check-ins and adjustments.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -100,19 +108,29 @@ export default function NutritionTrainingPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>People starting a fitness journey and unsure what to eat.</span>
+                    <span>
+                      People starting a fitness journey and unsure what to eat.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Members who train hard but don&apos;t see the results they want.</span>
+                    <span>
+                      Members who train hard but don&apos;t see the results they
+                      want.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Anyone confused by conflicting nutrition advice online.</span>
+                    <span>
+                      Anyone confused by conflicting nutrition advice online.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>People who prefer simple, sustainable habits over strict diets.</span>
+                    <span>
+                      People who prefer simple, sustainable habits over strict
+                      diets.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -237,6 +255,8 @@ export default function NutritionTrainingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function OffSeasonTrainingPage() {
   return (
@@ -28,10 +30,10 @@ export default function OffSeasonTrainingPage() {
                 </h1>
 
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
-                  High-performance off-season training for hockey and field sport
-                  athletes who want to get stronger, faster, and better prepared
-                  for camp and playoffs. Programs are customized to age, sport,
-                  and competition level. 
+                  High-performance off-season training for hockey and field
+                  sport athletes who want to get stronger, faster, and better
+                  prepared for camp and playoffs. Programs are customized to
+                  age, sport, and competition level.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -52,8 +54,8 @@ export default function OffSeasonTrainingPage() {
                 </div>
 
                 <p className="text-xs text-neutral-400">
-                  Programs typically run May–August with options for all ages and
-                  levels. 
+                  Programs typically run May–August with options for all ages
+                  and levels.
                 </p>
               </div>
 
@@ -67,21 +69,21 @@ export default function OffSeasonTrainingPage() {
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       15+ years of high-performance off-season training in
-                      Waterloo Region. 
+                      Waterloo Region.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       World-class coaching and structured programs, not open
-                      “workout on your own” time. 
+                      “workout on your own” time.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       Options for NHL, pro, junior, varsity, and youth athletes
-                      in any sport. 
+                      in any sport.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -106,22 +108,22 @@ export default function OffSeasonTrainingPage() {
                   Who Off-Season training is for
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
-                  Built for serious athletes who want to show up to camp ready
-                  — not catching up. 
+                  Built for serious athletes who want to show up to camp ready —
+                  not catching up.
                 </p>
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       Hockey players (NHL, pro, junior, varsity, youth) in their
-                      off-season. 
+                      off-season.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       Field sport athletes (soccer, football, rugby, lacrosse,
-                      etc.) looking for structured off-season training. 
+                      etc.) looking for structured off-season training.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -148,7 +150,7 @@ export default function OffSeasonTrainingPage() {
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
                   Training blocks are planned to peak you for camp and the start
-                  of the season. 
+                  of the season.
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
                   <span className="inline-flex items-center gap-2">
@@ -197,7 +199,7 @@ export default function OffSeasonTrainingPage() {
                 </h3>
                 <p className="text-neutral-300 text-sm">
                   Check the Off-Season page for age groups and options, then
-                  call or email if you&apos;re unsure which path fits you best. 
+                  call or email if you&apos;re unsure which path fits you best.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
@@ -208,9 +210,8 @@ export default function OffSeasonTrainingPage() {
                   Complete your registration form
                 </h3>
                 <p className="text-neutral-300 text-sm">
-                  Fill out the online registration for your age group. The
-                  admin team follows up with details, schedule, and payment
-                  info. 
+                  Fill out the online registration for your age group. The admin
+                  team follows up with details, schedule, and payment info.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
@@ -222,7 +223,7 @@ export default function OffSeasonTrainingPage() {
                 </h3>
                 <p className="text-neutral-300 text-sm">
                   Commit to the full training block so strength, speed, and
-                  conditioning peak at the right time heading into camp. 
+                  conditioning peak at the right time heading into camp.
                 </p>
               </div>
             </div>
@@ -261,6 +262,8 @@ export default function OffSeasonTrainingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

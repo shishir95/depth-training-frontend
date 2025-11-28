@@ -2,6 +2,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function CorporateFitnessPage() {
   return (
@@ -69,15 +71,21 @@ export default function CorporateFitnessPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Customized training programs for employee teams.</span>
+                    <span>
+                      Customized training programs for employee teams.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Wellness workshops and lunch-and-learn sessions.</span>
+                    <span>
+                      Wellness workshops and lunch-and-learn sessions.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Support with ongoing employee wellness initiatives.</span>
+                    <span>
+                      Support with ongoing employee wellness initiatives.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -101,7 +109,9 @@ export default function CorporateFitnessPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Small and mid-sized businesses in Waterloo Region.</span>
+                    <span>
+                      Small and mid-sized businesses in Waterloo Region.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -109,11 +119,16 @@ export default function CorporateFitnessPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Teams looking for a wellness partner, not a one-off event.</span>
+                    <span>
+                      Teams looking for a wellness partner, not a one-off event.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Organizations needing a custom solution around space and schedules.</span>
+                    <span>
+                      Organizations needing a custom solution around space and
+                      schedules.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -168,9 +183,7 @@ export default function CorporateFitnessPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
                   Step 1
                 </p>
-                <h3 className="font-semibold mb-2">
-                  Connect with our team
-                </h3>
+                <h3 className="font-semibold mb-2">Connect with our team</h3>
                 <p className="text-neutral-300 text-sm">
                   Email or call to share your company size, goals, and what
                   you&apos;re looking for in a wellness partner.
@@ -237,6 +250,8 @@ export default function CorporateFitnessPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

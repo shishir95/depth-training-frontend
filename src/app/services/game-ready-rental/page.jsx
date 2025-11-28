@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function GameReadyRentalPage() {
   return (
@@ -52,8 +54,9 @@ export default function GameReadyRentalPage() {
                 </div>
 
                 <p className="text-xs text-neutral-400">
-                  Covered by extended health care insurance. No referral required,
-                  but your plan may need a prescription to make a claim.
+                  Covered by extended health care insurance. No referral
+                  required, but your plan may need a prescription to make a
+                  claim.
                 </p>
               </div>
 
@@ -113,7 +116,9 @@ export default function GameReadyRentalPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Post-operative recovery (e.g., joint or ligament surgery).</span>
+                    <span>
+                      Post-operative recovery (e.g., joint or ligament surgery).
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -229,9 +234,9 @@ export default function GameReadyRentalPage() {
                   Want Game Ready® for your recovery?
                 </h2>
                 <p className="text-sm text-neutral-300 max-w-xl">
-                  Call us to request a rental and we&apos;ll walk you through the
-                  process, insurance questions, and how Game Ready® can fit into
-                  your rehab plan.
+                  Call us to request a rental and we&apos;ll walk you through
+                  the process, insurance questions, and how Game Ready® can fit
+                  into your rehab plan.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -253,6 +258,8 @@ export default function GameReadyRentalPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function GladHipKneeOAPage() {
   return (
@@ -30,8 +32,8 @@ export default function GladHipKneeOAPage() {
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
                   GLA:D™ is an education and exercise program for people with
                   hip or knee osteoarthritis. At DEPTH, it&apos;s delivered by
-                  GLA:D™ trained physiotherapists to help you move better, manage
-                  pain, and stay active.
+                  GLA:D™ trained physiotherapists to help you move better,
+                  manage pain, and stay active.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -65,19 +67,28 @@ export default function GladHipKneeOAPage() {
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>60-minute individual assessment with a physiotherapist.</span>
+                    <span>
+                      60-minute individual assessment with a physiotherapist.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Two education sessions about osteoarthritis and self-management.</span>
+                    <span>
+                      Two education sessions about osteoarthritis and
+                      self-management.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>12 group exercise classes over 8 weeks (twice per week).</span>
+                    <span>
+                      12 group exercise classes over 8 weeks (twice per week).
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Small groups (up to ~6 people) for coaching and support.</span>
+                    <span>
+                      Small groups (up to ~6 people) for coaching and support.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -101,18 +112,23 @@ export default function GladHipKneeOAPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Pain or stiffness in your hip or knee with daily activities.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Osteoarthritis that makes walking, stairs, or standing harder.
+                      Pain or stiffness in your hip or knee with daily
+                      activities.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      You want to stay active and avoid or delay surgery if possible.
+                      Osteoarthritis that makes walking, stairs, or standing
+                      harder.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
+                    <span>
+                      You want to stay active and avoid or delay surgery if
+                      possible.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -204,9 +220,9 @@ export default function GladHipKneeOAPage() {
                   Progress tracking & next steps
                 </h3>
                 <p className="text-neutral-300 text-sm">
-                  Your progress is monitored and you&apos;ll leave with a plan to
-                  keep moving, manage your symptoms, and maintain your results
-                  long term.
+                  Your progress is monitored and you&apos;ll leave with a plan
+                  to keep moving, manage your symptoms, and maintain your
+                  results long term.
                 </p>
               </div>
             </div>
@@ -222,8 +238,8 @@ export default function GladHipKneeOAPage() {
                   Have hip or knee osteoarthritis and want support?
                 </h2>
                 <p className="text-sm text-neutral-300 max-w-xl">
-                  Reach out to learn if the GLA:D™ program is right for you. We’ll
-                  help you understand your options and next steps.
+                  Reach out to learn if the GLA:D™ program is right for you.
+                  We’ll help you understand your options and next steps.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -247,6 +263,8 @@ export default function GladHipKneeOAPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

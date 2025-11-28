@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function AthleteTraining14PlusPage() {
   return (
@@ -64,15 +66,22 @@ export default function AthleteTraining14PlusPage() {
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Individualized programs for your sport and season.</span>
+                    <span>
+                      Individualized programs for your sport and season.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Coaches on the floor every session – no unsupervised lifting.</span>
+                    <span>
+                      Coaches on the floor every session – no unsupervised
+                      lifting.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Strength, speed, and conditioning built together.</span>
+                    <span>
+                      Strength, speed, and conditioning built together.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -108,12 +117,15 @@ export default function AthleteTraining14PlusPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Athletes who want more strength, speed, and power.</span>
+                    <span>
+                      Athletes who want more strength, speed, and power.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Athletes cleared to return to strength training after injury.
+                      Athletes cleared to return to strength training after
+                      injury.
                     </span>
                   </li>
                 </ul>
@@ -235,6 +247,8 @@ export default function AthleteTraining14PlusPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

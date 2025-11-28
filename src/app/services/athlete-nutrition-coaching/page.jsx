@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function AthleteNutritionCoachingPage() {
   return (
@@ -31,8 +33,8 @@ export default function AthleteNutritionCoachingPage() {
                   Health and performance both start with what you eat. Athlete
                   Nutrition Coaching helps you build a simple, realistic plan
                   for practices, games, and training days so you recover better,
-                  have more energy, and get the most out of your work in the
-                  gym and on the ice or field. 
+                  have more energy, and get the most out of your work in the gym
+                  and on the ice or field.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -55,7 +57,7 @@ export default function AthleteNutritionCoachingPage() {
 
                 <p className="text-xs text-neutral-400">
                   Coaching is led by Precision Certified Nutrition Coaches and
-                  can be done virtually or in person. 
+                  can be done virtually or in person.
                 </p>
               </div>
 
@@ -69,7 +71,7 @@ export default function AthleteNutritionCoachingPage() {
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       A simple nutrition plan designed around your sport, age,
-                      schedule, and goals. 
+                      schedule, and goals.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -83,7 +85,7 @@ export default function AthleteNutritionCoachingPage() {
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       Pre- and post-workout / game fueling strategies so you
-                      have energy when it counts. 
+                      have energy when it counts.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -110,7 +112,7 @@ export default function AthleteNutritionCoachingPage() {
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
                   For athletes who know training alone isn&apos;t enough — and
-                  want their nutrition to finally match their effort. 
+                  want their nutrition to finally match their effort.
                 </p>
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
@@ -148,7 +150,7 @@ export default function AthleteNutritionCoachingPage() {
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
                   Sessions focus on practical changes you can make right away,
-                  not complicated diets. 
+                  not complicated diets.
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
                   <span className="inline-flex items-center gap-2">
@@ -198,7 +200,7 @@ export default function AthleteNutritionCoachingPage() {
                 <p className="text-neutral-300 text-sm">
                   Call the clinic or email the team if you have questions or
                   want to get started. Our Client Experience Team can walk you
-                  through pricing and options. 
+                  through pricing and options.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
@@ -211,7 +213,7 @@ export default function AthleteNutritionCoachingPage() {
                 <p className="text-neutral-300 text-sm">
                   You&apos;ll meet with a Precision Certified Nutrition Coach
                   for an initial assessment and goal-setting session, then get a
-                  plan tailored to you. 
+                  plan tailored to you.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
@@ -265,6 +267,8 @@ export default function AthleteNutritionCoachingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

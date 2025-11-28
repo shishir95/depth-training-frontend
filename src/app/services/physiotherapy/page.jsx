@@ -3,6 +3,8 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
 
 export default function PhysiotherapyPage() {
   return (
@@ -29,8 +31,8 @@ export default function PhysiotherapyPage() {
 
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
                   One-on-one, evidence-based physiotherapy to help ease pain,
-                  speed up recovery, improve mobility, and build strength so
-                  you can get back to what you love.
+                  speed up recovery, improve mobility, and build strength so you
+                  can get back to what you love.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -116,7 +118,9 @@ export default function PhysiotherapyPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Limited mobility or pain that keeps coming back.</span>
+                    <span>
+                      Limited mobility or pain that keeps coming back.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -126,8 +130,8 @@ export default function PhysiotherapyPage() {
                   Common areas we treat
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
-                  Treatment is tailored to you, but some common problem areas
-                  we see include:
+                  Treatment is tailored to you, but some common problem areas we
+                  see include:
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
                   <span className="inline-flex items-center gap-2">
@@ -173,7 +177,9 @@ export default function PhysiotherapyPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
                   Step 2
                 </p>
-                <h3 className="font-semibold mb-2">Personalized treatment plan</h3>
+                <h3 className="font-semibold mb-2">
+                  Personalized treatment plan
+                </h3>
                 <p className="text-neutral-300 text-sm">
                   You get a clear plan using proven physiotherapy techniques to
                   ease pain, improve mobility, and build strength.
@@ -183,10 +189,12 @@ export default function PhysiotherapyPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
                   Step 3
                 </p>
-                <h3 className="font-semibold mb-2">1-on-1 care that progresses</h3>
+                <h3 className="font-semibold mb-2">
+                  1-on-1 care that progresses
+                </h3>
                 <p className="text-neutral-300 text-sm">
-                  Longer appointments with your physiotherapist, progress check-ins,
-                  and updates as you move closer to your goals.
+                  Longer appointments with your physiotherapist, progress
+                  check-ins, and updates as you move closer to your goals.
                 </p>
               </div>
             </div>
@@ -202,8 +210,8 @@ export default function PhysiotherapyPage() {
                   Ready to start feeling better?
                 </h2>
                 <p className="text-sm text-neutral-300 max-w-xl">
-                  Book online in a few clicks or contact us if you have questions
-                  about whether physiotherapy is right for you.
+                  Book online in a few clicks or contact us if you have
+                  questions about whether physiotherapy is right for you.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -227,6 +235,8 @@ export default function PhysiotherapyPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />
