@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="relative flex flex-col gap-16 px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="relative flex flex-col gap-16 px-4 pb-10 sm:px-6 lg:px-8">
           <ScrollSection variant="slide-left">
             <TeamSection />
           </ScrollSection>

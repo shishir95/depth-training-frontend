@@ -27,7 +27,7 @@ export default function OurOfferSection() {
     },
   ];
   return (
-    <section className="w-full bg-transparent py-16">
+    <section className="w-full bg-transparent">
       <div className="mx-auto max-w-7xl px-4">
         <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
           Programs

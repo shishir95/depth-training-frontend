@@ -16,8 +16,8 @@ export default function FindSpecialtiesSection({
       className={`relative w-full overflow-hidden bg-transparent text-white ${className}`}
       aria-label="Find Specialties"
     >
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20 lg:py-24">
-        <div className="rounded-[32px] border border-white/8 bg-[var(--depth-card)]/85 px-6 py-12 text-center shadow-[0_18px_45px_rgba(0,0,0,0.65)] backdrop-blur-md sm:px-12">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:py-20 lg:py-10">
+        <div className="rounded-[32px] border  border-neutral-800 bg-black  px-6 py-12 text-center shadow-[0_18px_45px_rgba(0,0,0,0.65)] backdrop-blur-md sm:px-12">
           <p className="text-[12px] font-semibold uppercase tracking-[0.35em] text-[var(--depth-muted)]">
             Not sure where to start?
           </p>
