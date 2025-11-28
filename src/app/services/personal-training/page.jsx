@@ -6,6 +6,7 @@ import FooterStrip from "@/components/common/FooterStrip";
 import CustomerReviews from "@/components/common/CustomerReviews";
 import ClassScheduleSection from "@/components/services/classSchedule/classScheduleSection";
 import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function PersonalTrainingPage() {
   return (
@@ -228,6 +229,7 @@ export default function PersonalTrainingPage() {
           </div>
         </section>
         <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
         <CustomerReviews></CustomerReviews>
       </main>
 

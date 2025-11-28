@@ -15,7 +15,7 @@ export default function ServicesPage() {
           <ServicesShowcase />
         </div>
         <TrainingPictureSection></TrainingPictureSection>
-        <FeaturedTraining />
+        <FeaturedTraining></FeaturedTraining>
       </div>
       <FooterStrip />
     </main>

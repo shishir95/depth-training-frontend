@@ -5,6 +5,7 @@ import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
 import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function ChiropracticPage() {
   return (
@@ -249,6 +250,7 @@ export default function ChiropracticPage() {
           </div>
         </section>
         <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
         <CustomerReviews></CustomerReviews>
       </main>
 
