@@ -8,7 +8,7 @@ import Header from "@/components/common/Header";
 
 export default function MembershipPage() {
   const heroContents = {
-    title: "Meet Our Trainers and Specialties",
+    title: "Meet Our Team and Specialties",
     subTitle:
       "Certified Experts in Physiotherapy, Rehabilitation and Fitness Performance",
     button: false,
