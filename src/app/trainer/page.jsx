@@ -19,7 +19,7 @@ export default function MembershipPage() {
       <Header />
       <Hero {...heroContents} />
       <TrainerList />
-      <FooterStrip /> {/* ✅ add footer */}
+      <FooterStrip />
     </main>
   );
 }
