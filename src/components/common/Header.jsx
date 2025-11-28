@@ -95,7 +95,7 @@ const MENU = [
       },
     ],
   },
-  { label: "Trainers", href: "/trainer" },
+  { label: "Our Team", href: "/trainer" },
   { label: "Resources", href: "/resourcepage" },
   { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
