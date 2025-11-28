@@ -2,6 +2,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function SemiPrivateTrainingPage() {
   return (
@@ -63,15 +66,22 @@ export default function SemiPrivateTrainingPage() {
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Individualized programs based on your goals and experience.</span>
+                    <span>
+                      Individualized programs based on your goals and
+                      experience.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Coached every session with small coach-to-client ratios.</span>
+                    <span>
+                      Coached every session with small coach-to-client ratios.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Train alongside like-minded people instead of alone.</span>
+                    <span>
+                      Train alongside like-minded people instead of alone.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -103,7 +113,9 @@ export default function SemiPrivateTrainingPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Regular gym-goers who want more structure and results.</span>
+                    <span>
+                      Regular gym-goers who want more structure and results.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -111,7 +123,9 @@ export default function SemiPrivateTrainingPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>People who want coaching but not a big class vibe.</span>
+                    <span>
+                      People who want coaching but not a big class vibe.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -182,8 +196,8 @@ export default function SemiPrivateTrainingPage() {
                   Assessment & personalized plan
                 </h3>
                 <p className="text-neutral-300 text-sm">
-                  Your coach checks how you move and builds a plan for you,
-                  even though you&apos;re training alongside others.
+                  Your coach checks how you move and builds a plan for you, even
+                  though you&apos;re training alongside others.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
@@ -234,6 +248,9 @@ export default function SemiPrivateTrainingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

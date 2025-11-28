@@ -107,7 +107,7 @@ export default function FooterStrip() {
                 href="/contact"
                 className="inline-flex h-[44px] w-full items-center justify-center rounded-full border border-white/15 bg-transparent px-7 text-[14px] font-medium text-gray-100 transition hover:-translate-y-[1px] hover:bg-white/5 md:w-auto"
               >
-                Book online
+                Book a free consult
               </a>
             </div>
           </div>

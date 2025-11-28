@@ -168,8 +168,6 @@ export default function MembershipPage() {
           </div>
         </section>
       </div>
-
-      {/* full-width footer */}
       <FooterStrip />
     </main>
   );

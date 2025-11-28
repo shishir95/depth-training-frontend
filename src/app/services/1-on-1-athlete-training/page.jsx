@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function OneOnOneAthleteTrainingPage() {
   return (
@@ -28,10 +31,10 @@ export default function OneOnOneAthleteTrainingPage() {
                 </h1>
 
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
-                  Private, fully individualized training sessions for athletes of
-                  all ages. Your coach builds and coaches a plan 100% tailored to
-                  your sport, goals, and schedule so you can move faster toward
-                  the level you want to play at.
+                  Private, fully individualized training sessions for athletes
+                  of all ages. Your coach builds and coaches a plan 100%
+                  tailored to your sport, goals, and schedule so you can move
+                  faster toward the level you want to play at.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -66,8 +69,8 @@ export default function OneOnOneAthleteTrainingPage() {
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      100% of your coach’s attention – every session is built and
-                      coached just for you.
+                      100% of your coach’s attention – every session is built
+                      and coached just for you.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -87,8 +90,8 @@ export default function OneOnOneAthleteTrainingPage() {
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Great for dialing in technique, rebuilding after injury, or
-                      preparing for a key season or camp.
+                      Great for dialing in technique, rebuilding after injury,
+                      or preparing for a key season or camp.
                     </span>
                   </li>
                 </ul>
@@ -113,7 +116,9 @@ export default function OneOnOneAthleteTrainingPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Athletes of any age looking for private coaching.</span>
+                    <span>
+                      Athletes of any age looking for private coaching.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -261,6 +266,9 @@ export default function OneOnOneAthleteTrainingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

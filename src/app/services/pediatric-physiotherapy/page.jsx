@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function PediatricPhysiotherapyPage() {
   return (
@@ -64,7 +67,9 @@ export default function PediatricPhysiotherapyPage() {
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>One-on-one sessions with a pediatric physiotherapist.</span>
+                    <span>
+                      One-on-one sessions with a pediatric physiotherapist.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -117,7 +122,10 @@ export default function PediatricPhysiotherapyPage() {
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Delayed gross motor milestones (rolling, sitting, walking).</span>
+                    <span>
+                      Delayed gross motor milestones (rolling, sitting,
+                      walking).
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -219,7 +227,8 @@ export default function PediatricPhysiotherapyPage() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
-                  Unsure if pediatric physiotherapy is right for your little one?
+                  Unsure if pediatric physiotherapy is right for your little
+                  one?
                 </h2>
                 <p className="text-sm text-neutral-300 max-w-xl">
                   You can book online, call the clinic, or schedule a brief
@@ -248,6 +257,9 @@ export default function PediatricPhysiotherapyPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function OnIceHockeyTrainingPage() {
   return (
@@ -74,8 +77,8 @@ export default function OnIceHockeyTrainingPage() {
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Integrated with DEPTH Off-Season programs for
-                      game-ready conditioning.
+                      Integrated with DEPTH Off-Season programs for game-ready
+                      conditioning.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -114,7 +117,9 @@ export default function OnIceHockeyTrainingPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Youth and minor hockey players looking to level up.</span>
+                    <span>
+                      Youth and minor hockey players looking to level up.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -207,8 +212,9 @@ export default function OnIceHockeyTrainingPage() {
                   Email to ask about packages
                 </h3>
                 <p className="text-neutral-300 text-sm">
-                  Email the contact listed for your group (e.g. dave@depthtraining.ca
-                  or chris@prolifichockey.ca) to ask about spots and pricing.
+                  Email the contact listed for your group (e.g.
+                  dave@depthtraining.ca or chris@prolifichockey.ca) to ask about
+                  spots and pricing.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
@@ -220,7 +226,8 @@ export default function OnIceHockeyTrainingPage() {
                 </h3>
                 <p className="text-neutral-300 text-sm">
                   Commit to the full on-ice block alongside your Off-Season gym
-                  program so skating, skills, and conditioning all peak together.
+                  program so skating, skills, and conditioning all peak
+                  together.
                 </p>
               </div>
             </div>
@@ -259,6 +266,9 @@ export default function OnIceHockeyTrainingPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

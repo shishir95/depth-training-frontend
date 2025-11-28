@@ -135,7 +135,7 @@ export default function PlansSection() {
         })}
       </div>
 
-      <div className="flex-wrap justify-center mt-8 flex gap-6">
+      <div className="flex-wrap justify-center mt-8 flex gap-6 pb-5">
         {PLAN_DATA[active].map((plan, index) => (
           <PlanCard
             key={`${active}-${plan.title}-${index}`}
@@ -144,22 +144,6 @@ export default function PlansSection() {
           />
         ))}
       </div>
-
-      <p className="mt-8 text-center text-xs text-[var(--depth-muted)]">
-        Need something custom? Email{" "}
-        <a
-          href="mailto:hello@depthtraining.ca"
-          className="text-white underline"
-        >
-          hello@depthtraining.ca
-        </a>
-      </p>
-
-      <ContactModal
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        planName={selectedPlan}
-      />
     </section>
   );
 }

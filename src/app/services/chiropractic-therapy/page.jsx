@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function ChiropracticPage() {
   return (
@@ -64,12 +67,15 @@ export default function ChiropracticPage() {
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Longer, 1-on-1 appointments that look at the big picture.</span>
+                    <span>
+                      Longer, 1-on-1 appointments that look at the big picture.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
-                      Detailed movement assessment to find the root cause of pain.
+                      Detailed movement assessment to find the root cause of
+                      pain.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -185,7 +191,9 @@ export default function ChiropracticPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
                   Step 2
                 </p>
-                <h3 className="font-semibold mb-2">Personalized treatment plan</h3>
+                <h3 className="font-semibold mb-2">
+                  Personalized treatment plan
+                </h3>
                 <p className="text-neutral-300 text-sm">
                   You get a clear plan using evidence-based chiropractic
                   techniques to ease pain, improve mobility, and build strength.
@@ -195,7 +203,9 @@ export default function ChiropracticPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
                   Step 3
                 </p>
-                <h3 className="font-semibold mb-2">1-on-1 care that progresses</h3>
+                <h3 className="font-semibold mb-2">
+                  1-on-1 care that progresses
+                </h3>
                 <p className="text-neutral-300 text-sm">
                   Each session builds on the last with hands-on care, exercise
                   progressions, and guidance to keep you moving forward.
@@ -239,6 +249,9 @@ export default function ChiropracticPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />
