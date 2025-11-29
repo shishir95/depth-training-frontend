@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function PelvicPhysiotherapyPage() {
   return (
@@ -204,8 +207,8 @@ export default function PelvicPhysiotherapyPage() {
                 </h2>
                 <p className="text-sm text-neutral-300 max-w-xl">
                   Book online or reach out with your questions. You can even
-                  schedule a short pelvic physio conversation to see if it&apos;s
-                  a good fit.
+                  schedule a short pelvic physio conversation to see if
+                  it&apos;s a good fit.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -229,6 +232,9 @@ export default function PelvicPhysiotherapyPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

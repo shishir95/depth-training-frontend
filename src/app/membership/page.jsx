@@ -1,6 +1,5 @@
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
-import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
 import FeaturedTraining from "@/components/membership/FeaturedTraining";
 import PlansSection from "@/components/membership/PlansSection";
 
@@ -35,7 +34,7 @@ export const metadata = { title: "Membership | Depth Training" };
 
 export default function MembershipPage() {
   return (
-    <main className="min-h-screen w-full bg-[#020109] text-white">
+    <main className="relative min-h-screen w-full bg-transparent text-white">
       {/* full-width header */}
       <Header />
 
@@ -127,7 +126,7 @@ export default function MembershipPage() {
           </div>
         </section>
 
-        <FindSpecialtiesSection />
+        {/* FindSpecialtiesSection removed here */}
         <PlansSection />
         <FeaturedTraining />
 
@@ -169,8 +168,6 @@ export default function MembershipPage() {
           </div>
         </section>
       </div>
-
-      {/* full-width footer */}
       <FooterStrip />
     </main>
   );

@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function MassageTherapyPage() {
   return (
@@ -64,7 +67,9 @@ export default function MassageTherapyPage() {
                 <ul className="space-y-3 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Rehab-focused and relaxation-focused treatments.</span>
+                    <span>
+                      Rehab-focused and relaxation-focused treatments.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -95,8 +100,8 @@ export default function MassageTherapyPage() {
                   Who massage therapy is for
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
-                  Massage can help whether you&apos;re recovering from an injury,
-                  training hard, or simply feeling tight and stressed.
+                  Massage can help whether you&apos;re recovering from an
+                  injury, training hard, or simply feeling tight and stressed.
                 </p>
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
@@ -233,6 +238,9 @@ export default function MassageTherapyPage() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

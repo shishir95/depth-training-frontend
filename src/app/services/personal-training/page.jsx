@@ -3,6 +3,10 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import ClassScheduleSection from "@/components/services/classSchedule/classScheduleSection";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function PersonalTrainingPage() {
   return (
@@ -113,7 +117,9 @@ export default function PersonalTrainingPage() {
                 <ul className="space-y-2 text-sm text-neutral-200">
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
-                    <span>Beginners who want to start safely and confidently.</span>
+                    <span>
+                      Beginners who want to start safely and confidently.
+                    </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -205,17 +211,15 @@ export default function PersonalTrainingPage() {
                   Assessment & personalized plan
                 </h3>
                 <p className="text-neutral-300 text-sm">
-                  Your coach assesses how you move and designs a plan with
-                  clear phases that fits your lifestyle and targets your goals.
+                  Your coach assesses how you move and designs a plan with clear
+                  phases that fits your lifestyle and targets your goals.
                 </p>
               </div>
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-400 mb-2">
                   Step 3
                 </p>
-                <h3 className="font-semibold mb-2">
-                  Train, track, and adjust
-                </h3>
+                <h3 className="font-semibold mb-2">Train, track, and adjust</h3>
                 <p className="text-neutral-300 text-sm">
                   You train 1-on-1 with your coach, track progress, and adjust
                   your plan as you get stronger, fitter, and more confident.
@@ -224,39 +228,9 @@ export default function PersonalTrainingPage() {
             </div>
           </div>
         </section>
-
-        {/* Section 4 – Final CTA */}
-        <section className="w-full bg-neutral-950 border-t border-neutral-900">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
-                  Ready to stop guessing and start training with a plan?
-                </h2>
-                <p className="text-sm text-neutral-300 max-w-xl">
-                  Reach out for a free fitness consult and we&apos;ll help you
-                  decide if Personal Training is the right fit for your goals.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="tel:12267489494"
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold bg-red-500 hover:bg-red-600 transition-colors"
-                >
-                  Call to Get Started
-                </a>
-                <a
-                  href="https://www.depthtraining.ca/contact/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-900 transition-colors"
-                >
-                  Book a Free Fitness Consult
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />

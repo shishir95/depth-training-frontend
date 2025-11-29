@@ -3,6 +3,9 @@
 
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
+import TrainingPictureSection from "@/components/services/classSchedule/TrainingPictureSection";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FeaturedTraining from "@/components/membership/FeaturedTraining";
 
 export default function AthleteTrainingU8To14Page() {
   return (
@@ -30,7 +33,7 @@ export default function AthleteTrainingU8To14Page() {
                 <p className="text-sm sm:text-base text-neutral-300 max-w-xl mb-6">
                   Fun, structured strength and movement training for developing
                   athletes. Every young athlete follows a coached plan built for
-                  their age, sport, and experience — never just random drills. 
+                  their age, sport, and experience — never just random drills.
                 </p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
@@ -51,7 +54,7 @@ export default function AthleteTrainingU8To14Page() {
                 </div>
 
                 <p className="text-xs text-neutral-400">
-                  DEPTH Youth & Team Training • 483 Conestogo Road, Waterloo. 
+                  DEPTH Youth & Team Training • 483 Conestogo Road, Waterloo.
                 </p>
               </div>
 
@@ -65,14 +68,14 @@ export default function AthleteTrainingU8To14Page() {
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       Individualized programs based on age, sport, injury
-                      history, and training experience. 
+                      history, and training experience.
                     </span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>
                       High coach-to-athlete ratios — no athlete trains
-                      unsupervised or without a plan. 
+                      unsupervised or without a plan.
                     </span>
                   </li>
                   <li className="flex gap-2">
@@ -143,8 +146,8 @@ export default function AthleteTrainingU8To14Page() {
                   What we focus on with U8–U14 athletes
                 </h2>
                 <p className="text-sm text-neutral-300 mb-5 max-w-md">
-                  Sessions are built to match each athlete&apos;s age and
-                  stage, keeping things challenging but fun. 
+                  Sessions are built to match each athlete&apos;s age and stage,
+                  keeping things challenging but fun.
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-sm text-neutral-200">
                   <span className="inline-flex items-center gap-2">
@@ -258,6 +261,9 @@ export default function AthleteTrainingU8To14Page() {
             </div>
           </div>
         </section>
+        <TrainingPictureSection></TrainingPictureSection>
+        <FeaturedTraining></FeaturedTraining>
+        <CustomerReviews></CustomerReviews>
       </main>
 
       <FooterStrip />
