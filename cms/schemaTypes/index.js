@@ -1,4 +1,4 @@
-import post from './post'
+import post from "./post";
 import serviceCategory from './serviceCategory'
 import service from './service'
 import membershipPlan from './membershipPlan'
