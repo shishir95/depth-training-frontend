@@ -88,12 +88,9 @@ export default function NewsletterSection() {
 
                   <button
                     type="submit"
-                    disabled={status === "loading"}
                     className="inline-flex items-center justify-center rounded-xl bg-[var(--bg-primary,#ef4444)] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_35px_rgba(239,68,68,0.45)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    {status === "loading"
-                      ? "Joining..."
-                      : "Sign up for updates"}
+                    Sign up for updates
                   </button>
                 </div>
 
@@ -101,17 +98,12 @@ export default function NewsletterSection() {
                   By subscribing, you agree to receive emails from Depth
                   Training. You can unsubscribe at any time with a single click.
                 </p>
-
-                {status === "success" && (
-                  <p className="text-xs font-medium text-emerald-400">
-                    You’re in! Check your inbox to confirm your subscription.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="text-xs font-medium text-rose-400">
-                    Something went wrong. Please try again in a moment.
-                  </p>
-                )}
+                {/* <p className="text-xs font-medium text-emerald-400">
+                  You’re in! Check your inbox to confirm your subscription.
+                </p>
+                <p className="text-xs font-medium text-rose-400">
+                  Something went wrong. Please try again in a moment.
+                </p> */}
               </form>
             </div>
           </div>
