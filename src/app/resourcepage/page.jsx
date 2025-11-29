@@ -57,11 +57,16 @@ export default async function ResourcePages() {
       <Header />
 
       <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
-        {/* Pass CMS posts into ResourcePage */}
+        {/* CMS-driven resources list */}
         <ResourcePage posts={posts} />
+
+        {/* Keep teammate sections from development */}
+        <FeaturedTraining />
+        <NewsletterSection />
       </div>
 
       <FooterStrip />
     </main>
   );
 }
+

@@ -209,22 +209,6 @@ export default function PlansSection({ plans = [] }) {
           />
         ))}
       </div>
-
-      <p className="mt-8 text-center text-xs text-[var(--depth-muted)]">
-        Need something custom? Email{" "}
-        <a
-          href="mailto:hello@depthtraining.ca"
-          className="text-white underline"
-        >
-          hello@depthtraining.ca
-        </a>
-      </p>
-
-      <ContactModal
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        planName={selectedPlan}
-      />
     </section>
   );
 }

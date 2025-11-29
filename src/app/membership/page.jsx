@@ -50,7 +50,7 @@ export const metadata = { title: "Membership | Depth Training" };
 export default async function MembershipPage() {
   const membershipPlans = await sanityClient.fetch(MEMBERSHIP_PLANS_QUERY);
   return (
-    <main className="min-h-screen w-full bg-[#020109] text-white">
+    <main className="relative min-h-screen w-full bg-transparent text-white">
       {/* full-width header */}
       <Header />
 
@@ -184,8 +184,6 @@ export default async function MembershipPage() {
           </div>
         </section>
       </div>
-
-      {/* full-width footer */}
       <FooterStrip />
     </main>
   );

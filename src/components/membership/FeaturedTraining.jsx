@@ -2,7 +2,7 @@
 
 export default function FeaturedTraining() {
   return (
-    <section className="border-t border-neutral-800 bg-black">
+    <section className="rounded-3xl border-t border-neutral-800 bg-black">
       <div className="grid w-full grid-cols-1 gap-6 px-6 py-12 md:grid-cols-[1.1fr_1.4fr]">
         {/* Left copy */}
         <div>

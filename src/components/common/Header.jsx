@@ -13,7 +13,7 @@ const MENU = [
       {
         label: "Fitness",
         items: [
-          { label: "Class Schedule", href: "/services" },
+          { label: "Class Schedule", href: "/services/class-schedule" },
           {
             label: "Personal Training",
             href: "/services/personal-training",
@@ -95,7 +95,7 @@ const MENU = [
       },
     ],
   },
-  { label: "Trainers", href: "/trainer" },
+  { label: "Our Team", href: "/trainer" },
   { label: "Resources", href: "/resourcepage" },
   { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
