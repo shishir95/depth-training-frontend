@@ -1,6 +1,7 @@
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import ResourcePage from "@/components/resourcepage/ResourcePage";
+import NewsletterSection from "@/components/resourcepage/NewsletterSection";
 import { createClient } from "@sanity/client";
 
 const client = createClient({
@@ -61,7 +62,6 @@ export default async function ResourcePages() {
         <ResourcePage posts={posts} />
 
         {/* Keep teammate sections from development */}
-        <FeaturedTraining />
         <NewsletterSection />
       </div>
 
