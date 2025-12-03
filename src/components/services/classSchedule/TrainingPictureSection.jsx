@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// ----- DATA: ONLY THE TWO REAL WATERLOO FACILITIES -----
+
 const FACILITIES = [
   {
     name: "408 Albert Street, Waterloo",
@@ -19,7 +19,7 @@ Our DEPTH Youth & Team Training facility is located in north Waterloo near the C
   },
 ];
 
-const AUTO_SLIDE_INTERVAL = 5000; // 5s per image
+const AUTO_SLIDE_INTERVAL = 5000; 
 
 export default function TrainingPictureSection() {
   const [locationIndex, setLocationIndex] = useState(0);
@@ -28,12 +28,12 @@ export default function TrainingPictureSection() {
   const current = FACILITIES[locationIndex];
   const currentImages = current.images ?? [];
 
-  // Reset image index on location switch
+  
   useEffect(() => {
     setPhotoIndex(0);
   }, [locationIndex]);
 
-  // Auto-rotate images
+  
   useEffect(() => {
     if (currentImages.length <= 1) return;
 
@@ -57,7 +57,7 @@ export default function TrainingPictureSection() {
   return (
     <section className="w-full bg-transparent py-10 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
-        {/* Heading */}
+        
         <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
           Facilities
         </p>
@@ -65,7 +65,7 @@ export default function TrainingPictureSection() {
           Our High Performance Facilities
         </h2>
 
-        {/* Full image section */}
+        
         <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-white/5 via-black/70 to-black/95 shadow-[0_22px_65px_rgba(0,0,0,0.55)] backdrop-blur-xl">
           <div className="relative h-[320px] sm:h-[400px] md:h-[460px] lg:h-[520px]">
             {currentImages.length > 0 && (
@@ -79,10 +79,10 @@ export default function TrainingPictureSection() {
               />
             )}
 
-            {/* gradient */}
+            
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-            {/* text overlay */}
+            
             <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 px-6 pb-6 sm:px-10 lg:px-12">
               <div className="flex items-center gap-3 text-base font-medium sm:text-lg md:text-xl">
                 <svg
@@ -101,7 +101,7 @@ export default function TrainingPictureSection() {
               </p>
             </div>
 
-            {/* DOTS — BELOW IMAGE */}
+            
             <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
               {currentImages.map((_, index) => (
                 <button
@@ -118,7 +118,6 @@ export default function TrainingPictureSection() {
             </div>
           </div>
 
-          {/* Arrows */}
           <div className="absolute bottom-5 right-5 flex gap-3">
             <button
               onClick={prevLocation}

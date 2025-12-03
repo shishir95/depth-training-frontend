@@ -1,4 +1,3 @@
-// src/app/home/page.jsx
 "use client";
 
 import Header from "@/components/common/Header";
@@ -24,13 +23,13 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-transparent text-white">
       <div className="relative z-10">
-        {/* full-width header */}
+        
         <Header />
 
-        {/* HERO */}
+        
         <HeroTitleAnimation {...heroContents} />
 
-        {/* CONTENT SECTIONS */}
+        
         <section className="relative">
           <div className="px-4 sm:px-6 lg:px-8">
             <ScrollSection variant="fade-up">

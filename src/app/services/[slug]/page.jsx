@@ -1,19 +1,18 @@
-// src/app/services/[slug]/page.jsx
 import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import { createClient } from "@sanity/client";
 import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 
-// Sanity client configured to your project
+
 const client = createClient({
-  projectId: "xva04acb",      // from cms/sanity.config.js
+  projectId: "xva04acb",      
   dataset: "production",
   apiVersion: "2025-01-01",
   useCdn: true,
 });
 
-// Rich text renderer styles
+
 const portableComponents = {
   types: {},
   marks: {},
@@ -54,7 +53,7 @@ const portableComponents = {
 };
 
 
-// Fetch one service by slug
+
 const serviceQuery = `
   *[_type == "service" && slug.current == $slug][0]{
     title,
@@ -76,7 +75,7 @@ const serviceQuery = `
   }
 `;
 
-// Pre-generate static params for all services
+
 export async function generateStaticParams() {
   const slugs = await client.fetch(
     `*[_type == "service" && defined(slug.current)]{
@@ -89,7 +88,7 @@ export async function generateStaticParams() {
 
 export const revalidate = 300;
 
-// Helpers to safely read fields (string or object shapes)
+
 function getTextField(item) {
   if (!item) return "";
   if (typeof item === "string") return item;
@@ -152,11 +151,11 @@ export default async function ServicePage({ params }) {
       <Header />
 
       <main className="flex-1">
-        {/* Hero */}
+        
         <section className="w-full border-b border-neutral-900 bg-gradient-to-b from-neutral-950 to-black">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-[1.4fr,1fr] items-center">
-              {/* Hero copy */}
+              
               <div>
                 {heroLabel && (
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-400 mb-4">
@@ -199,7 +198,7 @@ export default async function ServicePage({ params }) {
                 </div>
               </div>
 
-              {/* Quick facts card */}
+              
               <div className="bg-neutral-900/70 border border-neutral-800 rounded-2xl p-6 sm:p-7">
                 <h2 className="text-lg font-semibold mb-2">
                   What you get with {title}
@@ -226,7 +225,7 @@ export default async function ServicePage({ params }) {
           </div>
         </section>
 
-        {/* Detailed Content (WHO / WHAT WE TREAT, etc.) */}
+        
         {Array.isArray(detailedContent) && detailedContent.length > 0 && (
           <section className="w-full bg-black border-b border-neutral-900">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
@@ -237,7 +236,7 @@ export default async function ServicePage({ params }) {
           </section>
         )}
 
-        {/* Process / Steps */}
+        
         {processSteps && processSteps.length > 0 && (
           <section className="w-full bg-neutral-950 border-b border-neutral-900">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
@@ -268,7 +267,7 @@ export default async function ServicePage({ params }) {
           </section>
         )}
 
-        {/* FAQs (only if you ever add them) */}
+        
         {faqs && faqs.length > 0 && (
           <section className="w-full bg-black border-b border-neutral-900">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
@@ -296,10 +295,7 @@ export default async function ServicePage({ params }) {
           </section>
         )}
 
-        {/* NOTE: no extra per-page CTA here.
-            The global "Looking for ongoing support?" block will still appear
-            wherever it is included in your layout/site.
-        */}
+        
       </main>
 
       <FooterStrip />

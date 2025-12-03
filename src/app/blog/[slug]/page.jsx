@@ -6,7 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const client = createClient({
-  projectId: "xva04acb", // same as cms/sanity.config.js
+  projectId: "xva04acb", 
   dataset: "production",
   apiVersion: "2025-01-01",
   useCdn: true,
@@ -65,7 +65,7 @@ export default async function BlogDetailPage({ params }) {
       <Header />
 
       <div className="mx-auto w-full max-w-5xl px-6 py-16 space-y-12">
-        {/* Back link */}
+        
         <div>
           <Link
             href="/blog"
@@ -75,7 +75,7 @@ export default async function BlogDetailPage({ params }) {
           </Link>
         </div>
 
-        {/* Article header */}
+        
         <article className="space-y-10">
           <header className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#05030f] via-black to-[#090413] px-6 py-8 sm:px-10">
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--depth-muted)]">
@@ -96,7 +96,7 @@ export default async function BlogDetailPage({ params }) {
             </div>
           </header>
 
-          {/* Article body */}
+          
           <section className="prose prose-invert prose-sm max-w-none text-zinc-200">
             <PortableText
               value={post.body}

@@ -351,7 +351,7 @@ export default function ResourcePage({ posts }) {
   const [category, setCategory] = useState("All");
   const [page, setPage] = useState(1);
 
-  // 👉 Use CMS posts if provided, otherwise fallback to local BLOG_POSTS
+
   const sourcePosts = posts && posts.length ? posts : BLOG_POSTS;
 
   const filteredPosts = useMemo(() => {
@@ -380,7 +380,7 @@ export default function ResourcePage({ posts }) {
 
   return (
     <section className="relative overflow-hidden rounded-3xl border border.white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
-      {/* soft coral glow like membership hero */}
+      
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"

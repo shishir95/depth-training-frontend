@@ -4,13 +4,13 @@ import BlogIndexGrid from "@/components/blog/BlogIndexGrid";
 import { createClient } from "@sanity/client";
 
 const client = createClient({
-  projectId: "xva04acb", // same as your CMS
+  projectId: "xva04acb", 
   dataset: "production",
   apiVersion: "2025-01-01",
   useCdn: true,
 });
 
-// Fetch all posts
+
 async function fetchPostsFromSanity() {
   const posts = await client.fetch(
     `*[_type == "post"] | order(publishedAt desc){
@@ -58,7 +58,7 @@ export default async function BlogIndexPage() {
       <Header />
 
       <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-12">
-        {/* Header section */}
+
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#040208] via-[#080414] to-black px-6 py-12 sm:px-10 shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
           <div
             aria-hidden="true"
@@ -80,7 +80,7 @@ export default async function BlogIndexPage() {
           </div>
         </section>
 
-        {/* CMS posts go here */}
+        
         <BlogIndexGrid posts={posts} />
 
         <FooterStrip />
