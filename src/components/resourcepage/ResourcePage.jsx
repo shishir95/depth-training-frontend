@@ -51,7 +51,7 @@ const BLOG_POSTS = [
     slug: "injury-red-flags-you-should-never-ignore",
     category: "Injury Rehab",
     tag: "Clinic Tips",
-    readTime: "4 min read",
+    readTime: "5 min read",
   },
   {
     id: 5,
@@ -308,7 +308,7 @@ function Pagination({ page, totalPages, onChange }) {
   };
 
   return (
-    <div className="mt-2 flex items-center justify-end gap-3 border-t border-white/5 pt-5">
+    <div className="mt-2 flex items-center justify-end gap-3 border-t border.white/5 pt-5">
       <button
         onClick={() => goTo(page - 1)}
         disabled={page === 1}
@@ -339,7 +339,7 @@ function Pagination({ page, totalPages, onChange }) {
       <button
         onClick={() => goTo(page + 1)}
         disabled={page === totalPages}
-        className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-[var(--depth-muted)] disabled:opacity-40"
+        className="rounded-full border border.white/10 px-3 py-1.5 text-xs text-[var(--depth-muted)] disabled:opacity-40"
       >
         Next
       </button>
@@ -347,13 +347,16 @@ function Pagination({ page, totalPages, onChange }) {
   );
 }
 
-export default function ResourcePage() {
+export default function ResourcePage({ posts }) {
   const [category, setCategory] = useState("All");
   const [page, setPage] = useState(1);
 
+  // 👉 Use CMS posts if provided, otherwise fallback to local BLOG_POSTS
+  const sourcePosts = posts && posts.length ? posts : BLOG_POSTS;
+
   const filteredPosts = useMemo(() => {
-    if (category === "All") return BLOG_POSTS;
-    return BLOG_POSTS.filter((post) => post.category === category);
+    if (category === "All") return sourcePosts;
+    return sourcePosts.filter((post) => post.category === category);
   }, [category]);
 
   useEffect(() => {
@@ -376,7 +379,7 @@ export default function ResourcePage() {
   const currentPosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
 
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
+    <section className="relative overflow-hidden rounded-3xl border border.white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
       {/* soft coral glow like membership hero */}
       <div
         aria-hidden="true"

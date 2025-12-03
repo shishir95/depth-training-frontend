@@ -13,7 +13,7 @@ export default function HeroTitleAnimation({
     <section
       className="relative w-full h-[100vh] bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/assets/dsc.jpg')", // or your hero image
+        backgroundImage: "url('/assets/DSC.jpg')", // or your hero image
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}

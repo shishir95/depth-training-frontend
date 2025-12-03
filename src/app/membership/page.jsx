@@ -2,6 +2,7 @@ import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
 import FeaturedTraining from "@/components/membership/FeaturedTraining";
 import PlansSection from "@/components/membership/PlansSection";
+import { sanityClient } from "@/lib/sanityClient";
 
 const HERO_STATS = [
   { label: "Average Check-Ins", value: "2x / week" },
@@ -30,11 +31,26 @@ const MEMBER_REVIEWS = [
   },
 ];
 
+const MEMBERSHIP_PLANS_QUERY = `*[_type == "membershipPlan"] | order(order asc) {
+  _id,
+  name,
+  "slug": slug.current,
+  category,
+  price,
+  billingPeriod,
+  highlight,
+  shortDescription,
+  features,
+  isPopular,
+  order
+}`;
+
 export const metadata = { title: "Membership | Depth Training" };
 
-export default function MembershipPage() {
+export default async function MembershipPage() {
+  const membershipPlans = await sanityClient.fetch(MEMBERSHIP_PLANS_QUERY);
   return (
-    <main className="min-h-screen w-full bg-[#020109] text-white">
+    <main className="relative min-h-screen w-full bg-transparent text-white">
       {/* full-width header */}
       <Header />
 
@@ -127,7 +143,7 @@ export default function MembershipPage() {
         </section>
 
         {/* FindSpecialtiesSection removed here */}
-        <PlansSection />
+        <PlansSection plans={membershipPlans} />
         <FeaturedTraining />
 
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#05030f] via-black to-[#0b0612] py-12">
@@ -168,8 +184,6 @@ export default function MembershipPage() {
           </div>
         </section>
       </div>
-
-      {/* full-width footer */}
       <FooterStrip />
     </main>
   );

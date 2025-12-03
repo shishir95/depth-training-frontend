@@ -22,38 +22,40 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen w-full bg-[#020109] text-white">
-      {/* ✅ Full-width header */}
-      <Header />
+    <main className="relative min-h-screen w-full overflow-hidden bg-transparent text-white">
+      <div className="relative z-10">
+        {/* full-width header */}
+        <Header />
 
-      {/* ✅ Full-width hero */}
-      <HeroTitleAnimation {...heroContents} />
+        {/* HERO */}
+        <HeroTitleAnimation {...heroContents} />
 
-      {/* ✅ Centered content below hero */}
-      <div className="mx-auto w-full max-w-7xl space-y-5 md:space-y-5 lg:space-y-5">
-        <ScrollSection variant="fade-up">
-          <FindSpecialtiesSection />
-        </ScrollSection>
+        {/* CONTENT SECTIONS */}
+        <section className="relative">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <ScrollSection variant="fade-up">
+              <FindSpecialtiesSection />
+            </ScrollSection>
+          </div>
+        </section>
 
-        <ScrollSection variant="slide-left">
-          <TeamSection />
-        </ScrollSection>
+        <div className="relative flex flex-col gap-16 px-4 pb-10 sm:px-6 lg:px-8">
+          <ScrollSection variant="slide-left">
+            <TeamSection />
+          </ScrollSection>
 
-        <ScrollSection variant="fade-up">
-          <OurOfferSection />
-        </ScrollSection>
+          <ScrollSection variant="fade-up">
+            <OurOfferSection />
+          </ScrollSection>
 
-        <ScrollSection variant="slide-right">
-          <FacilitiesSection />
-        </ScrollSection>
+          <ScrollSection variant="slide-right">
+            <FacilitiesSection />
+          </ScrollSection>
 
-        <ScrollSection variant="fade-up">
-          <CustomerReviews />
-        </ScrollSection>
-
-        <ScrollSection variant="fade-up">
-          <ArticlesSection />
-        </ScrollSection>
+          <ScrollSection variant="fade-up">
+            <CustomerReviews />
+          </ScrollSection>
+        </div>
 
         <FooterStrip />
       </div>

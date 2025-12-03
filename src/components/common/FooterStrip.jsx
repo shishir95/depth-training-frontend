@@ -81,7 +81,7 @@ export default function FooterStrip() {
     >
       <div className="relative left-1/2 w-screen -translate-x-1/2 bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.22),_transparent_60%),#050509]">
         <div className="w-full px-6 py-5 lg:px-16">
-          <div className="mx-auto flex max-w-6xl flex-col gap-5 rounded-2xl border border-white/8 bg-[var(--depth-card)]/85 px-6 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.7)] backdrop-blur-md md:flex-row md:items-center md:justify-between md:px-8 md:py-7">
+          <div className="mx-auto flex max-w-6xl flex-col gap-5 rounded-2xl border  border-neutral-800 bg-black px-6 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.7)] backdrop-blur-md md:flex-row md:items-center md:justify-between md:px-8 md:py-7">
             <div className="max-w-xl">
               <p className="text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
                 Ready to get started?
@@ -107,7 +107,7 @@ export default function FooterStrip() {
                 href="/contact"
                 className="inline-flex h-[44px] w-full items-center justify-center rounded-full border border-white/15 bg-transparent px-7 text-[14px] font-medium text-gray-100 transition hover:-translate-y-[1px] hover:bg-white/5 md:w-auto"
               >
-                Book online
+                Book a free consult
               </a>
             </div>
           </div>
