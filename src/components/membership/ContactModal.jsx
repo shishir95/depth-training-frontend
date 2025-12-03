@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 export default function ContactModal({ open, onClose, planName }) {
   const firstInputRef = useRef(null);
 
-  // Simple form state (replace with your submit/endpoint later)
+ 
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -30,7 +30,7 @@ export default function ContactModal({ open, onClose, planName }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // TODO: hook to your backend (email, API, etc.)
+    
     console.log("Chosen plan:", planName);
     console.log("Form:", form);
     onClose?.();
@@ -42,15 +42,15 @@ export default function ContactModal({ open, onClose, planName }) {
       aria-modal="true"
       role="dialog"
     >
-      {/* Backdrop */}
+      
       <div
         className="absolute inset-0 bg-black/70"
         onClick={onClose}
         aria-hidden="true"
       />
-      {/* Card */}
+      
       <div className="relative z-[101] w-[min(880px,92vw)] rounded-xl bg-[#111] p-6 md:p-8 shadow-2xl ring-1 ring-white/10">
-        {/* Close (X) */}
+        
         <button
           onClick={onClose}
           aria-label="Close"
@@ -61,16 +61,16 @@ export default function ContactModal({ open, onClose, planName }) {
           </svg>
         </button>
 
-        {/* Title (optional: include selected plan) */}
+        
         {planName ? (
           <p className="mb-4 text-sm text-white/70">
             Selected plan: <span className="text-white font-medium">{planName}</span>
           </p>
         ) : null}
 
-        {/* Form */}
+        
         <form onSubmit={onSubmit} className="space-y-5 text-white">
-          {/* Full name */}
+          
           <div>
             <label className="block mb-2 font-semibold">Full name*</label>
             <input
@@ -83,7 +83,7 @@ export default function ContactModal({ open, onClose, planName }) {
             />
           </div>
 
-          {/* Email / Phone */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block mb-2 font-semibold">Email*</label>
@@ -109,7 +109,7 @@ export default function ContactModal({ open, onClose, planName }) {
             </div>
           </div>
 
-          {/* Preferred contact */}
+          
           <div>
             <p className="mb-2 font-semibold">
               How would you prefer to be connected?*
@@ -145,7 +145,7 @@ export default function ContactModal({ open, onClose, planName }) {
             </div>
           </div>
 
-          {/* Message */}
+          
           <div>
             <label className="block mb-2 font-semibold">Tell us more</label>
             <textarea
@@ -157,7 +157,7 @@ export default function ContactModal({ open, onClose, planName }) {
             />
           </div>
 
-          {/* Submit */}
+          
           <div className="pt-2">
             <button
               type="submit"

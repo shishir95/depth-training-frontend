@@ -5,7 +5,7 @@ import NewsletterSection from "@/components/resourcepage/NewsletterSection";
 import { createClient } from "@sanity/client";
 
 const client = createClient({
-  projectId: "xva04acb", // same as your CMS
+  projectId: "xva04acb", 
   dataset: "production",
   apiVersion: "2025-01-01",
   useCdn: true,
@@ -58,10 +58,10 @@ export default async function ResourcePages() {
       <Header />
 
       <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
-        {/* CMS-driven resources list */}
+        
         <ResourcePage posts={posts} />
 
-        {/* Keep teammate sections from development */}
+        
         <NewsletterSection />
       </div>
 

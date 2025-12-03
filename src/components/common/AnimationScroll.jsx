@@ -1,4 +1,3 @@
-// app/lenis-provider.jsx
 "use client";
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";

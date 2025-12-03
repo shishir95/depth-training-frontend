@@ -51,10 +51,10 @@ export default async function MembershipPage() {
   const membershipPlans = await sanityClient.fetch(MEMBERSHIP_PLANS_QUERY);
   return (
     <main className="relative min-h-screen w-full bg-transparent text-white">
-      {/* full-width header */}
+
       <Header />
 
-      {/* centered content */}
+      
       <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-[#05030f] to-black py-12">
           <div
@@ -142,7 +142,7 @@ export default async function MembershipPage() {
           </div>
         </section>
 
-        {/* FindSpecialtiesSection removed here */}
+        
         <PlansSection plans={membershipPlans} />
         <FeaturedTraining />
 
