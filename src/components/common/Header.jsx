@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-// ---- Menu data you can edit easily ----
 const MENU = [
   { label: "Home", href: "/" },
   {
@@ -99,6 +97,7 @@ const MENU = [
   { label: "Resources", href: "/resourcepage" },
   { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
+  { label: "Privacy", href: "/privacy-policy" },
 ];
 
 export default function Header() {
