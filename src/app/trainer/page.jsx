@@ -8,7 +8,7 @@ import Header from "@/components/common/Header";
 
 export default function MembershipPage() {
   const heroContents = {
-    title: "Meet The Depth Training Team",
+    title: "Meet Our Team and Specialties",
     subTitle:
       " Please scroll through our team and explore their strengths and specialties!",
     button: false,
@@ -21,7 +21,7 @@ export default function MembershipPage() {
       <Header />
       <Hero {...heroContents} />
       <TrainerList />
-      <FooterStrip /> {/* ✅ add footer */}
+      <FooterStrip />
     </main>
   );
 }

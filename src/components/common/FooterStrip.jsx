@@ -22,7 +22,11 @@ const SOCIALS = [
     name: "YouTube",
     href: "https://www.youtube.com/",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-[18px] w-[18px]"
+        fill="currentColor"
+      >
         <path d="M23.5 7.2a4 4 0 0 0-2.8-2.8C18.9 3.8 12 3.8 12 3.8s-6.9 0-8.7.6A4 4 0 0 0 .5 7.2 41.4 41.4 0 0 0 0 12a41.4 41.4 0 0 0 .5 4.8 4 4 0 0 0 2.8 2.8c1.8.6 8.7.6 8.7.6s6.9 0 8.7-.6a4 4 0 0 0 2.8-2.8A41.4 41.4 0 0 0 24 12a41.4 41.4 0 0 0-.5-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z" />
       </svg>
     ),
@@ -76,8 +80,8 @@ export default function FooterStrip() {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="relative left-1/2 w-screen -translate-x-1/2 bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.22),_transparent_60%),#050509]">
-        <div className="w-full px-6 py-10 lg:px-16">
-          <div className="mx-auto flex max-w-6xl flex-col gap-5 rounded-2xl border border-white/8 bg-[var(--depth-card)]/85 px-6 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.7)] backdrop-blur-md md:flex-row md:items-center md:justify-between md:px-8 md:py-7">
+        <div className="w-full px-6 py-5 lg:px-16">
+          <div className="mx-auto flex max-w-6xl flex-col gap-5 rounded-2xl border  border-neutral-800 bg-black px-6 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.7)] backdrop-blur-md md:flex-row md:items-center md:justify-between md:px-8 md:py-7">
             <div className="max-w-xl">
               <p className="text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
                 Ready to get started?
@@ -103,7 +107,7 @@ export default function FooterStrip() {
                 href="/contact"
                 className="inline-flex h-[44px] w-full items-center justify-center rounded-full border border-white/15 bg-transparent px-7 text-[14px] font-medium text-gray-100 transition hover:-translate-y-[1px] hover:bg-white/5 md:w-auto"
               >
-                Book online
+                Book a free consult
               </a>
             </div>
           </div>
@@ -122,7 +126,9 @@ export default function FooterStrip() {
                     key={social.name}
                     href={social.href}
                     aria-label={social.name}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      social.href.startsWith("http") ? "_blank" : undefined
+                    }
                     rel={
                       social.href.startsWith("http") ? "noreferrer" : undefined
                     }

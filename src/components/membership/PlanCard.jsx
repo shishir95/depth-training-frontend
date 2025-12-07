@@ -15,7 +15,7 @@ export default function PlanCard({
 
   return (
     <div
-      className={`relative w-full max-w-sm overflow-hidden rounded-3xl border p-6 transition ${cardClasses}`}
+      className={`relative  w-full max-w-sm overflow-hidden rounded-3xl border p-6 transition ${cardClasses}`}
     >
       {highlighted && (
         <span className="absolute right-4 top-4 inline-flex rounded-full bg-[var(--depth-accent)]/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black shadow-[0_0_12px_rgba(241,96,85,0.5)]">

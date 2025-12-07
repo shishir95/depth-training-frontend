@@ -13,8 +13,7 @@ const MENU = [
       {
         label: "Fitness",
         items: [
-          { label: "Class Schedule", href: "/services" },
-          { label: "Membership", href: "/membership" },
+          { label: "Class Schedule", href: "/services/class-schedule" },
           {
             label: "Personal Training",
             href: "/services/personal-training",
@@ -52,9 +51,15 @@ const MENU = [
             label: "Vestibular Physiotherapy",
             href: "/services/vestibular-physiotherapy",
           },
-          { label: "Medical Acupuncture", href: "/services/medical-acupuncture" },
+          {
+            label: "Medical Acupuncture",
+            href: "/services/medical-acupuncture",
+          },
           { label: "Game Ready Rental", href: "/services/game-ready-rental" },
-          { label: "GLA:D for Hip/Knee OA", href: "/services/glad-hip-knee-oa" },
+          {
+            label: "GLA:D for Hip/Knee OA",
+            href: "/services/glad-hip-knee-oa",
+          },
           {
             label: "Infrared Sauna & Plunge",
             href: "/services/infrared-sauna-plunge",
@@ -90,8 +95,9 @@ const MENU = [
       },
     ],
   },
-  { label: "Trainers", href: "/trainer" },
+  { label: "Our Team", href: "/trainer" },
   { label: "Resources", href: "/resourcepage" },
+  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
 ];
 
@@ -139,38 +145,36 @@ export default function Header() {
     <header
       ref={wrapRef}
       className={[
-        "sticky inset-x-0 top-0 z-50 w-full",
-        "border-b border-white/10 bg-[#020109]/85 backdrop-blur-md",
+        " fixed top-0 z-50 w-full",
+        "backdrop-blur-md", // glass blur
+        "bg-neutral-900/40 border-b border-white/10", // translucent bg + hairline
         "transition-all duration-300",
         scrolled
-          ? "shadow-[0_10px_40px_-15px_rgba(0,0,0,0.75)]"
+          ? "bg-neutral-900/60 shadow-[0_6px_30px_-10px_rgba(0,0,0,0.6)]"
           : "shadow-none",
       ].join(" ")}
       role="banner"
     >
       {/* bar */}
-      {/* 🔥 removed max-w-7xl + mx-auto so the nav spans full width */}
-      <nav className="w-full px-4 sm:px-6 lg:px-10 text-white">
-        <div
-          className={`flex items-center justify-between ${
-            scrolled ? "py-2" : "py-4"
-          }`}
-        >
-          <div className="flex flex-1 items-center">
-            <Link
-              href="/"
-              className="flex items-center gap-2 font-semibold tracking-wide"
-            >
-              <img
-                src="/assets/logo-white.png"
-                alt="Depth Training"
-                className="h-9 w-auto"
-              />
-            </Link>
-          </div>
+      <nav
+        className={`mx-auto max-w-7xl px-4 md:px-8 ${
+          scrolled ? "py-2" : "py-3 md:py-4"
+        } text-white`}
+      >
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-semibold tracking-wide"
+          >
+            <img
+              src="/assets/logo-white.png"
+              alt="Depth Training"
+              className="h-9 w-auto"
+            />
+          </Link>
 
           {/* Desktop menu */}
-          <ul className="hidden flex-1 items-center justify-center gap-8 md:flex">
+          <ul className="hidden md:flex items-center gap-8">
             {MENU.map((m, idx) => (
               <li key={m.label} className="relative">
                 {m.type === "mega" ? (
@@ -260,39 +264,35 @@ export default function Header() {
             ))}
           </ul>
 
-          <div className="flex flex-1 items-center justify-end gap-3">
-            {/* CTA */}
-            <Link
-              href="/book"
-              className="hidden md:inline-flex items-center rounded-full bg-[var(--bg-primary)] hover:bg-red-500 px-4 py-2 text-sm font-medium shadow-lg shadow-red-900/20"
-            >
-              Book Now
-            </Link>
+          {/* CTA */}
+          <Link
+            href="/book"
+            className="hidden md:inline-flex items-center rounded-full bg-[var(--bg-primary)] hover:bg-red-500 px-4 py-2 text-sm font-medium shadow-lg shadow-red-900/20"
+          >
+            Book Now
+          </Link>
 
-            {/* Mobile burger placeholder (wire in your drawer if needed) */}
-            <button
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10 md:hidden"
-              aria-label="Open menu"
-              onClick={() =>
-                setOpenRoot(openRoot === "mobile" ? null : "mobile")
-              }
-            >
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              </svg>
-            </button>
-          </div>
+          {/* Mobile burger placeholder  */}
+          <button
+            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10"
+            aria-label="Open menu"
+            onClick={() => setOpenRoot(openRoot === "mobile" ? null : "mobile")}
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
         </div>
       </nav>
 
-      {/* Mobile accordion (simple & accessible) */}
+      {/* Mobile accordion  */}
       <div
         className={`md:hidden text-white border-t border-white/10 overflow-hidden transition-[max-height] duration-300
                        ${openRoot === "mobile" ? "max-h-[80vh]" : "max-h-0"}`}
       >
         <div className="bg-neutral-900/70 backdrop-blur-md">
           <ul className="px-4 py-2 space-y-1">
-            {MENU.map((m) => (
+            {MENU.map((m, idx) => (
               <li key={m.label} className="border-b border-white/10">
                 {m.type !== "mega" ? (
                   <Link

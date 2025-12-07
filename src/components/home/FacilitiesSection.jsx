@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// ----- DATA: add as many locations + images as you want -----
+// ----- DATA: ONLY THE TWO REAL WATERLOO FACILITIES -----
 const FACILITIES = [
   {
     name: "408 Albert Street, Waterloo",
@@ -12,16 +12,10 @@ Our main DEPTH Training & Physiotherapy facility is located near the University 
     images: ["/assets/1.jpg", "/assets/2.jpg", "/assets/1.jpg"],
   },
   {
-    name: "Kitchener Performance Studio",
+    name: "483 Conestogo Road, Waterloo",
     description: `
-Our Kitchener studio is designed for small-group performance training, featuring dedicated lifting platforms, sled tracks, and a recovery zone. Ideal for athletes looking for focused sessions in a high-performance environment.`,
+Our DEPTH Youth & Team Training facility is located in north Waterloo near the Conestoga Mall close to the intersection of King & Northfield. Located above The Zone Training, DEPTH Youth & Team Training features a fully equipped fitness facility including turf field.`,
     images: ["/assets/1.jpg", "/assets/2.jpg", "/assets/1.jpg"],
-  },
-  {
-    name: "Cambridge Rehab & Recovery",
-    description: `
-The Cambridge location focuses on rehab and recovery, with treatment rooms, open-plan rehab space, and specialized equipment for post-injury return-to-play programs and guided physiotherapy sessions.`,
-    images: ["/images/facilities/cambridge-1.jpg"],
   },
 ];
 
@@ -31,6 +25,9 @@ export default function FacilitiesSection() {
 
   const current = FACILITIES[locationIndex];
   const currentImages = current.images ?? [];
+
+  const isFirst = locationIndex === 0;
+  const isLast = locationIndex === FACILITIES.length - 1;
 
   // Reset photo index whenever user switches location
   useEffect(() => {
@@ -49,15 +46,17 @@ export default function FacilitiesSection() {
   }, [locationIndex, currentImages.length]);
 
   const handleNextLocation = () => {
-    setLocationIndex((prev) => (prev + 1) % FACILITIES.length);
+    setLocationIndex((prev) =>
+      prev >= FACILITIES.length - 1 ? prev : prev + 1
+    );
   };
 
   const handlePrevLocation = () => {
-    setLocationIndex((prev) => (prev === 0 ? FACILITIES.length - 1 : prev - 1));
+    setLocationIndex((prev) => (prev <= 0 ? prev : prev - 1));
   };
 
   return (
-    <section className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.16),_transparent_60%),#050509] py-16 text-white">
+    <section className="w-full bg-transparent py-16 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
         {/* Heading */}
         <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
@@ -68,11 +67,11 @@ export default function FacilitiesSection() {
         </h2>
 
         {/* Card */}
-        <div className="relative flex flex-col gap-10 rounded-[32px] border border-white/8 bg-[var(--depth-card)]/80 px-6 py-10 shadow-[0_22px_65px_rgba(0,0,0,0.55)] backdrop-blur-md lg:flex-row sm:px-8 lg:px-12">
+        <div className="relative flex flex-col gap-10 rounded-[32px] border border-white/8 bg-[var(--depth-card)]/80 px-6 py-10 shadow-[0_22px_65px_rgba(0,0,0,0.55)] backdrop-blur-md sm:px-8 lg:flex-row lg:px-12">
           {/* Text side */}
-          <div className="lg:w-1/2 space-y-6">
-            <div className="flex items-center gap-3 text-lg sm:text-xl md:text-2xl font-medium">
-              {/* <HiLocationMarker className="h-8 w-8 text-rose-500" /> */}
+          <div className="space-y-6 lg:w-1/2">
+            <div className="flex items-center gap-3 text-lg font-medium sm:text-xl md:text-2xl">
+              {/* Location icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -81,8 +80,7 @@ export default function FacilitiesSection() {
               >
                 <path
                   fillRule="evenodd"
-                  d="M10 2a6 6 0 00-6 6c0 4.418 6 10 6 10s6-5.582 
-       6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"
+                  d="M10 2a6 6 0 00-6 6c0 4.418 6 10 6 10s6-5.582 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"
                   clipRule="evenodd"
                 />
               </svg>
@@ -90,14 +88,14 @@ export default function FacilitiesSection() {
               <span>{current.name}</span>
             </div>
 
-            <p className="text-sm sm:text-base leading-relaxed text-[var(--depth-muted)] whitespace-pre-line">
+            <p className="whitespace-pre-line text-sm leading-relaxed text-[var(--depth-muted)] sm:text-base">
               {current.description.trim()}
             </p>
           </div>
 
           {/* Image side */}
           <div className="lg:w-1/2">
-            <div className="relative h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[260px] overflow-hidden rounded-2xl shadow-2xl sm:h-[320px] md:h-[380px] lg:h-[420px]">
               {currentImages.length > 0 && (
                 <Image
                   key={currentImages[photoIndex]} // key to help fade on change if you add animation
@@ -112,21 +110,24 @@ export default function FacilitiesSection() {
           </div>
 
           {/* Location navigation arrows */}
-          <div className="absolute -bottom-6 right-6 flex gap-4">
+          <div className="absolute bottom-6 right-6 flex gap-4">
             <button
               type="button"
               onClick={handlePrevLocation}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[var(--depth-accent)] hover:bg-[var(--depth-accent)]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--depth-accent)]/40"
+              disabled={isFirst}
+              className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--depth-accent)]/40 ${
+                isFirst ? "opacity-40 cursor-not-allowed" : "hover:bg-black"
+              }`}
               aria-label="Previous location"
             >
-              {/* <HiChevronLeft className="h-6 w-6" /> */}
+              {/* Left arrow */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.6"
                 stroke="currentColor"
-                className="w-5 h-5"
+                className="h-5 w-5"
               >
                 <path
                   strokeLinecap="round"
@@ -138,17 +139,20 @@ export default function FacilitiesSection() {
             <button
               type="button"
               onClick={handleNextLocation}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[var(--depth-accent)] hover:bg-[var(--depth-accent)]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--depth-accent)]/40"
+              disabled={isLast}
+              className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--depth-accent)]/40 ${
+                isLast ? "opacity-40 cursor-not-allowed" : "hover:bg-black"
+              }`}
               aria-label="Next location"
             >
-              {/* <HiChevronRight className="h-6 w-6" /> */}
+              {/* Right arrow */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.6"
                 stroke="currentColor"
-                className="w-5 h-5"
+                className="h-5 w-5"
               >
                 <path
                   strokeLinecap="round"

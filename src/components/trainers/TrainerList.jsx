@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { TRAINERS } from "@/data/trainers";
@@ -7,9 +6,7 @@ import { TRAINERS } from "@/data/trainers";
 const TEAM = TRAINERS;
 
 const TABS = ["Physio", "Training", "Rehab"];
-const PER_PAGE = 8; // 4 columns x 2 rows
-
-// icons styled to match the home “Our Team” section
+const PER_PAGE = 8;
 const Icon = {
   li: (props) => (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
@@ -45,35 +42,45 @@ function TeamCard({ person }) {
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
     >
-      {/* avatar bubble */}
-      <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-zinc-200/80 ring-4 ring-[#050509] shadow-2xl">
+      <motion.div
+        className="pointer-events-none absolute -inset-1 rounded-[26px] opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-80"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 0% 0%, rgba(244,63,94,0.45), transparent 55%)," +
+            "radial-gradient(circle at 100% 100%, rgba(59,130,246,0.35), transparent 55%),",
+          backgroundSize: "200% 200%",
+        }}
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      />
+
+      <div className="pointer-events-none absolute top-20 left-1/2 z-20 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full ring-4 ring-[#050509] shadow-2xl bg-[radial-gradient(circle_at_bottom,_rgba(244,63,94,0.22),_rgba(5,5,9,0.98)_70%)] backdrop-blur-[2px] transition-transform duration-500">
         <img
-          src="/assets/image.png"
+          src={"/assets/image.png"}
           alt={person.name}
           className="h-full w-full rounded-full object-cover object-center"
         />
       </div>
 
-      {/* card body – this is where the COLOUR comes from */}
-      <div className="relative mt-40 overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-br from-[#f97373]/20 via-[#050509] to-[#2563eb]/25 px-6 py-6 text-center shadow-[0_25px_70px_rgba(0,0,0,0.65)] backdrop-blur-md">
-        {/* coloured glow like home page cards */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.20),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(37,99,235,0.18),_transparent_60%)] opacity-80" />
+      <div className="relative mt-40 overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-br from-[#f43f5e]/12 via-[#050509] to-black p-6 text-center shadow-[0_25px_70px_rgba(0,0,0,0.55)] backdrop-blur-md">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_55%)] opacity-70" />
 
-        {/* actual content sits above the gradient */}
-        <p className="relative text-[11px] uppercase tracking-[0.3em] text-[var(--depth-muted,#9ca3af)]">
-          {person.tags?.join(" • ")}
+        <p className="relative text-[11px] uppercase tracking-[0.3em] text-[var(--depth-muted)]">
+          {person.tags.join(" • ")}
         </p>
         <h3 className="relative mt-3 text-xl font-semibold text-white">
           {person.name}
         </h3>
-        <p className="relative mt-1 text-base text-[var(--depth-muted,#9ca3af)]">
+        <p className="relative mt-1 text-base text-[var(--depth-muted)]">
           {person.title}
         </p>
 
         <div className="relative mt-6 flex items-center justify-between">
           <a
-            href={`/trainer/${person.slug}`}
-            className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent,#f97373)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-black shadow-[0_12px_35px_rgba(244,63,94,0.35)] transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
+            href={person.view}
+            className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-white shadow-[0_0_22px_rgba(244,63,94,0.45)] transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
           >
             Book Now
           </a>
@@ -82,28 +89,28 @@ function TeamCard({ person }) {
             <a
               href={person.li}
               aria-label="LinkedIn"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted,#a1a1aa)] transition hover:border-white/40 hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.li className="h-4 w-4" />
             </a>
             <a
               href={person.mail}
               aria-label="Email"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted,#a1a1aa)] transition hover:border-white/40 hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.mail className="h-4 w-4" />
             </a>
             <a
               href={person.site}
               aria-label="Website"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted,#a1a1aa)] transition hover:border-white/40 hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.site className="h-4 w-4" />
             </a>
             <a
-              href={`/trainer/${person.slug}`}
+              href={person.view}
               aria-label="View profile"
-              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted,#a1a1aa)] transition hover:border-white/40 hover:text-white"
+              className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
               <Icon.eye className="h-4 w-4" />
             </a>
@@ -147,17 +154,60 @@ export default function TrainerList() {
       className="w-full bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.18),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(37,99,235,0.15),_transparent_60%),#050509] py-16 text-white"
     >
       <div className="mx-auto max-w-7xl px-4">
-        {/* header text – matches the home section */}
         <div className="text-center">
           <p className="text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted,#9ca3af)]">
             Specialists
           </p>
           <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Our Team</h2>
 
-          {/* pill tabs – same look as home */}
-          <div className="mt-6 flex items-center justify-center gap-6 text-base">
+          <div className="mt-4 flex items-center justify-center gap-6 text-lg">
             {TABS.map((t) => {
               const isActive = active === t;
+              return (
+                <button
+                  key={t}
+                  onClick={() => setActive(t)}
+                  className={
+                    "relative rounded-full border px-4 py-1.5 transition " +
+                    (isActive
+                      ? "border-[var(--depth-accent)] bg-[var(--depth-accent)] text-black shadow-[0_0_40px_rgba(0,0,0,0.95)] ring-2 ring-white/40"
+                      : "border-white/10 text-zinc-300 hover:border-white/30 hover:text-white bg-black/20")
+                  }
+                >
+                  {isActive && (
+                    <span className="pointer-events-none absolute inset-[-6px] -z-10 rounded-full bg-black/70 blur-xl" />
+                  )}
+                  {t}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="mt-10 justify-items-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-25">
+          {current.map((p) => (
+            <TeamCard key={`${active}-${p.id}`} person={p} />
+          ))}
+
+          {current.length % 4 !== 0 &&
+            Array.from({ length: (4 - (current.length % 4)) % 4 }).map(
+              (_, i) => <div key={`spacer-${i}`} className="hidden lg:block" />
+            )}
+        </div>
+
+        <div className="mt-10 flex items-center justify-end gap-3">
+          <button
+            onClick={() => goTo(page - 1)}
+            disabled={page === 1}
+            className="rounded-md border border-[var(--bg-primary)] px-3 py-2 text-sm disabled:opacity-40"
+            aria-label="Previous page"
+          >
+            Prev
+          </button>
+
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const n = i + 1;
               return (
                 <button
                   key={t}
@@ -179,14 +229,12 @@ export default function TrainerList() {
           </div>
         </div>
 
-        {/* cards grid – centred, same spacing for all tabs */}
         <div className="mt-10 flex flex-wrap justify-center gap-10">
           {current.map((p) => (
             <TeamCard key={`${active}-${p.id}`} person={p} />
           ))}
         </div>
 
-        {/* pagination */}
         <div className="mt-10 flex items-center justify-center gap-4">
           <button
             onClick={() => goTo(page - 1)}

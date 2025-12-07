@@ -1,25 +1,23 @@
-// src/components/trainerdescription/TrainerDescriptionSection.jsx
-
 export default function TrainerDescriptionSection({
   name,
   role,
   paragraphs = [],
 }) {
   return (
-    <section className="bg-[#3c3c3c] py-10">
-      {/* ⬆️ smaller py-10 (was probably much larger) so the hero is shorter */}
-
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pt-10 pb-8 lg:flex-row lg:items-start">
-        {/* Left: image card */}
-        <div className="mx-auto w-full max-w-md rounded-[32px] bg-[#2b2b2b] shadow-[0_25px_70px_rgba(0,0,0,0.65)] overflow-hidden">
-          <img
-            src="/assets/image.png"
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"
+      />
+      <div className="mx-auto flex flex-col lg:flex-row items-center justify-center max-w-7xl px-6 sm:px-10 lg:px-16 py-20 lg:py-28 gap-10">
+        <div className="relative w-full max-w-[500px] h-[520px] flex-shrink-0 overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-2xl">
+          <Image
+            src={photo}
             alt={name}
             className="h-full w-full object-cover object-center"
           />
         </div>
 
-        {/* Right: text content */}
         <div className="flex-1">
           <h1 className="text-4xl font-semibold text-white">{name}</h1>
           <p className="mt-2 text-lg font-medium text-[var(--depth-accent,#f97373)]">

@@ -1,4 +1,3 @@
-// components/Hero.jsx
 import "../../app/globals.css";
 
 const Hero = ({
@@ -7,20 +6,19 @@ const Hero = ({
   button = false,
   buttonLabel = "",
   backgroundImage = "/trainers-hero.png",
-  backgroundPosition = "center", // default position
+  backgroundPosition = "center",
 }) => {
   return (
     <section
-      className="relative w-full h-[70vh] bg-cover flex items-center justify-center text-center text-white"
+      className="relative w-full h-[120vh] bg-cover bg-center flex items-center justify-center text-center text-white"
       style={{
-        backgroundImage: `url('${backgroundImage}')`,
-        backgroundPosition,
+        backgroundImage: "('/MC-banner-OS25 1.purlng')",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
       }}
     >
-      {/* overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      {/* content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
         <div className="relative z-10 px-4 max-w-3xl">
           <h1 className="text-4xl font-bold mb-4">{title}</h1>
