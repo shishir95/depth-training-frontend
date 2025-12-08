@@ -97,7 +97,6 @@ const MENU = [
   { label: "Resources", href: "/resourcepage" },
   { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
-  { label: "Privacy", href: "/privacy-policy" },
 ];
 
 export default function Header() {
