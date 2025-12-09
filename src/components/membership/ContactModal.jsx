@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function ContactModal({ open, onClose, planName }) {
+export default function ContactModal({ open, onClose, planName, planMeta }) {
   const firstInputRef = useRef(null);
 
   // Simple form state (replace with your submit/endpoint later)
@@ -14,6 +14,8 @@ export default function ContactModal({ open, onClose, planName }) {
     contactText: false,
     message: "",
   });
+
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (open && firstInputRef.current) {
@@ -28,12 +30,54 @@ export default function ContactModal({ open, onClose, planName }) {
 
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    // TODO: hook to your backend (email, API, etc.)
-    console.log("Chosen plan:", planName);
-    console.log("Form:", form);
-    onClose?.();
+
+    // Basic guard – you can customize validation
+    if (!planMeta?.priceId || !planMeta?.planLabel || !planMeta?.intervalMonths) {
+      console.error("Missing Stripe metadata for plan:", planMeta);
+      alert("We couldn't find billing details for this plan. Please contact the gym.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
+      const res = await fetch(`${baseUrl}/billing/checkout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: form.email,
+          priceId: planMeta.priceId,
+          planLabel: planMeta.planLabel,
+          intervalMonths: planMeta.intervalMonths,
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("Checkout failed:", await res.text());
+        alert("Something went wrong starting checkout. Please try again.");
+        return;
+      }
+
+      const data = await res.json();
+      if (data?.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        console.error("Missing session URL in response:", data);
+        alert("We couldn't start checkout. Please contact the gym.");
+      }
+    } catch (err) {
+      console.error("Error calling /billing/checkout:", err);
+      alert("Network error – please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -161,9 +205,10 @@ export default function ContactModal({ open, onClose, planName }) {
           <div className="pt-2">
             <button
               type="submit"
-              className="mx-auto block rounded-md bg-[#E43F3F] px-6 py-2.5 font-semibold hover:opacity-90 transition"
+              disabled={submitting}
+              className="mx-auto block rounded-md bg-[#E43F3F] px-6 py-2.5 font-semibold hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit
+              {submitting ? "Starting checkout..." : "Submit"}
             </button>
           </div>
         </form>

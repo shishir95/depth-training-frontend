@@ -1,22 +1,46 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function FloatingChatFab() {
+  const pathname = usePathname();
+
+  // ✅ Use a single, consistent base URL
+  // Make sure you have this in .env.local:
+  // NEXT_PUBLIC_API_BASE=http://localhost:3001
+  const API_BASE =
+    (process.env.NEXT_PUBLIC_API_BASE &&
+      process.env.NEXT_PUBLIC_API_BASE.replace(/\/$/, "")) ||
+    "http://localhost:3001";
+
+  const createMessage = (role, text = "", extra = {}) => ({
+    id:
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random()}`,
+    role,
+    text,
+    ts: Date.now(),
+    ...extra,
+  });
+
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
-    {
-      role: "assistant",
-      text: "Hey! I’m your Depth Coach. Want help finding the right physiotherapist or training plan?",
-    },
+  const [messages, setMessages] = useState(() => [
+    createMessage(
+      "assistant",
+      "Hey! I’m your Depth Coach. Want help finding the right physiotherapist or training plan?"
+    ),
   ]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [showHint, setShowHint] = useState(true);
   const chatEndRef = useRef(null);
 
   // auto scroll
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isLoading]);
 
   // auto-hide hint pill
   useEffect(() => {
@@ -24,48 +48,84 @@ export default function FloatingChatFab() {
     return () => clearTimeout(t);
   }, []);
 
-  const sendMessage = (text) => {
-    if (!text.trim()) return;
-    setMessages((m) => [...m, { role: "user", text }]);
-    setInput("");
+  const sendMessage = async (rawText) => {
+    const text = rawText.trim();
+    if (!text || isLoading) return;
 
-    // Demo scripted responses
-    setTimeout(() => {
-      if (
-        text.toLowerCase().includes("injured") ||
-        text.toLowerCase().includes("help")
-      ) {
-        setMessages((m) => [
-          ...m,
-          {
-            role: "assistant",
-            text: "Can you tell me where you feel pain or discomfort?",
-          },
-        ]);
-      } else if (text.toLowerCase().includes("back")) {
-        setMessages((m) => [
-          ...m,
-          {
-            role: "assistant",
-            text: "Based on your input I recommend seeing Alex – Sports Physiotherapist. Want to book a session?",
-          },
-          { role: "assistant", kind: "recommendation" },
-        ]);
-      } else if (text.toLowerCase().includes("yes")) {
-        setMessages((m) => [
-          ...m,
-          {
-            role: "assistant",
-            text: "Great! You can click Book Now below to schedule.",
-          },
-        ]);
-      } else {
-        setMessages((m) => [
-          ...m,
-          { role: "assistant", text: "Thanks! Let’s continue your chat." },
-        ]);
+    const userMessage = createMessage("user", text);
+    let conversationSnapshot = [];
+    setMessages((prev) => {
+      conversationSnapshot = [...prev, userMessage];
+      return conversationSnapshot;
+    });
+    setInput("");
+    setError(null);
+    setIsLoading(true);
+
+    const summaryLines = conversationSnapshot.map((m) => {
+      const prefix = m.role === "user" ? "User" : "Assistant";
+      return `${prefix}: ${m.text}`;
+    });
+
+    const payload = {
+      message: text,
+      page:
+        pathname ||
+        (typeof window !== "undefined"
+          ? window.location?.pathname
+          : undefined),
+      // backend expects a SHORT STRING, not an array
+      context: summaryLines.join(" | ").slice(0, 200),
+    };
+
+    try {
+      const url = `${API_BASE}/ai/chat`;
+      console.log("[Depth Assistant] POST", url, payload);
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      // Read raw text so we can log backend errors
+      const raw = await res.text();
+      if (!res.ok) {
+        console.error(
+          "[Depth Assistant] Backend error:",
+          res.status,
+          res.statusText,
+          raw
+        );
+        throw new Error("Request failed");
       }
-    }, 800);
+
+      let data = null;
+      try {
+        data = raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        console.error("[Depth Assistant] JSON parse error:", e, raw);
+        throw new Error("Invalid JSON from server");
+      }
+
+      const replyText = data?.reply?.trim();
+      if (!replyText) throw new Error("Empty reply");
+      setMessages((prev) => [...prev, createMessage("assistant", replyText)]);
+    } catch (err) {
+      console.error("Depth Assistant error:", err);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "I’m having trouble responding right now, but you can try again in a moment."
+        ),
+      ]);
+      setError("Could not reach Depth Assistant. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -76,7 +136,7 @@ export default function FloatingChatFab() {
   return (
     <>
       {/* Floating Button */}
-      <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2">
+      <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 sm:right-6">
         {showHint && !open && (
           <div className="px-3 py-1.5 text-[12px] rounded-full bg-white border border-rose-500 text-zinc-900 shadow">
             Hi! I am your AI assistant
@@ -94,16 +154,11 @@ export default function FloatingChatFab() {
 
       {/* Chat Panel */}
       {open && (
-        <div className="fixed bottom-24 right-4 w-[360px] h-[70vh] flex flex-col bg-white border-2 border-[var(--bg-primary)] rounded-xl shadow-2xl overflow-hidden z-50">
+        <div className="fixed inset-x-3 bottom-4 h-[80vh] sm:inset-auto sm:bottom-24 sm:right-4 sm:w-[360px] sm:h-[70vh] flex flex-col bg-white border-2 border-[var(--bg-primary)] rounded-2xl shadow-2xl overflow-hidden z-50">
           {/* Header */}
           <div className="bg-[var(--bg-primary)] text-white flex items-center px-4 py-2">
             <div className="h-8 w-8 rounded-full bg-white/15 grid place-items-center mr-2">
-              <img
-                src="/assets/ai.png"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="currentColor"
-              ></img>
+              <img src="/assets/ai.png" className="h-5 w-5" alt="AI" />
             </div>
             <h2 className="text-sm font-semibold">Depth Assistant</h2>
             <button
@@ -119,9 +174,9 @@ export default function FloatingChatFab() {
           {/* Messages */}
           <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3 text-sm bg-white/80">
             {messages.map((m, i) =>
-              m.kind === "recommendation" ? (
+              m.type === "booking" ? (
                 <div
-                  key={i}
+                  key={m.id || i}
                   className="mx-auto w-full max-w-[260px] rounded-2xl border border-[var(--bg-primary)] text-center overflow-hidden shadow"
                 >
                   <div className="pt-4 text-zinc-500">
@@ -144,19 +199,14 @@ export default function FloatingChatFab() {
                 </div>
               ) : (
                 <div
-                  key={i}
+                  key={m.id || i}
                   className={`flex ${
                     m.role === "user" ? "justify-end" : "justify-start"
                   } items-start gap-2`}
                 >
                   {m.role === "assistant" && (
                     <div className="mt-1 h-7 w-7 rounded-full bg-[var(--bg-primary)] text-white grid place-items-center">
-                      <img
-                        src="/assets/ai.png"
-                        viewBox="0 0 24 24"
-                        className="h-5 w-5"
-                        fill="currentColor"
-                      ></img>
+                      <img src="/assets/ai.png" className="h-5 w-5" alt="AI" />
                     </div>
                   )}
                   <div
@@ -182,6 +232,27 @@ export default function FloatingChatFab() {
                 </div>
               )
             )}
+            {isLoading && (
+              <div className="flex justify-start items-start gap-2">
+                <div className="mt-1 h-7 w-7 rounded-full bg-[var(--bg-primary)] text-white grid place-items-center">
+                  <img src="/assets/ai.png" className="h-5 w-5" alt="AI" />
+                </div>
+                <div className="px-3 py-2 rounded-2xl bg-[var(--bg-primary)] text-white max-w-[80%]">
+                  <span className="flex items-center gap-1">
+                    {[0, 1, 2].map((dot) => (
+                      <span
+                        key={dot}
+                        className="h-1.5 w-1.5 rounded-full bg-white/80 animate-pulse"
+                        style={{ animationDelay: `${dot * 120}ms` }}
+                      ></span>
+                    ))}
+                  </span>
+                  <span className="ml-2 text-xs text-white/80">
+                    AI is typing…
+                  </span>
+                </div>
+              </div>
+            )}
             <div ref={chatEndRef} />
           </div>
 
@@ -200,7 +271,12 @@ export default function FloatingChatFab() {
               />
               <button
                 type="submit"
-                className="h-10 px-3.5 rounded-xl bg-[var(--bg-primary)] text-white hover:bg-rose-600"
+                disabled={!input.trim() || isLoading}
+                className={`h-10 px-3.5 rounded-xl text-white transition ${
+                  !input.trim() || isLoading
+                    ? "bg-zinc-300 cursor-not-allowed"
+                    : "bg-[var(--bg-primary)] hover:bg-rose-600"
+                }`}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -211,6 +287,9 @@ export default function FloatingChatFab() {
                 </svg>
               </button>
             </div>
+            {error && (
+              <p className="mt-2 text-[12px] text-rose-500">{error}</p>
+            )}
           </form>
         </div>
       )}

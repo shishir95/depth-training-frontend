@@ -54,7 +54,7 @@ export default async function ResourcePages() {
   const posts = await fetchResourcePosts();
 
   return (
-    <main className="min-h-screen w-full bg-[#020109] text-white">
+    <main className="min-h-screen w-full bg-transparent text-white">
       <Header />
 
       <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
@@ -69,4 +69,3 @@ export default async function ResourcePages() {
     </main>
   );
 }
-

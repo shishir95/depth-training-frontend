@@ -3,7 +3,7 @@ import Hero from "../../components/common/Hero";
 import FooterStrip from "@/components/common/FooterStrip";
 //import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
 import TrainerList from "@/components/trainers/TrainerList";
-export const metadata = { title: "Membership | Depth Training" };
+export const metadata = { title: "Trainers | Depth Training" };
 import Header from "@/components/common/Header";
 
 export default function MembershipPage() {
@@ -15,7 +15,7 @@ export default function MembershipPage() {
     buttonLabel: "",
   };
   return (
-    <main className="bg-black text-white min-h-screen w-full">
+    <main className="min-h-screen w-full bg-transparent text-white">
       <Header />
       <Hero {...heroContents} />
       <TrainerList />

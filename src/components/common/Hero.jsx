@@ -5,7 +5,7 @@ const Hero = (props) => {
     <section
       className="relative w-full h-[120vh] bg-cover bg-center flex items-center justify-center text-center text-white"
       style={{
-        backgroundImage: "('/MC-banner-OS25 1.purlng')", // <-- image in public folder
+        backgroundImage: "url('/MC-banner-OS25 1.png')", // image lives in /public
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}

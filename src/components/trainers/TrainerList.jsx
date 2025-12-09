@@ -276,6 +276,10 @@ const Icon = {
 };
 
 function TeamCard({ person }) {
+  // Fallback to trainer description page when no specific profile link is set
+  const viewHref =
+    person.view && person.view !== "#" ? person.view : "/trainerdescription";
+
   return (
     <motion.article
       className="group relative min-w-[320px] snap-start overflow-visible sm:min-w-[300px] lg:min-w-[320px] xl:min-w-[340px]"
@@ -328,7 +332,7 @@ function TeamCard({ person }) {
 
         <div className="relative mt-6 flex items-center justify-between">
           <a
-            href={person.view}
+            href={viewHref}
             className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-white shadow-[0_0_22px_rgba(244,63,94,0.45)] transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
           >
             Book Now
@@ -357,7 +361,7 @@ function TeamCard({ person }) {
               <Icon.site className="h-4 w-4" />
             </a>
             <a
-              href={person.view}
+              href={viewHref}
               aria-label="View profile"
               className="rounded-full border border-white/10 p-2 text-[var(--depth-muted)] transition hover:border-white/40 hover:text-white"
             >
@@ -395,7 +399,10 @@ export default function TrainerList() {
   };
 
   return (
-    <section ref={topRef} className="w-screen bg-zinc-900 py-12 text-white">
+    <section
+      ref={topRef}
+      className="w-full bg-black/30 backdrop-blur-[2px] py-12 text-white"
+    >
       <div className="mx-auto w-full px-6 md:px-10 xl:px-16">
         {/* Title */}
         <div className="text-center">

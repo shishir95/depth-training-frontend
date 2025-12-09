@@ -15,7 +15,7 @@ export default function TrainerHeroSection({
   ctaText = "Book Now",
 }) {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 via-[#05030f] to-black py-12">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"

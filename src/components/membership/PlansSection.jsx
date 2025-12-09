@@ -2,17 +2,25 @@
 
 import { useState } from "react";
 import PlanCard from "./PlanCard";
-import ContactModal from "./ContactModal";
 
 const TABS = ["Student", "Adults", "Group", "Flexible Options"];
 
-// Fallback data (used only if CMS is empty)
-const FALLBACK_PLAN_DATA = {
+// TEMP: shared values so everything passes the Nest DTO
+const SHARED_PLAN_LABEL = "3-month";
+const SHARED_INTERVAL = 3;
+
+const SHARED_PRICE_ID =
+  process.env.NEXT_PUBLIC_PRICE_3M || "price_1SL4zC1KOO8rwpjpnTu9lKnA";
+
+const PLAN_DATA = {
   Student: [
     {
       price: "0",
       period: "/trial",
       title: "Free Trial",
+      priceId: SHARED_PRICE_ID,
+      planLabel: SHARED_PLAN_LABEL,
+      intervalMonths: SHARED_INTERVAL,
       features: [
         "Movement screen",
         "Coach pairing",
@@ -25,137 +33,123 @@ const FALLBACK_PLAN_DATA = {
   ],
   Adults: [
     {
-      price: "129",
-      period: "/first month",
-      title: "Intro Month",
-      features: [
-        "Unlimited classes",
-        "No joining fee",
-        "Coach check-ins",
-        "Great starting point",
-      ],
-      highlighted: true,
-      badge: "Best start",
-    },
-    {
-      price: "189",
+      price: "49",
       period: "/month",
-      title: "Adult Membership",
+      title: "Essentials",
+      priceId: SHARED_PRICE_ID,
+      planLabel: SHARED_PLAN_LABEL,
+      intervalMonths: SHARED_INTERVAL,
       features: [
-        "Unlimited access",
-        "No long-term contract",
-        "Performance-focused classes",
+        "Gym + group access",
+        "Weekly email support",
+        "Recovery lounge passes",
       ],
       highlighted: false,
+    },
+    {
+      price: "89",
+      period: "/month",
+      title: "Elevate",
+      priceId: SHARED_PRICE_ID,
+      planLabel: SHARED_PLAN_LABEL,
+      intervalMonths: SHARED_INTERVAL,
+      features: [
+        "Everything in Essentials",
+        "2 semi-private sessions",
+        "Infrared + plunge",
+        "Monthly coach consult",
+      ],
+      highlighted: true,
+      badge: "Most Popular",
     },
   ],
   Group: [
     {
-      price: "159",
-      period: "/person /month",
-      title: "Family Membership",
+      price: "129",
+      period: "/team",
+      title: "Team Pack",
+      priceId: SHARED_PRICE_ID,
+      planLabel: SHARED_PLAN_LABEL,
+      intervalMonths: SHARED_INTERVAL,
       features: [
-        "Discounted per person",
-        "Shared schedule",
-        "Perfect for active families",
+        "Up to 6 members",
+        "Private group sessions",
+        "Force/velocity testing",
+        "Coach analytics report",
       ],
       highlighted: true,
-      badge: "Families",
+      badge: "Teams",
     },
   ],
   "Flexible Options": [
     {
-      price: "30",
+      price: "20",
       period: "/class",
       title: "Drop-In",
-      features: ["Any class", "No commitment", "Perfect for visitors"],
+      priceId: SHARED_PRICE_ID,
+      planLabel: SHARED_PLAN_LABEL,
+      intervalMonths: SHARED_INTERVAL,
+      features: ["Any class", "Coach notes", "No commitment"],
       highlighted: false,
     },
     {
-      price: "225",
+      price: "150",
       period: "/10 classes",
-      title: "10-Class Pass",
-      features: [
-        "Bundle pricing",
-        "Use over time",
-        "Great for flexible schedules",
-      ],
+      title: "Class Pass",
+      priceId: SHARED_PRICE_ID,
+      planLabel: SHARED_PLAN_LABEL,
+      intervalMonths: SHARED_INTERVAL,
+      features: ["Shareable credits", "Valid 90 days", "Priority booking"],
       highlighted: true,
       badge: "Value",
-    },
-    {
-      price: "139",
-      period: "/month",
-      title: "Part-Time",
-      features: [
-        "Up to 8 classes / month",
-        "Ideal for busy schedules",
-        "Keeps you consistent",
-      ],
-      highlighted: false,
     },
   ],
 };
 
-// Map CMS slugs to tabs in the UI
-const SLUG_TO_TAB = {
-  "free-trial-class": "Student",
-  "intro-month": "Adults",
-  "student-monthly-membership": "Student",
-  "adult-monthly-membership": "Adults",
-  "family-membership": "Group",
-  "single-class-drop-in": "Flexible Options",
-  "10-class-punch-card": "Flexible Options",
-  "part-time-membership": "Flexible Options",
-};
-
-function buildPlanDataFromCms(plans = []) {
-  const base = {
-    Student: [],
-    Adults: [],
-    Group: [],
-    "Flexible Options": [],
-  };
-
-  if (!Array.isArray(plans)) return base;
-
-  plans.forEach((plan) => {
-    const slug = plan?.slug;
-    const tab = SLUG_TO_TAB[slug] || "Flexible Options";
-
-    if (!base[tab]) return;
-
-    base[tab].push({
-      price:
-        typeof plan.price === "number" ? String(plan.price) : plan.price || "0",
-      period: plan.billingPeriod || "",
-      title: plan.name || "",
-      features: Array.isArray(plan.features) ? plan.features : [],
-      highlighted: Boolean(plan.isPopular),
-      badge: plan.highlight || undefined,
-    });
-  });
-
-  return base;
-}
-
-export default function PlansSection({ plans = [] }) {
+export default function PlansSection() {
   const [active, setActive] = useState("Student");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState("");
 
-  const cmsPlanData = buildPlanDataFromCms(plans);
-  const hasCmsData = Object.values(cmsPlanData).some(
-    (group) => Array.isArray(group) && group.length > 0
-  );
-  const planDataSource = hasCmsData ? cmsPlanData : FALLBACK_PLAN_DATA;
+  const handleChoose = async (plan) => {
+    try {
+      // TEMP: simple email capture; later you can plug in auth or a real form
+      const email = window.prompt(
+        "Enter your email address to proceed to checkout:"
+      );
+      if (!email) return;
 
-  const handleChoose = (planTitle) => {
-    setSelectedPlan(`${active} — ${planTitle}`);
-    setIsModalOpen(true);
+      const apiBase =
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
+      const res = await fetch(`${apiBase}/billing/checkout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          priceId: plan.priceId,
+          planLabel: plan.planLabel,          // "3-month"
+          intervalMonths: plan.intervalMonths // 3
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("Checkout failed:", await res.text());
+        alert("Something went wrong starting checkout. Please try again.");
+        return;
+      }
+
+      const data = await res.json();
+      if (data?.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Checkout session created, but no redirect URL was returned.");
+      }
+    } catch (err) {
+      console.error("Error calling checkout:", err);
+      alert("Unexpected error starting checkout. Please try again.");
+    }
   };
-
-  const plansForActiveTab = planDataSource[active] || [];
 
   return (
     <section
@@ -200,12 +194,12 @@ export default function PlansSection({ plans = [] }) {
         })}
       </div>
 
-      <div className="flex-wrap justify-center mt-8 flex gap-6">
-        {plansForActiveTab.map((plan, index) => (
+      <div className="flex-wrap justify-center mt-8 flex gap-6 pb-5">
+        {PLAN_DATA[active].map((plan, index) => (
           <PlanCard
             key={`${active}-${plan.title}-${index}`}
             {...plan}
-            onChoose={() => handleChoose(plan.title)}
+            onChoose={() => handleChoose(plan)}
           />
         ))}
       </div>
