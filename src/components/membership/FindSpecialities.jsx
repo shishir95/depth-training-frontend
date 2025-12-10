@@ -9,7 +9,14 @@ export default function FindSpecialities() {
       <p className="text-gray-400 mb-6 text-sm md:text-base">
         Not sure where to start? Let our AI guide you.
       </p>
-      <button className="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-2 rounded-md transition">
+      <button
+        onClick={() => {
+          if (typeof window !== "undefined" && window.depthOpenAssistantForSpeciality) {
+            window.depthOpenAssistantForSpeciality();
+          }
+        }}
+        className="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-2 rounded-md transition"
+      >
         Click Here
       </button>
     </section>

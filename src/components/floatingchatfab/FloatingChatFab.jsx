@@ -35,6 +35,8 @@ export default function FloatingChatFab() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showHint, setShowHint] = useState(true);
+  const [triageStep, setTriageStep] = useState(0);
+  const [triageData, setTriageData] = useState({});
   const chatEndRef = useRef(null);
 
   // auto scroll
@@ -48,11 +50,244 @@ export default function FloatingChatFab() {
     return () => clearTimeout(t);
   }, []);
 
+  const callRecommend = async (payload) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const url = `${API_BASE}/ai/recommend`;
+
+      console.log("[Depth Assistant][RECOMMEND] POST", url, payload);
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const raw = await res.text();
+      if (!res.ok) {
+        console.error(
+          "[Depth Assistant][RECOMMEND] Backend error:",
+          res.status,
+          res.statusText,
+          raw
+        );
+        throw new Error("Request failed");
+      }
+
+      let data = null;
+      try {
+        data = raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        console.error("[Depth Assistant][RECOMMEND] JSON parse error:", e, raw);
+        throw new Error("Invalid JSON from server");
+      }
+
+      const replyText = data?.message?.trim();
+      if (!replyText) throw new Error("Empty reply from recommender");
+
+      setMessages((prev) => [
+        ...prev,
+        createMessage("assistant", replyText, { source: "recommender" }),
+      ]);
+    } catch (err) {
+      console.error("Depth Assistant recommender error:", err);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "I couldn’t run the recommendation system right now. Please try again.",
+          { source: "recommender-error" }
+        ),
+      ]);
+      setError("Could not reach Recommendation API.");
+    } finally {
+      setIsLoading(false);
+      setTriageStep(0);
+      setTriageData({});
+    }
+  };
+
+  const handleTriageStep = async (rawAnswer) => {
+    const text = rawAnswer.trim();
+    const lower = text.toLowerCase();
+
+    // Step 1: body area
+    if (triageStep === 1) {
+      setTriageData((prev) => ({ ...prev, bodyArea: text }));
+      setTriageStep(2);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "Can you describe the type of pain? For example: sharp, dull, aching, only with movement, constant, and when it started."
+        ),
+      ]);
+      return;
+    }
+
+    // Step 2: pain type
+    if (triageStep === 2) {
+      setTriageData((prev) => ({ ...prev, painType: text }));
+      setTriageStep(3);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "How did this start? For example: after a run, during a workout, after a fall, or it came on gradually."
+        ),
+      ]);
+      return;
+    }
+
+    // Step 3: injury mechanism
+    if (triageStep === 3) {
+      setTriageData((prev) => ({ ...prev, injuryMechanism: text }));
+      setTriageStep(4);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "Is there any noticeable swelling in the area? Please answer yes or no."
+        ),
+      ]);
+      return;
+    }
+
+    // Step 4: swelling yes/no
+    if (triageStep === 4) {
+      const swelling =
+        lower === "yes" ||
+        lower === "y" ||
+        lower === "true" ||
+        lower.includes("swollen");
+      setTriageData((prev) => ({ ...prev, swelling }));
+      setTriageStep(5);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "What activities or sports are you currently doing (or want to get back to)?"
+        ),
+      ]);
+      return;
+    }
+
+    // Step 5: sport / activity
+    if (triageStep === 5) {
+      setTriageData((prev) => ({ ...prev, sport: text }));
+      setTriageStep(6);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "What is your main goal? For example: return to running pain-free, lift without pain, manage daily activities, etc."
+        ),
+      ]);
+      return;
+    }
+
+    // Step 6: goal
+    if (triageStep === 6) {
+      setTriageData((prev) => ({ ...prev, goal: text }));
+      setTriageStep(7);
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "How soon would you like to be seen? You can reply with: now, soon, or flexible."
+        ),
+      ]);
+      return;
+    }
+
+    // Step 7: urgency, then call backend
+    if (triageStep === 7) {
+      let urgency = "flexible";
+      if (lower.includes("now") || lower.includes("asap")) urgency = "now";
+      else if (lower.includes("soon")) urgency = "soon";
+
+      const finalPayload = {
+        ...triageData,
+        urgency,
+      };
+
+      console.log("[Depth Assistant][TRIAGE COMPLETE] payload:", finalPayload);
+      setTriageStep(0);
+      await callRecommend(finalPayload);
+      return;
+    }
+  };
+
+  // Single sendMessage implementation to avoid duplicate definitions
   const sendMessage = async (rawText) => {
     const text = rawText.trim();
     if (!text || isLoading) return;
 
     const userMessage = createMessage("user", text);
+
+    // If we're already in a triage flow, record the answer and advance
+    if (triageStep > 0) {
+      setMessages((prev) => [...prev, userMessage]);
+      setInput("");
+      await handleTriageStep(text);
+      return;
+    }
+
+    // Dev/test shortcut: trigger recommender with a demo payload
+    if (text.toLowerCase() === "recommend demo") {
+      setMessages((prev) => [...prev, userMessage]);
+      setInput("");
+      await callRecommend({
+        age: 24,
+        bodyArea: "knee",
+        painType: "sharp pain while running; started 2 weeks ago",
+        injuryMechanism: "after 10k run, no fall",
+        swelling: true,
+        sport: "recreational running",
+        goal: "return to running pain-free",
+        urgency: "soon",
+      });
+      return;
+    }
+
+    // If user asks for help choosing services or mentions pain/injury, start guided triage
+    const lower = text.toLowerCase();
+    if (
+      lower.includes("physio") ||
+      lower.includes("physiotherapy") ||
+      lower.includes("injury") ||
+      lower.includes("pain") ||
+      lower.includes("service") ||
+      lower.includes("services") ||
+      lower.includes("help") ||
+      lower.includes("recommend") ||
+      lower.includes("what should") ||
+      lower.includes("which service") ||
+      lower.includes("treatment") ||
+      lower.includes("strength") ||
+      lower.includes("conditioning") ||
+      lower.includes("mobility") ||
+      lower.includes("performance") ||
+      lower.includes("fitness") ||
+      lower.includes("training")
+    ) {
+      setMessages((prev) => [...prev, userMessage]);
+      setInput("");
+      setTriageStep(1);
+      setTriageData({});
+      setMessages((prev) => [
+        ...prev,
+        createMessage(
+          "assistant",
+          "Great! To help you find the right support, could you share a bit more about your goal or concern? For example:\n- Are you recovering from an injury or managing a chronic condition?\n- Do you want to improve strength, mobility, or performance?\n- Are you looking for general fitness or post-rehab training?\n\nLet me know, and I’ll guide you to the best option!"
+        ),
+      ]);
+      return;
+    }
+
+    // Otherwise, fall back to the normal /ai/chat LLM assistant
     let conversationSnapshot = [];
     setMessages((prev) => {
       conversationSnapshot = [...prev, userMessage];
@@ -74,7 +309,6 @@ export default function FloatingChatFab() {
         (typeof window !== "undefined"
           ? window.location?.pathname
           : undefined),
-      // backend expects a SHORT STRING, not an array
       context: summaryLines.join(" | ").slice(0, 200),
     };
 
@@ -90,7 +324,6 @@ export default function FloatingChatFab() {
         body: JSON.stringify(payload),
       });
 
-      // Read raw text so we can log backend errors
       const raw = await res.text();
       if (!res.ok) {
         console.error(
@@ -154,7 +387,7 @@ export default function FloatingChatFab() {
 
       {/* Chat Panel */}
       {open && (
-        <div className="fixed inset-x-3 bottom-4 h-[80vh] sm:inset-auto sm:bottom-24 sm:right-4 sm:w-[360px] sm:h-[70vh] flex flex-col bg-white border-2 border-[var(--bg-primary)] rounded-2xl shadow-2xl overflow-hidden z-50">
+        <div className="fixed inset-x-3 bottom-4 h-[80vh] sm:inset-auto sm:bottom-24 sm:right-4 sm:w-[360px] sm:h-[70vh] flex flex-col min-h-0 bg-white border-2 border-[var(--bg-primary)] rounded-2xl shadow-2xl overflow-hidden z-50">
           {/* Header */}
           <div className="bg-[var(--bg-primary)] text-white flex items-center px-4 py-2">
             <div className="h-8 w-8 rounded-full bg-white/15 grid place-items-center mr-2">
@@ -172,7 +405,12 @@ export default function FloatingChatFab() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3 text-sm bg-white/80">
+          <div
+            className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-3 py-3 space-y-3 text-sm bg-white/80"
+            style={{ WebkitOverflowScrolling: "touch" }}
+            onWheelCapture={(e) => e.stopPropagation()}
+            onTouchMoveCapture={(e) => e.stopPropagation()}
+          >
             {messages.map((m, i) =>
               m.type === "booking" ? (
                 <div
