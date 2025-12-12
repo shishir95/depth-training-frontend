@@ -1,16 +1,15 @@
-import Image from "next/image";
-import Header from "../../components/common/Header";
-import Hero from "../../components/common/Hero";
-import TrainerCard from "../../components/home/TrainerCard";
-import TeamSection from "../../components/home/TeamSection";
-import FindSpecialtiesSection from "../../components/common/FindSpecialitiesSection";
-import CustomerReviews from "@/components/common/CustomerReviews";
-import ArticlesSection from "../../components/home/ArticleSection";
+"use client";
+
+import Header from "@/components/common/Header";
 import FooterStrip from "@/components/common/FooterStrip";
-import AnimationScroll from "@/components/common/AnimationScroll";
+import CustomerReviews from "@/components/common/CustomerReviews";
+import FindSpecialtiesSection from "@/components/common/FindSpecialitiesSection";
+import FacilitiesSection from "@/components/home/FacilitiesSection";
 import HeroTitleAnimation from "@/components/home/HeroTitleAnimation";
 import OurOfferSection from "@/components/home/OurOfferSection";
-import FacilitiesSection from "@/components/home/FacilitiesSection";
+import TeamSection from "@/components/home/TeamSection";
+import ArticlesSection from "@/components/home/ArticleSection";
+import ScrollSection from "@/components/home/ScrollSection";
 
 export default function Home() {
   const heroContents = {
@@ -20,22 +19,45 @@ export default function Home() {
     button: true,
     buttonLabel: "Book a Free Consultation",
   };
-  return (
-    <div className="home-page">
-      <Header />
-      <HeroTitleAnimation {...heroContents} />
-      {[...Array(1)].map((_, i) => (
-        <AnimationScroll key={i} delay={i * 0.2}>
-          <FindSpecialtiesSection />
-          <TeamSection />
-          <CustomerReviews />
-          <OurOfferSection />
-          <FacilitiesSection />
-          <ArticlesSection />
-        </AnimationScroll>
-      ))}
 
-      <FooterStrip />
-    </div>
+  return (
+    <main className="relative min-h-screen w-full overflow-hidden bg-transparent text-white">
+      <div className="relative z-10">
+        
+        <Header />
+
+        
+        <HeroTitleAnimation {...heroContents} />
+
+        
+        <section className="relative">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <ScrollSection variant="fade-up">
+              <FindSpecialtiesSection />
+            </ScrollSection>
+          </div>
+        </section>
+
+        <div className="relative flex flex-col gap-16 px-4 pb-10 sm:px-6 lg:px-8">
+          <ScrollSection variant="slide-left">
+            <TeamSection />
+          </ScrollSection>
+
+          <ScrollSection variant="fade-up">
+            <OurOfferSection />
+          </ScrollSection>
+
+          <ScrollSection variant="slide-right">
+            <FacilitiesSection />
+          </ScrollSection>
+
+          <ScrollSection variant="fade-up">
+            <CustomerReviews />
+          </ScrollSection>
+        </div>
+
+        <FooterStrip />
+      </div>
+    </main>
   );
 }

@@ -10,6 +10,7 @@ const NAV = [
   { label: "Trainers", href: "/trainers" },
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
+  { label: "Privacy", href: "/privacy-policy" },
 ];
 
 export default function Navbar() {
@@ -28,10 +29,8 @@ export default function Navbar() {
         solid ? "bg-black/70 backdrop-blur-md" : "bg-black/30 backdrop-blur-sm"
       }`}
     >
-      {/* Full-width container (no max-w!) */}
       <nav className="relative w-full">
         <div className="relative h-[72px] flex items-center justify-between px-10">
-          {/* Left: Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/depth-white-60 1.png"
@@ -43,7 +42,6 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Center: Links */}
           <ul className="hidden md:flex items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-12">
             {NAV.map((item) => (
               <li key={item.href}>
@@ -57,7 +55,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right: Book Now */}
           <div className="hidden md:flex">
             <Link
               href="/booking"
@@ -67,7 +64,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden text-white"
@@ -82,15 +78,22 @@ export default function Navbar() {
               className="w-7 h-7"
             >
               {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M3 12h18M3 18h18" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 6h18M3 12h18M3 18h18"
+                />
               )}
             </svg>
           </button>
         </div>
 
-        {/* Mobile dropdown */}
         {open && (
           <div className="md:hidden bg-black/70 backdrop-blur-md border-t border-white/10 pb-4">
             <ul className="flex flex-col gap-3 px-6 pt-4">

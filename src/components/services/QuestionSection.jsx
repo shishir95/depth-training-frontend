@@ -45,7 +45,7 @@ export default function QuestionSection() {
         </p>
 
         <div className="relative mt-8 sm:mt-10">
-          {/* Left arrow */}
+          
           <button
             onClick={prev}
             aria-label="Previous"
@@ -54,10 +54,10 @@ export default function QuestionSection() {
             <ArrowLeft />
           </button>
 
-          {/* Card */}
+          
           <div className="mx-12 sm:mx-0 rounded-xl border border-rose-500/70 bg-[#121212] px-6 py-6 sm:py-8 shadow-[0_8px_24px_rgba(0,0,0,0.35)] overflow-hidden">
             <div className="flex items-start gap-3">
-              {/* Lock icon size hard to defeat global svg rules */}
+              
               <span className="inline-grid h-6 w-6 place-items-center shrink-0 text-rose-500">
                 <Check width={24} height={24} />
               </span>
@@ -71,7 +71,7 @@ export default function QuestionSection() {
             </div>
           </div>
 
-          {/* Right arrow */}
+          
           <button
             onClick={next}
             aria-label="Next"
@@ -81,7 +81,7 @@ export default function QuestionSection() {
           </button>
         </div>
 
-        {/* Dots */}
+        
         <div className="mt-5 flex justify-center gap-2">
           {steps.map((_, idx) => (
             <button
@@ -99,7 +99,7 @@ export default function QuestionSection() {
   );
 }
 
-/* --- icons with hard width/height (prevents global svg width:100%) --- */
+
 function ArrowLeft({ width = 20, height = 20, ...props }) {
   return (
     <svg

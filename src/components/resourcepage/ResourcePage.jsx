@@ -51,7 +51,7 @@ const BLOG_POSTS = [
     slug: "injury-red-flags-you-should-never-ignore",
     category: "Injury Rehab",
     tag: "Clinic Tips",
-    readTime: "4 min read",
+    readTime: "5 min read",
   },
   {
     id: 5,
@@ -256,7 +256,7 @@ function BlogCard({ post }) {
         <div className="mt-5 flex items-center justify-between">
           <Link
             href={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text-black shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition group-hover:bg-[#ff8475]"
+            className="inline-flex items-center gap-2 rounded-full bg-[var(--depth-accent)] px-4 py-2 text-xs font-semibold text.black shadow-[0_0_0_1px_rgba(0,0,0,0.6)] transition group-hover:bg-[#ff8475]"
           >
             Read article
             <span className="translate-x-0 text-xs transition group-hover:translate-x-0.5">
@@ -308,7 +308,7 @@ function Pagination({ page, totalPages, onChange }) {
   };
 
   return (
-    <div className="mt-2 flex items-center justify-end gap-3 border-t border-white/5 pt-5">
+    <div className="mt-2 flex items-center justify-end gap-3 border-t border.white/5 pt-5">
       <button
         onClick={() => goTo(page - 1)}
         disabled={page === 1}
@@ -339,7 +339,7 @@ function Pagination({ page, totalPages, onChange }) {
       <button
         onClick={() => goTo(page + 1)}
         disabled={page === totalPages}
-        className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-[var(--depth-muted)] disabled:opacity-40"
+        className="rounded-full border border.white/10 px-3 py-1.5 text-xs text-[var(--depth-muted)] disabled:opacity-40"
       >
         Next
       </button>
@@ -347,20 +347,26 @@ function Pagination({ page, totalPages, onChange }) {
   );
 }
 
-export default function ResourcePage() {
+export default function ResourcePage({ posts }) {
   const [category, setCategory] = useState("All");
   const [page, setPage] = useState(1);
 
+
+  const sourcePosts = posts && posts.length ? posts : BLOG_POSTS;
+
   const filteredPosts = useMemo(() => {
-    if (category === "All") return BLOG_POSTS;
-    return BLOG_POSTS.filter((post) => post.category === category);
+    if (category === "All") return sourcePosts;
+    return sourcePosts.filter((post) => post.category === category);
   }, [category]);
 
   useEffect(() => {
     setPage(1);
   }, [category]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+  );
 
   useEffect(() => {
     setPage((prev) => {
@@ -373,9 +379,14 @@ export default function ResourcePage() {
   const currentPosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
 
   return (
-    <section className="w-full bg-gradient-to-br from-zinc-900 via-zinc-950 to-black py-16 text-white relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--depth-accent)]/10 via-transparent to-transparent blur-3xl opacity-70"></div>
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 md:px-8 lg:px-10">
+    <section className="relative overflow-hidden rounded-3xl border border.white/10 bg-gradient-to-br from-zinc-1000 via-[#000000] to-black py-12">
+      
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,129,111,0.28),_transparent_60%)] opacity-80 blur-3xl"
+      />
+
+      <div className="relative mx-auto flex w-full flex-col gap-10 px-6 sm:px-10">
         <HeaderBar />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,3.2fr)_minmax(0,1fr)]">
@@ -384,10 +395,14 @@ export default function ResourcePage() {
               <FilterBar active={category} onChange={setCategory} />
               <BlogGrid posts={currentPosts} />
             </div>
-            <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              onChange={setPage}
+            />
           </div>
 
-          <aside className="lg:sticky lg:top-28">
+          <aside className="lg:sticky lg:top-24">
             <SidebarCTA />
           </aside>
         </div>

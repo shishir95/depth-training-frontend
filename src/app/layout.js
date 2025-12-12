@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import FloatingChatFab from "@/components/floatingchatfab/FloatingChatFab";
 import AnimationScroll from "@/components/common/AnimationScroll";
+import AnimatedFitnessBackdrop from "@/components/home/AnimatedFitnessBackdrop";
 import "aos/dist/aos.css";
 
 const geistSans = Geist({
@@ -24,9 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white `}
       >
-        {children}
+        <AnimationScroll>
+          <div className="relative isolate min-h-screen w-full overflow-hidden bg-[#020109] text-white">
+            <AnimatedFitnessBackdrop />
+            <div className="relative z-10">{children}</div>
+          </div>
+        </AnimationScroll>
         <FloatingChatFab />
       </body>
     </html>

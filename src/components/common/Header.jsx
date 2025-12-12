@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-// ---- Menu data you can edit easily ----
 const MENU = [
   { label: "Home", href: "/" },
   {
@@ -13,8 +11,7 @@ const MENU = [
       {
         label: "Fitness",
         items: [
-          { label: "Class Schedule", href: "/services" },
-          { label: "Membership", href: "/membership" },
+          { label: "Class Schedule", href: "/services/class-schedule" },
           {
             label: "Personal Training",
             href: "/services/personal-training",
@@ -52,9 +49,15 @@ const MENU = [
             label: "Vestibular Physiotherapy",
             href: "/services/vestibular-physiotherapy",
           },
-          { label: "Medical Acupuncture", href: "/services/medical-acupuncture" },
+          {
+            label: "Medical Acupuncture",
+            href: "/services/medical-acupuncture",
+          },
           { label: "Game Ready Rental", href: "/services/game-ready-rental" },
-          { label: "GLA:D for Hip/Knee OA", href: "/services/glad-hip-knee-oa" },
+          {
+            label: "GLA:D for Hip/Knee OA",
+            href: "/services/glad-hip-knee-oa",
+          },
           {
             label: "Infrared Sauna & Plunge",
             href: "/services/infrared-sauna-plunge",
@@ -90,9 +93,11 @@ const MENU = [
       },
     ],
   },
-  { label: "Trainers", href: "/trainer" },
+  { label: "Our Team", href: "/trainer" },
   { label: "Resources", href: "/resourcepage" },
+  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
+  { label: "Privacy", href: "/privacy-policy" },
 ];
 
 export default function Header() {
@@ -139,7 +144,7 @@ export default function Header() {
     <header
       ref={wrapRef}
       className={[
-        "sticky top-0 z-50",
+        " fixed top-0 z-50 w-full",
         "backdrop-blur-md", // glass blur
         "bg-neutral-900/40 border-b border-white/10", // translucent bg + hairline
         "transition-all duration-300",
@@ -266,7 +271,7 @@ export default function Header() {
             Book Now
           </Link>
 
-          {/* Mobile burger placeholder (wire in your drawer if needed) */}
+          {/* Mobile burger placeholder  */}
           <button
             className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/10 hover:bg-white/10"
             aria-label="Open menu"
@@ -279,7 +284,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile accordion (simple & accessible) */}
+      {/* Mobile accordion  */}
       <div
         className={`md:hidden text-white border-t border-white/10 overflow-hidden transition-[max-height] duration-300
                        ${openRoot === "mobile" ? "max-h-[80vh]" : "max-h-0"}`}

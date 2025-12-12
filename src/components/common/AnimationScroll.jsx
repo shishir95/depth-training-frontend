@@ -1,45 +1,49 @@
-// app/lenis-provider.jsx
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 
 export default function AnimationScroll({ children }) {
+  const lenisRef = useRef(null);
+  const rafRef = useRef(null);
+
   useEffect(() => {
+    if (lenisRef.current) return;
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
     const lenis = new Lenis({
-      duration: 0, // tweak feel (higher = floatier)
-      smoothWheel: !prefersReduced,
-      smoothTouch: !prefersReduced,
+      duration: prefersReduced ? 0 : 0.6,
+      smoothWheel: true,
+      smoothTouch: false,
+      lerp: 0.12,
     });
 
-    // expose for programmatic scroll
+    lenisRef.current = lenis;
     window.lenis = lenis;
 
-    // animation frame loop
-    let rafId = requestAnimationFrame(function raf(time) {
+    const raf = (time) => {
       lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    });
+      rafRef.current = requestAnimationFrame(raf);
+    };
+    rafRef.current = requestAnimationFrame(raf);
 
-    // keep hash jumps smooth via lenis
     const onHash = (e) => {
-      const id = location.hash.slice(1);
+      const id = window.location.hash.slice(1);
       const el = id && document.getElementById(id);
       if (el) {
         e.preventDefault?.();
         lenis.scrollTo(el, { offset: 0 });
       }
     };
-
     window.addEventListener("hashchange", onHash);
 
     return () => {
       window.removeEventListener("hashchange", onHash);
-      cancelAnimationFrame(rafId);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 

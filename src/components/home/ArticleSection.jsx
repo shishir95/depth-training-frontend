@@ -1,5 +1,7 @@
-import React from "react";
-import Link from "next/link"; // remove if not using Next.js
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const posts = [
   {
@@ -27,42 +29,52 @@ const posts = [
 
 const ArticlesSection = () => {
   return (
-    <section className="w-full bg-[#121214] py-14">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-center text-3xl font-semibold text-white mb-10">
+    <section className="w-full bg-transparent py-16">
+      <div className="mx-auto max-w-7xl px-4">
+        <p className="text-center text-[12px] uppercase tracking-[0.35em] text-[var(--depth-muted)]">
+          Resources
+        </p>
+        <h2 className="mb-10 mt-2 text-center text-3xl font-semibold text-white">
           Stay Strong &amp; Stay Informed
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <div
+            <motion.article
               key={post.id}
-              className="border border-[var(--bg-primary)] rounded-xl bg-neutral-900 p-6 shadow-sm hover:border-rose-400 transition"
+              className="flex h-full flex-col rounded-2xl border border-white/8 bg-[var(--depth-card)]/90 p-6 shadow-[0_18px_45px_rgba(0,0,0,0.55)] backdrop-blur-sm"
+              whileHover={{
+                y: -4,
+                scale: 1.01,
+                boxShadow: "0 0 32px rgba(244,63,94,0.35)",
+              }}
+              whileTap={{ scale: 0.985 }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
             >
-              <div className="h-48 w-full bg-zinc-400/60 rounded-lg mb-5" />
+              <div className="mb-5 h-48 w-full rounded-lg bg-[radial-gradient(circle_at_top,_rgba(244,63,94,0.32),_transparent_70%)]" />
 
-              <h3 className="text-lg sm:text-xl font-semibold text-white leading-snug mb-3">
+              <h3 className="mb-3 text-lg font-semibold leading-snug text-white sm:text-xl">
                 {post.title}
               </h3>
 
-              <p className="text-sm text-zinc-300 leading-relaxed mb-6">
+              <p className="mb-6 text-sm leading-relaxed text-[var(--depth-muted)]">
                 {post.excerpt}
               </p>
 
               <Link
                 href={post.href}
-                className="inline-block bg-[var(--bg-primary)] text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-rose-400 transition"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--depth-accent)] px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-[1px] hover:bg-[#ff8475]"
               >
                 Read More
               </Link>
-            </div>
+            </motion.article>
           ))}
         </div>
 
-        <div className="flex justify-end mt-10">
+        <div className="mt-10 flex justify-end">
           <Link
             href="#"
-            className="bg-[var(--bg-primary)] text-white text-sm font-medium px-5 py-2.5 rounded-md hover:bg-rose-400 transition"
+            className="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white transition hover:border-[var(--depth-accent)] hover:text-[var(--depth-accent)]"
           >
             View More
           </Link>
