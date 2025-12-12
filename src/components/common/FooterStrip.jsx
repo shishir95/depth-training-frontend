@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const SOCIALS = [
   {
@@ -67,8 +68,12 @@ const SOCIALS = [
 ];
 
 export default function FooterStrip() {
+  const router = useRouter();
   const handleBackToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const handlePrivacyPolicy = () => {
+    router.push("/privacy-policy");
   };
 
   return (
@@ -141,13 +146,15 @@ export default function FooterStrip() {
                 ))}
               </div>
 
-              <button
-                type="button"
-                onClick={handleBackToTop}
-                className="hidden items-center gap-1 text-[12px] text-gray-400 transition hover:text-gray-100 md:inline-flex"
-              >
-                Back to top <span className="inline-block rotate-90">↑</span>
-              </button>
+              <div className="hidden items-center gap-5 text-[12px] text-gray-400 transition hover:text-gray-100 md:inline-flex">
+                <button type="button" onClick={handlePrivacyPolicy}>
+                  Privacy Policy
+                  <span className="inline-block rotate-90">↑</span>
+                </button>
+                <button type="button" onClick={handleBackToTop}>
+                  Back to top <span className="inline-block rotate-90">↑</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

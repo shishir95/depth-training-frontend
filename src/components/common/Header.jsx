@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-// ---- Menu data you can edit easily ----
 const MENU = [
   { label: "Home", href: "/" },
   {
